@@ -1,8 +1,8 @@
 {
   "name": "blades-in-the-dark",
-  "title": "Blades in the Dark",
-  "description": "Blades in the dark game system.",
-  "version": "3.19",
+  "title": "Brinkwood",
+  "description": "Brinkwood game system.",
+  "version": "0.1",
   "minimumCoreVersion": "0.8.5",
   "compatibleCoreVersion": "9",
   "templateVersion": 1,
@@ -45,9 +45,9 @@
       "path": "lang/pt.json"
     }
   ],
-  "url": "https://github.com/megastruktur/foundryvtt-blades-in-the-dark/",
-  "manifest": "https://raw.githubusercontent.com/megastruktur/foundryvtt-blades-in-the-dark/master/system.json",
-  "download": "https://github.com/megastruktur/foundryvtt-blades-in-the-dark/archive/3.19.zip",
+  "url": "https://github.com/quadur/foundryvtt-brinkwood",
+  "manifest": "https://raw.githubusercontent.com/quadur/foundryvtt-brinkwood/master/system.json",
+  "download": "",
   "packs": [
     {
       "name": "class",

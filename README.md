@@ -1,3 +1,8 @@
+# This is a WIP for a Brinkwood games system for Foundry VTT
+
+
+# Copied from the orignal Blades in the Dark repository
+
 # FoundryVTT Blades in the Dark character and crew sheets
 
 If you like my work - send thanks to astromortis@gmail.com  :3

@@ -57,10 +57,10 @@
       "entity": "Item"
     },
     {
-      "name": "heritage",
-      "label": "Heritages",
+      "name": "upbringing",
+      "label": "Upbringings",
       "system": "brinkwood",
-      "path": "./packs/heritages.db",
+      "path": "./packs/upbringings.db",
       "entity": "Item"
     },
     {
@@ -71,10 +71,10 @@
       "entity": "Item"
     },
     {
-      "name": "background",
-      "label": "Backgrounds",
+      "name": "profession",
+      "label": "Professions",
       "system": "brinkwood",
-      "path": "./packs/backgrounds.db",
+      "path": "./packs/professions.db",
       "entity": "Item"
     },
     {
@@ -85,10 +85,10 @@
       "entity": "Item"
     },
     {
-      "name": "ability",
-      "label": "Abilities",
+      "name": "trait",
+      "label": "Traits",
       "system": "brinkwood",
-      "path": "./packs/abilities.db",
+      "path": "./packs/traits.db",
       "entity": "Item"
     },
     {

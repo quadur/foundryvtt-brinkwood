@@ -1,7 +1,7 @@
 {
   "BITD.HelloThere": "General Kenobi",
-  "BITD.Heritage": "Heritage",
-  "BITD.Background": "Profession",
+  "BITD.Upbringing": "Upbringing",
+  "BITD.Profession": "Profession",
   "BITD.TitleDeleteItem": "Delete item",
   "BITD.Vice": "Vice",
   "BITD.Class": "Class",
@@ -94,7 +94,7 @@
   "BITD.Vault": "Vault",
   "BITD.Heat": "Heat",
   "BITD.Wanted": "Wanted",
-  "BITD.Abilities": "Abilities",
+  "BITD.Traits": "Traits",
   "BITD.Upgrades": "Upgrades",
   "BITD.Cohorts": "Cohorts",
   "BITD.Notes": "Notes",

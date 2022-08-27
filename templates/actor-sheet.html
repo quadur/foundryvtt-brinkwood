@@ -15,12 +15,11 @@
       <div id="character-{{actor._id}}-traits" class="flex-column">
 
         <div class="item-block flex-horizontal">
-          <div class="item-class-label"><a class="item-add-popup" data-distinct="true" data-item-type="heritage">{{localize "BITD.Heritage"}}</a></div>
+		<div class="item-class-label"><a class="item-add-popup" data-distinct="true" data-item-type="upbringing">{{localize "BITD.Upbringing"}}</a></div>
           {{#each actor.items as |item id|}}
-              {{#if (eq item.type "heritage")}}
+            {{#if (eq item.type "upbringing")}}
               <div class="item flex-horizontal" data-item-id="{{item._id}}">
                 <div class="item-body flex-horizontal">
-                  <img src="{{item.img}}" title="{{item.name}}" width="24" height="24"/>
                   <div class="item-name">{{item.name}}</div>
                 </div>
                 <a class="item-control item-delete" title="{{localize 'BITD.TitleDeleteItem'}}"><i class="fas fa-trash"></i></a>
@@ -30,12 +29,11 @@
         </div>
 
         <div class="item-block flex-horizontal">
-          <div class="item-class-label"><a class="item-add-popup" data-distinct="true" data-item-type="background">{{localize "BITD.Background"}}</a></div>
+          <div class="item-class-label"><a class="item-add-popup" data-distinct="true" data-item-type="profession">{{localize "BITD.Profession"}}</a></div>
           {{#each actor.items as |item id|}}
-            {{#if (eq item.type "background")}}
+            {{#if (eq item.type "profession")}}
             <div class="item flex-horizontal" data-item-id="{{item._id}}">
               <div class="item-body flex-horizontal">
-                <img src="{{item.img}}" title="{{item.name}}" width="24" height="24"/>
                 <div class="item-name">{{item.name}}</div>
               </div>
               <a class="item-control item-delete" title="{{localize 'BITD.TitleDeleteItem'}}"><i class="fas fa-trash"></i></a>
@@ -50,7 +48,6 @@
               {{#if (eq item.type "vice")}}
               <div class="item flex-horizontal" data-item-id="{{item._id}}">
                 <div class="item-body flex-horizontal">
-                  <img src="{{item.img}}" title="{{item.name}}" width="24" height="24"/>
                   <div class="item-name">{{item.name}}</div>
                 </div>
                 <a class="item-control item-delete" title="{{localize 'BITD.TitleDeleteItem'}}"><i class="fas fa-trash"></i></a>
@@ -65,7 +62,6 @@
                 {{#if (eq item.type "class")}}
                 <div class="item flex-horizontal" data-item-id="{{item._id}}">
                   <div class="item-body flex-horizontal">
-                    <img src="{{item.img}}" title="{{item.name}}" width="24" height="24"/>
                     <div class="item-name">{{item.name}}</div>
                   </div>
                   <a class="item-control item-delete" title="{{localize 'BITD.TitleDeleteItem'}}"><i class="fas fa-trash"></i></a>
@@ -232,7 +228,7 @@
 
       {{!-- Nav menu --}}
       <nav class="tabs flex-horizontal">
-        <a class="item" data-tab="abilities">{{localize "BITD.Abilities"}}</a>
+        <a class="item" data-tab="traits">{{localize "BITD.Traits"}}</a>
         <a class="item" data-tab="loadout">{{localize "BITD.Loadout"}}</a>
         <a class="item" data-tab="character-notes">{{localize "BITD.Notes"}}</a>
         {{#if isGM}}
@@ -241,10 +237,10 @@
         <a class="item" data-tab="all-character-items">{{localize "BITD.AllItems"}}</a>
       </nav>
 
-      <div id="character-{{actor._id}}-abilities" class="tab flex-vertical abilities" data-tab="abilities">
+      <div id="character-{{actor._id}}-traits" class="tab flex-vertical traits" data-tab="traits">
         <div class="label-stripe">
-          <p><label for="character-{{actor._id}}-experience-0">{{localize "BITD.Abilities"}}</label></p>
-          <p><a class="item-add-popup" data-item-type="ability"><i class="fas fa-plus-square"></i></a></p>
+          <p><label for="character-{{actor._id}}-experience-0">{{localize "BITD.Traits"}}</label></p>
+          <p><a class="item-add-popup" data-item-type="trait"><i class="fas fa-plus-square"></i></a></p>
           <div id="character-{{actor._id}}-experience" class="teeth-experience">
             <label for="character-{{actor._id}}-experience-0"><i class="fab fa-creative-commons-zero nullifier"></i></label>
             {{#multiboxes data.experience}}
@@ -257,9 +253,9 @@
           </div>
         </div>
 
-        <div id="character-{{actor._id}}-abilities-list">
+        <div id="character-{{actor._id}}-traits-list">
           {{#each actor.items as |item id|}}
-          {{#if (eq item.type "ability")}}
+          {{#if (eq item.type "trait")}}
             <div class="item flex-horizontal" data-item-id="{{item._id}}">
               <div class="item-body flex-horizontal">
                 <b><div class="item-name">{{item.name}}</div></b>
@@ -269,7 +265,6 @@
             </div>
           {{/if}}
           {{/each}}
-          <div class="item-class-label"><a class="item-add-popup" data-item-type="ability">{{localize "BITD.AddAbility"}}</a></div>
         </div>
       </div>
 

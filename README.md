@@ -23,6 +23,6 @@
 
 # Credits
 
-This is based on megastruktur's Blades in the Dark system, that you can find [here][https://github.com/megastruktur/foundryvtt-blades-in-the-dark]
+This is based on megastruktur's Blades in the Dark system, that you can find [here](https://github.com/megastruktur/foundryvtt-blades-in-the-dark)
 
 This is not an official Brinkwood system and is *not* accociated with Far Horizons Co-op or any of the authors (but I hope someday it will!) 

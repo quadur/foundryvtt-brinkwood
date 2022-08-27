@@ -7,13 +7,14 @@
 - [x] Setting the proper Number format for all attribute values and removing workarunds for dealing with numbers-as-string form the mainline BitD system
 - [ ] Create/replace all basic player used compendiums.
 - - [ ] Folk and look
-- - [ ] Upbringing - text + traits
+- - [x] Upbringing - text + traits
 - - [x] Profesion - text + traits
 - - [x] Class - text + bonuses
 - - [ ] Associates
 - [ ] Character sheet cleanup
 - - [ ] Hide/replace unused parts (harm, coin, traumas, etc.)
 - - [ ] Add missing elements (scars, pact, associates)
+- - [ ] Small QOL adjustments (triat row display format)
 - [ ] Create a new actor type - Mask
 
 ### v0.2 

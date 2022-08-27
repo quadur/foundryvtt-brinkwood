@@ -83,7 +83,7 @@
         <input type="text" id="character-{{actor._id}}-alias" class="alias" name="data.alias" value="{{data.alias}}">
       </div>
 
-      {{> "systems/blades-in-the-dark/templates/parts/coins.html" actor=actor}}
+      {{> "systems/brinkwood/templates/parts/coins.html" actor=actor}}
     </div>
 
   </section>
@@ -96,12 +96,12 @@
     <div id="character-{{actor._id}}-stress" class="big-teeth character-stress">
       {{#multiboxes data.stress.value}}
 
-      <input type="radio" id="character-{{actor._id}}-stress-0" name="data.stress.value" value="0" dtype="Radio">
+      <input type="radio" id="character-{{actor._id}}-stress-0" name="data.stress.value" value="0" data-dtype="Number">
       <label class="black-label" for="character-{{actor._id}}-stress-0">{{localize data.stress.name}}</label>
 
       {{#times_from_1 data.stress.max}}
         <input type="radio" id="character-{{../actor._id}}-stress-{{this}}" name="data.stress.value" value="{{this}}"
-               dtype="Radio">
+               data-dtype="Number">
         <label for="character-{{../actor._id}}-stress-{{this}}"></label>
       {{/times_from_1}}
 
@@ -248,9 +248,9 @@
           <div id="character-{{actor._id}}-experience" class="teeth-experience">
             <label for="character-{{actor._id}}-experience-0"><i class="fab fa-creative-commons-zero nullifier"></i></label>
             {{#multiboxes data.experience}}
-            <input type="radio" id="character-{{actor._id}}-experience-0" name="data.experience" value="0" dtype="Radio">
+            <input type="radio" id="character-{{actor._id}}-experience-0" name="data.experience" value="0" data-dtype="Number">
             {{#times_from_1 data.experience_max}}
-            <input type="radio" id="character-{{actor._id}}-experience-{{this}}" name="data.experience" value="{{this}}" dtype="Radio">
+            <input type="radio" id="character-{{actor._id}}-experience-{{this}}" name="data.experience" value="{{this}}" data-dtype="Number">
             <label for="character-{{actor._id}}-experience-{{this}}"></label>
             {{/times_from_1}}
             {{/multiboxes}}
@@ -313,7 +313,7 @@
         <div class="label-stripe">
           <p>{{localize "BITD.Effects"}}</p>
         </div>
-        {{> "systems/blades-in-the-dark/templates/parts/active-effects.html"}}
+        {{> "systems/brinkwood/templates/parts/active-effects.html"}}
       </div>
 
       {{!-- Full Item List --}}
@@ -334,7 +334,7 @@
 
     </div>
     {{!-- Attributes --}}
-    {{> "systems/blades-in-the-dark/templates/parts/attributes.html" actor=actor}}
+    {{> "systems/brinkwood/templates/parts/attributes.html" actor=actor}}
   </section>
 
 </form>

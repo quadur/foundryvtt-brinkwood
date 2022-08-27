@@ -66,11 +66,11 @@ async function showChatRollMessage(r, zeromode, attribute_name = "", position = 
         effect_localize = 'BITD.EffectStandard'
     }
 
-    result = await renderTemplate("systems/blades-in-the-dark/templates/chat/action-roll.html", {rolls: rolls, roll_status: roll_status, attribute_label: attribute_label, position: position, position_localize: position_localize, effect: effect, effect_localize: effect_localize, note: note});
+    result = await renderTemplate("systems/brinkwood/templates/chat/action-roll.html", {rolls: rolls, roll_status: roll_status, attribute_label: attribute_label, position: position, position_localize: position_localize, effect: effect, effect_localize: effect_localize, note: note});
   } else {
     let stress = getBladesRollStress(rolls, zeromode);
     
-    result = await renderTemplate("systems/blades-in-the-dark/templates/chat/resistance-roll.html", {rolls: rolls, roll_status: roll_status, attribute_label: attribute_label, stress: stress, note: note});
+    result = await renderTemplate("systems/brinkwood/templates/chat/resistance-roll.html", {rolls: rolls, roll_status: roll_status, attribute_label: attribute_label, stress: stress, note: note});
   }
 
   let messageData = {

@@ -44,7 +44,7 @@ export class BladesActor extends Actor {
     for (var attribute_name in this.data.data.attributes) {
       dice_amount[attribute_name] = 0;
       for (var skill_name in this.data.data.attributes[attribute_name].skills) {
-        dice_amount[skill_name] = parseInt(this.data.data.attributes[attribute_name].skills[skill_name]['value'][0])
+        dice_amount[skill_name] = this.data.data.attributes[attribute_name].skills[skill_name]['value'];
 
         // We add a +1d for every skill higher than 0.
         if (dice_amount[skill_name] > 0) {
@@ -132,7 +132,7 @@ export class BladesActor extends Actor {
   /* -------------------------------------------- */
   
   async rollAttribute(attribute_name = "", additional_dice_amount = 0, position, effect, note) {
-
+    
     let dice_amount = 0;
     if (attribute_name !== "") {
       let roll_data = this.getRollData();
@@ -142,7 +142,8 @@ export class BladesActor extends Actor {
       dice_amount = 1;
     }
     dice_amount += additional_dice_amount;
-
+ 
+    
     await bladesRoll(dice_amount, attribute_name, position, effect, note);
   }
 

@@ -4,6 +4,7 @@
 
 ### v0.1
 
+- [x] Setting the proper Number format for all attribute values and removing workarunds for dealing with numbers-as-string form the mainline BitD system
 - [ ] Create/replace all basic player used compendiums.
 - - [ ] Folk and look
 - - [ ] Upbringing - text + traits
@@ -23,6 +24,6 @@
 
 # Credits
 
-This is based on megastruktur's Blades in the Dark system, that you can find [here][https://github.com/megastruktur/foundryvtt-blades-in-the-dark]
+This is based on megastruktur's Blades in the Dark system, that you can find [here](https://github.com/megastruktur/foundryvtt-blades-in-the-dark)
 
 This is not an official Brinkwood system and is *not* accociated with Far Horizons Co-op or any of the authors (but I hope someday it will!) 

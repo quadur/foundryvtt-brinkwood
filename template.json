@@ -5,13 +5,10 @@
     "alias": "",
     "look": "",
     "upbringing": "",
-    "background": "",
     "background-details": "",
-    "vice": "",
-    "vice-purveyor": "",
     "playbook": "",
-    "acquaintances": [],
-    "acquaintances_label": "BITD.Acquaintances",
+    "associates": [],
+    "associates_label": "BITD.Acquaintances",
     "stress": {
       "value": [0],
       "max": 9,
@@ -173,7 +170,7 @@
     }
   },
   "Item": {
-    "types": ["faction", "item", "class", "trait", "upbringing", "profession", "vice", "crew_upgrade", "cohort", "crew_type", "crew_reputation", "crew_upgrade", "crew_ability"],
+    "types": ["faction", "item", "class", "trait", "upbringing", "profession", "associates", "crew_upgrade", "cohort", "crew_type", "crew_reputation", "crew_upgrade", "crew_ability"],
     "templates": {
       "default": {
         "description": ""

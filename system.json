@@ -64,19 +64,20 @@
       "entity": "Item"
     },
     {
-      "name": "vice",
-      "label": "Vices",
-      "system": "brinkwood",
-      "path": "./packs/vices.db",
-      "entity": "Item"
-    },
-    {
       "name": "profession",
       "label": "Professions",
       "system": "brinkwood",
       "path": "./packs/professions.db",
       "entity": "Item"
     },
+    {
+      "name": "associate",
+      "label": "Associates",
+      "system": "brinkwood",
+      "path": "./packs/associates.db",
+      "entity": "Item"
+    },
+
     {
       "name": "item",
       "label": "Items",

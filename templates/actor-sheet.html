@@ -43,20 +43,6 @@
         </div>
 
         <div class="item-block flex-horizontal">
-          <div class="item-class-label"><a class="item-add-popup" data-distinct="true" data-item-type="vice">{{localize "BITD.Vice"}}</a></div>
-          {{#each actor.items as |item id|}}
-              {{#if (eq item.type "vice")}}
-              <div class="item flex-horizontal" data-item-id="{{item._id}}">
-                <div class="item-body flex-horizontal">
-                  <div class="item-name">{{item.name}}</div>
-                </div>
-                <a class="item-control item-delete" title="{{localize 'BITD.TitleDeleteItem'}}"><i class="fas fa-trash"></i></a>
-              </div>
-              {{/if}}
-          {{/each}}
-        </div>
-
-        <div class="item-block flex-horizontal">
           <div class="item-class-label"><a class="item-add-popup" data-distinct="true" data-item-type="class">{{localize "BITD.Class"}}</a></div>
             {{#each actor.items as |item id|}}
                 {{#if (eq item.type "class")}}
@@ -239,8 +225,10 @@
 
       <div id="character-{{actor._id}}-traits" class="tab flex-vertical traits" data-tab="traits">
         <div class="label-stripe">
-          <p><label for="character-{{actor._id}}-experience-0">{{localize "BITD.Traits"}}</label></p>
-          <p><a class="item-add-popup" data-item-type="trait"><i class="fas fa-plus-square"></i></a></p>
+          <p>
+	    <label for="character-{{actor._id}}-experience-0">{{localize "BITD.Traits"}}</label>
+            <a class="item-add-popup" data-item-type="trait"><i class="fas fa-plus-square"></i></a>
+	  </p>
           <div id="character-{{actor._id}}-experience" class="teeth-experience">
             <label for="character-{{actor._id}}-experience-0"><i class="fab fa-creative-commons-zero nullifier"></i></label>
             {{#multiboxes data.experience}}
@@ -271,7 +259,10 @@
       {{!-- Owned Items Tab --}}
       <div id="character-{{actor._id}}-loadout" class="tab flex-vertical loadout" data-tab="loadout">
         <div class="label-stripe flex-horizontal">
-           <p>{{localize "BITD.Loadout"}} <a class="item-add-popup" data-item-type="item"><i class="fas fa-plus-square"></i></a></p>
+           <p>
+             <label>{{localize "BITD.Loadout"}}</label>
+	     <a class="item-add-popup" data-item-type="item"><i class="fas fa-plus-square"></i></a>
+	   </p>
            <p>{{data.loadout}}/{{localize data.load_level}} </p>
            <div class="dropdown">
              <select name="data.selected_load_level">

@@ -11,7 +11,7 @@
   "minimumCoreVersion": "10",
   "url": "https://github.com/quadur/foundryvtt-brinkwood",
   "manifest": "https://raw.githubusercontent.com/quadur/foundryvtt-brinkwood/master/system.json",
-  "download": "",
+  "download": "https://github.com/quadur/foundryvtt-brinkwood/archive/refs/tags/v0.1.2.zip",
   "authors": [
     {"name": "quad" }
   ],

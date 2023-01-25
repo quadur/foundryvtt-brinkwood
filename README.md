@@ -2,7 +2,7 @@
 
 ## TODO
 
-### v0.1.1
+### v0.1.2
 
 - [x] Setting the proper Number format for all attribute values and removing workarunds for dealing with numbers-as-string form the mainline BitD system
 - [ ] Create/replace all basic player used compendiums.

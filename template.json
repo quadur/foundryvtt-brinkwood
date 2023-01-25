@@ -1,18 +1,19 @@
 {
   "Actor": {
-  "types": ["character", "npc", "crew", "\uD83D\uDD5B clock", "factions"],
+  "types": ["character", "mask", "npc", "\uD83D\uDD5B clock", "factions"],
   "character": {
     "alias": "",
     "look": "",
     "upbringing": "",
+    "mask": "",
     "background-details": "",
     "playbook": "",
     "associates": [],
     "associates_label": "BITD.Acquaintances",
     "stress": {
-      "value": [0],
-      "max": 9,
-      "max_default": 9,
+      "value": 0,
+      "max": 6,
+      "max_default": 6,
       "name_default": "BITD.Stress",
       "name": "BITD.Stress"
     },
@@ -25,9 +26,15 @@
       "options": ["cold", "haunted", "obsessed", "paranoid", "reckless", "soft", "unstable", "vicious"],
       "list": []
     },
-    "healing-clock": [0],
-    "experience": [0],
-    "experience_max": 8,
+    "oath": 0,
+    "scars": 0,
+    "experience": {
+      "value": 0,
+      "max": 8,
+      "max_default": 8,
+      "name_default": "BITD.Experience",
+      "name": "BITD.Experience"
+    },
     "experience_clues": ["BITD.ClassExpClue3", "BITD.ClassExpClue2"],
     "coins": [0],
     "coins_stashed": [0],
@@ -36,7 +43,7 @@
     "load_level": "",
     "selected_load_level": "",
     "base_max_load": 0,
-    "harm": {
+    "bans": {
         "light": {
           "one": "",
           "two": ""
@@ -46,9 +53,6 @@
           "two": ""
         },
         "heavy": {
-          "one": ""
-        },
-        "deadly": {
           "one": ""
         }
     },
@@ -129,27 +133,161 @@
         }
     }
   },
-  "crew": {
+  "mask": {
     "name": "",
-    "reputation": [0],
-    "lair": "",
-    "tier": "",
-    "deity": "",
-    "hold": ["strong"],
-    "experience": [0],
-    "hold_types": ["weak", "strong"],
-    "coins": {
-      "max": 4,
-      "value": [0]
+    "type": "",
+    "essence": {
+      "name": "Essence",
+      "value": 0,
+      "max": 8
     },
-    "vault": {
-      "value": [0],
-      "max": 0
+    "experience": {
+      "name": "Experience",
+      "value": 0,
+      "max": 8
     },
-    "turfs": [8],
-    "features": [],
-    "heat": [0],
-    "wanted": [0]
+    "attributes": {
+      "lies": {
+        "skills": {
+          "deceive": {
+            "label": "BITD.SkillsDeceive",
+            "value": 0
+          },
+          "hide": {
+            "label": "BITD.SkillsHide",
+            "value": 0
+          },
+          "reveal": {
+            "label": "BITD.SkillsReveal",
+            "value": 0
+          },
+          "educate": {
+            "label": "BITD.SkillsEducate",
+            "value": 0
+          }
+        }
+      },
+      "ruin": {
+	      "skills": {
+          "corrupt": {
+            "label": "BITD.SkillsCorrupt",
+            "value": 0
+          },
+          "crack": {
+            "label": "BITD.SkillsCrack",
+            "value": 0
+          },
+          "quarry": {
+            "label": "BITD.SkillsQuarry",
+            "value": 0
+          },
+          "spoil": {
+            "label": "BITD.SkillsSpoil",
+            "value": 0
+          }
+	      }
+      },
+      "terror": {
+        "skills": {
+          "frighten": {
+            "label": "BITD.SkillsFrighten",
+            "value": 0
+          },
+          "awe": {
+            "label": "BITD.SkillsAwe",
+            "value": 0
+          },
+          "disarm": {
+            "label": "BITD.SkillsDisarm",
+            "value": 0
+          },
+          "explode": {
+            "label": "BITD.SkillsExplode",
+            "value": 0
+          }
+        }
+      },
+      "violence": {
+        "skills": {
+          "slaughter": {
+            "label": "BITD.SkillsSlaughter",
+            "value": 0
+          },
+          "carnage": {
+            "label": "BITD.SkillsCarnage",
+            "value": 0
+          },
+          "direct": {
+            "label": "BITD.SkillsDirect",
+            "value": 0
+          },
+          "cover": {
+            "label": "BITD.SkillsCover",
+            "value": 0
+          }
+        }
+      },
+      "riot": {
+        "skills": {
+          "rouse": {
+            "label": "BITD.SkillsRouse",
+            "value": 0
+          },
+          "burn": {
+            "label": "BITD.SkillsBurn",
+            "value": 0
+          },
+          "inspire": {
+            "label": "BITD.SkillsInspire",
+            "value": 0
+          },
+          "provoke": {
+            "label": "BITD.SkillsProvoke",
+            "value": 0
+          }
+        }
+      },
+      "torment": {
+        "skills": {
+          "drain": {
+            "label": "BITD.SkillsDrain",
+            "value": 0
+          },
+          "vivisect": {
+            "label": "BITD.SkillsVivisect",
+            "value": 0
+          },
+          "suture": {
+            "label": "BITD.SkillsSuture",
+            "value": 0
+          },
+          "tend": {
+            "label": "BITD.SkillsTend",
+            "value": 0
+          }
+        }
+      },
+      "judgement": {
+        "skills": {
+          "snipe": {
+            "label": "BITD.SkillsSnipe",
+            "value": 0
+          },
+          "scout": {
+            "label": "BITD.SkillsScout",
+            "value": 0
+          },
+          "read": {
+            "label": "BITD.SkillsRead",
+            "value": 0
+          },
+          "slip": {
+            "label": "BITD.SkillsSlip",
+            "value": 0
+          }
+        }
+      }
+    }
   },
   "\uD83D\uDD5B clock": {
     "name": "",
@@ -170,7 +308,7 @@
     }
   },
   "Item": {
-    "types": ["faction", "item", "class", "trait", "upbringing", "profession", "associates", "crew_upgrade", "cohort", "crew_type", "crew_reputation", "crew_upgrade", "crew_ability"],
+    "types": ["faction", "item", "class", "trait", "upbringing", "profession", "associates", "mask", "mask_ability", "crew_upgrade", "cohort", "crew_type", "crew_reputation", "crew_upgrade", "crew_ability"],
     "templates": {
       "default": {
         "description": ""
@@ -184,38 +322,66 @@
       },
       "logic": {
         "logic": ""
-      }
-    },
-    "activatedEffect": {
-      "activation": {
-        "type": "",
-        "cost": 0,
-        "condition": ""
       },
-      "duration": {
-        "value": null,
-        "units": ""
+      "baseSkills": {
+        "attributes":{
+          "insight": {
+	    "skills": {
+              "hunt": { "value": 0 },
+              "study": { "value": 0 },
+              "survey": { "value": 0 },
+              "tinker": { "value": 0 }
+	    }
+	  },
+	  "prowess": {
+            "skills": {
+	      "finesse": { "value": 0 },
+              "prowl": { "value": 0 },
+              "skirmish": { "value": 0 },
+              "wreck": { "value": 0 }
+	    }
+	  },
+	  "resolve": {
+	    "skills": {
+              "attune": { "value": 0 },
+              "command": { "value": 0 }, 
+              "consort": { "value": 0 }, 
+              "sway": { "value": 0 }
+            }
+          }
+        }
       },
-      "target": {
-        "value": null,
-        "width": null,
-        "units": "",
-        "type": ""
-      },
-      "range": {
-        "value": null,
-        "long": null,
-        "units": ""
-      },
-      "uses": {
-        "value": 0,
-        "max": 0,
-        "per": null
-      },
-      "consume": {
-        "type": "",
-        "target": null,
-        "amount": null
+      "activatedEffect": {
+        "activation": {
+          "type": "",
+          "cost": 0,
+          "condition": ""
+        },
+        "duration": {
+          "value": null,
+          "units": ""
+        },
+        "target": {
+          "value": null,
+          "width": null,
+          "units": "",
+          "type": ""
+        },
+        "range": {
+          "value": null,
+          "long": null,
+          "units": ""
+        },
+        "uses": {
+          "value": 0,
+          "max": 0,
+          "per": null
+        },
+        "consume": {
+          "type": "",
+          "target": null,
+          "amount": null
+        }
       }
     },
     "faction": {
@@ -260,30 +426,22 @@
     "num_available": 1
   },
   "class": {
-    "templates": ["default", "logic", "activatedEffect"],
-    "experience_clues": [],
-    "base_skills": {
-      "hunt": [0],
-      "study": [0],
-      "survey": [0],
-      "tinker": [0],
-      "finesse": [0],
-      "prowl": [0],
-      "skirmish": [0],
-      "wreck": [0],
-      "attune": [0],
-      "command": [0],
-      "consort": [0],
-      "sway": [0]
-    }
+    "templates": ["default", "logic", "baseSkills"],
+    "experience_clues": []
   },
-  "ability": {
-    "templates": ["ability", "logic", "activatedEffect"]
+  "mask_ability": {
+    "templates": ["triat", "logic", "activatedEffect"]
   },
   "heritage": {
     "templates": ["default", "activatedEffect"]
   },
+  "profession": {
+    "templates": ["default", "baseSkills"]
+  },
   "background": {
+    "templates": ["default", "activatedEffect"]
+  },
+  "mask": {
     "templates": ["default", "activatedEffect"]
   },
   "vice": {

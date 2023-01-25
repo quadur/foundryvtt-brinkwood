@@ -20,13 +20,14 @@ export class BladesClockSheet extends BladesSheet {
   /* -------------------------------------------- */
 
   /** @override */
-  getData() {
-    var data = super.getData();
-    data.editable = this.options.editable;
-    const actorData = data.data;
-    data.actor = actorData;
-    data.data = actorData.data;
-    return data;
+  getData(options) {
+    const superData = super.getData( options );
+    const sheetData = superData.data;
+    sheetData.owner = superData.owner;
+    sheetData.editable = superData.editable;
+    sheetData.isGM = game.user.isGM;
+
+    return sheetData;
   }
 
     /* -------------------------------------------- */
@@ -35,7 +36,7 @@ export class BladesClockSheet extends BladesSheet {
   async _updateObject(event, formData) {
     let image_path = `systems/brinkwood/styles/assets/progressclocks-svg/Progress Clock ${formData['data.type']}-${formData['data.value']}.svg`;
     formData['img'] = image_path;
-    formData['token.img'] = image_path;
+    formData['prototypeToken.texture.src'] = image_path;
     let data = [];
     let update = {
       img: image_path,

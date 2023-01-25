@@ -8,7 +8,7 @@ export class BladesSheet extends ActorSheet {
   /* -------------------------------------------- */
 
   /** @override */
-	activateListeners(html) {
+  activateListeners(html) {
     super.activateListeners(html);
     html.find(".item-add-popup").click(this._onItemAddClick.bind(this));
     html.find(".update-box").click(this._onUpdateBoxClick.bind(this));
@@ -39,16 +39,16 @@ export class BladesSheet extends ActorSheet {
 
     items.forEach(e => {
       let addition_price_load = ``;
-      
-      if (typeof e.data.load !== "undefined") {
-        addition_price_load += `(${e.data.load})`
-      } else if (typeof e.data.price !== "undefined") {
-        addition_price_load += `(${e.data.price})`
+
+      if (typeof e.system.load !== "undefined") {
+        addition_price_load += `(${e.system.load})`
+      } else if (typeof e.system.price !== "undefined") {
+        addition_price_load += `(${e.system.price})`
       }
 
       html += `<input id="select-item-${e._id}" type="${input_type}" name="select_items" value="${e._id}">`;
       html += `<label class="flex-horizontal" for="select-item-${e._id}">`;
-      html += `${game.i18n.localize(e.name)} ${addition_price_load} <i class="tooltip fas fa-question-circle"><span class="tooltiptext">${game.i18n.localize(e.data.description)}</span></i>`;
+      html += `${game.i18n.localize(e.name)} ${addition_price_load} <i class="tooltip fas fa-question-circle"><span class="tooltiptext">${game.i18n.localize(e.system.description)}</span></i>`;
       html += `</label>`;
     });
 
@@ -57,7 +57,7 @@ export class BladesSheet extends ActorSheet {
     let options = {
       // width: "500"
     }
-    
+
     let dialog = new Dialog({
       title: `${game.i18n.localize('Add')} ${item_type}`,
       content: html,
@@ -78,7 +78,7 @@ export class BladesSheet extends ActorSheet {
 
     dialog.render(true);
   }
-  
+
   /* -------------------------------------------- */
 
   async addItemsToSheet(item_type, el) {
@@ -96,12 +96,13 @@ export class BladesSheet extends ActorSheet {
 
   /**
    * Roll an Attribute die.
-   * @param {*} event 
+   * @param {*} event
    */
   async _onRollAttributeDieClick(event) {
 
     const attribute_name = $(event.currentTarget).data("rollAttribute");
-    this.actor.rollAttributePopup(attribute_name);
+    const attribute_label = $(event.currentTarget).data("rollAttributeLabel");
+    this.actor.rollAttributePopup(attribute_name, attribute_label);
 
   }
 
@@ -112,25 +113,27 @@ export class BladesSheet extends ActorSheet {
     const item_id = $(event.currentTarget).data("item");
     var update_value = $(event.currentTarget).data("value");
       const update_type = $(event.currentTarget).data("utype");
-      if ( update_value == undefined) {
+      if ( update_value === undefined) {
       update_value = document.getElementById('fac-' + update_type + '-' + item_id).value;
     };
     var update;
-    if ( update_type == "status" ) {
-      update = {_id: item_id, data:{status:{value: update_value}}};
+    if ( update_type === "status" ) {
+      update = {_id: item_id, system:{status:{value: update_value}}};
     }
     else if (update_type == "hold") {
-      update = {_id: item_id, data:{hold:{value: update_value}}};
+      update = {_id: item_id, system:{hold:{value: update_value}}};
     } else {
       console.log("update attempted for type undefined in blades-sheet.js onUpdateBoxClick function");
       return;
     };
 
     await this.actor.updateEmbeddedDocuments("Item", [update]);
-    
-     
-    }
-  
-  /* -------------------------------------------- */
 
-}
+
+    }
+
+  /* -------------------------------------------- */
+ 
+  /* -------------------------------------------- */
+  
+ }

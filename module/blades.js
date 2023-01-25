@@ -18,6 +18,8 @@ import { BladesCrewSheet } from "./blades-crew-sheet.js";
 import { BladesClockSheet } from "./blades-clock-sheet.js";
 import { BladesNPCSheet } from "./blades-npc-sheet.js";
 import { BladesFactionSheet } from "./blades-faction-sheet.js";
+import { BladesMaskSheet } from "./blades-mask-sheet.js";
+
 import * as migrations from "./migration.js";
 
 window.BladesHelpers = BladesHelpers;
@@ -31,7 +33,7 @@ Hooks.once("init", async function() {
   game.blades = {
     dice: bladesRoll
   };
-  game.system.bobclocks = {
+  game.system.bladesClocks = {
     sizes: [ 4, 6, 8 ]
   };
 
@@ -49,6 +51,7 @@ Hooks.once("init", async function() {
   Actors.registerSheet("blades", BladesFactionSheet, { types: ["factions"], makeDefault: true });
   Actors.registerSheet("blades", BladesClockSheet, { types: ["\uD83D\uDD5B clock"], makeDefault: true });
   Actors.registerSheet("blades", BladesNPCSheet, { types: ["npc"], makeDefault: true });
+  Actors.registerSheet("blades", BladesMaskSheet, { types: ["mask"], makeDefault: true });
   Items.unregisterSheet("core", ItemSheet);
   Items.registerSheet("blades", BladesItemSheet, {makeDefault: true});
   await preloadHandlebarsTemplates();
@@ -68,23 +71,14 @@ Hooks.once("init", async function() {
   // Multiboxes.
   Handlebars.registerHelper('multiboxes', function(selected, options) {
 
-    let html = options.fn(this);
+    
+    let html = $( options.fn(this) );
+    let query = `input[type='radio'][value='${selected}']`;
 
-    // Fix for single non-array values.
-    if ( !Array.isArray(selected) ) {
-      selected = [selected];
-    }
+    html.find(query).attr("checked", true);
+ 
 
-    if (typeof selected !== 'undefined') {
-      selected.forEach(selected_value => {
-        if (selected_value !== false) {
-          const escapedValue = RegExp.escape(Handlebars.escapeExpression(selected_value));
-          const rgx = new RegExp(' value=\"' + escapedValue + '\"');
-          html = html.replace(rgx, "$& checked=\"checked\"");
-        }
-      });
-    }
-    return html;
+    return html.prop('outerHTML');
   });
 
   // Trauma Counter
@@ -102,7 +96,7 @@ Hooks.once("init", async function() {
     if (count > 4) count = 4;
 
     const rgx = new RegExp(' value=\"' + count + '\"');
-    return html.replace(rgx, "$& checked=\"checked\"");
+    return html.replace(rgx, "$& checked");
 
   });
 
@@ -123,7 +117,7 @@ Hooks.once("init", async function() {
 
     for (let i = 13 - turfs_amount_int; i <= 12; i++) {
       const rgx = new RegExp(' value=\"' + i + '\"');
-      html = html.replace(rgx, "$& disabled=\"disabled\"");
+      html = html.replace(rgx, "$& disabled");
     }
     return html;
   });
@@ -133,18 +127,18 @@ Hooks.once("init", async function() {
     let html = options.fn(this);
     for (let i = 1; i <= max_coins; i++) {
 
-      html += "<input type=\"radio\" id=\"crew-coins-vault-" + i + "\" name=\"data.vault.value\" value=\"" + i + "\"><label for=\"crew-coins-vault-" + i + "\"></label>";
+      html += "<input type=\"radio\" id=\"crew-coins-vault-" + i + "\" data-dType=\"Number\" name=\"system.vault.value\" value=\"" + i + "\"><label for=\"crew-coins-vault-" + i + "\"></label>";
     }
 
     return html;
   });
 
-  Handlebars.registerHelper('crew_experience', (actor, options) => {
+  Handlebars.registerHelper('crew_experience', (_id, options) => {
 
     let html = options.fn(this);
     for (let i = 1; i <= 10; i++) {
 
-      html += `<input type="radio" id="crew-${actor._id}-experience-${i}" name="data.experience" value="${i}" dtype="Radio"><label for="crew-${actor._id}-experience-${i}"></label>`;
+      html += `<input type="radio" id="crew-${_id}-experience-${i}" data-dType="Number" name="system.experience" value="${i}" dtype="Radio"><label for="crew-${_id}-experience-${i}"></label>`;
     }
 
     return html;
@@ -166,7 +160,6 @@ Hooks.once("init", async function() {
   //   <span>{{this}}</span>
   // {{/times_from_1}}
   Handlebars.registerHelper('times_from_1', function(n, block) {
-
     var accum = '';
     for (var i = 1; i <= n; ++i) {
       accum += block.fn(i);
@@ -236,9 +229,13 @@ Hooks.once("init", async function() {
    * Create appropriate Blades clock
    */
 
-  Handlebars.registerHelper('blades-clock', function(parameter_name, type, current_value, uniq_id) {
+  Handlebars.registerHelper('blades-clock', function(parameter_name, type, current_value, uniq_id, label=null) {
 
     let html = '';
+
+    if ( label !== null ) {
+      uniq_id = `${label}-${uniq_id}`;
+    }
 
     if (current_value === null || current_value === 'null') {
       current_value = 0;
@@ -249,16 +246,16 @@ Hooks.once("init", async function() {
     }
 
     // Label for 0
-    html += `<label class="clock-zero-label" for="clock-0-${uniq_id}}"><i class="fab fa-creative-commons-zero nullifier"></i></label>`;
-    html += `<div id="blades-clock-${uniq_id}" class="blades-clock clock-${type} clock-${type}-${current_value}" style="background-image:url('systems/brinkwood/styles/assets/progressclocks-svg/Progress Clock ${type}-${current_value}.svg');">`;
+    html += `<label class="clock-zero-label" for="clock-0-${uniq_id}}"><i class="fab fa-creative-commons-zero nullifier"></i><span class="clock-label">${label}</span></label>`;
+    html += `<div id="blades-clock-${uniq_id}" class="blades-clock clock-${type} clock-${type}-${current_value}" style="background-image:url('systems/blades-in-the-dark/styles/assets/progressclocks-svg/Progress Clock ${type}-${current_value}.svg');">`;
 
-    let zero_checked = (parseInt(current_value) === 0) ? 'checked="checked"' : '';
-    html += `<input type="radio" value="0" id="clock-0-${uniq_id}}" name="${parameter_name}" ${zero_checked}>`;
+    let zero_checked = (parseInt(current_value) === 0) ? 'checked' : '';
+    html += `<input type="radio" value="0" id="clock-0-${uniq_id}}" data-dType="Number" name="${parameter_name}" ${zero_checked}>`;
 
     for (let i = 1; i <= parseInt(type); i++) {
-      let checked = (parseInt(current_value) === i) ? 'checked="checked"' : '';
+      let checked = (parseInt(current_value) === i) ? 'checked' : '';
       html += `
-        <input type="radio" value="${i}" id="clock-${i}-${uniq_id}" name="${parameter_name}" ${checked}>
+        <input type="radio" value="${i}" id="clock-${i}-${uniq_id}" data-dType="Number" name="${parameter_name}" ${checked}>
         <label for="clock-${i}-${uniq_id}"></label>
       `;
     }
@@ -296,9 +293,6 @@ Hooks.on("renderSceneControls", async (app, html) => {
   dice_roller.click( async function() {
     await simpleRollPopup();
   });
-  if ( !foundry.utils.isNewerVersion("9", game.version ?? game.data.version) ) {
-    html.children().first().append( dice_roller );
-  } else {
-    html.append( dice_roller );
-  }
+  html.children().first().append( dice_roller );
+
 });

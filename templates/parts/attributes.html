@@ -1,52 +1,35 @@
-<div id="character-{{actor._id}}-attributes" class="attributes">
+<div id="character-{{_id}}-attributes" class="attributes">
+  {{#each system.attributes as |attribute attribute_name|}}
 
-  {{#each data.attributes as |attribute attribute_name|}}
-
-  <div id="character-{{../actor._id}}-attributes-{{attribute_name}}" class="attribute">
-    <div id="character-{{../actor._id}}-attributes-{{attribute_name}}-title" class="attributes-exp">
+  <div id="character-{{../_id}}-attributes-{{attribute_name}}" class="attribute">
+    <div id="character-{{../_id}}-attributes-{{attribute_name}}-title" class="attributes-exp">
       <div class="stripe">
         <a class="attribute-label roll-die-attribute rollable-text" data-roll-attribute="{{attribute_name}}">{{localize (concat attribute.label 'Short')}}</a>
       </div>
-      <div class="stripe-tooth-body">
-        {{#multiboxes attribute.exp}}
-
-        <label
-                for="{{../actor._id}}-{{attribute_name}}-exp-0"><i
-                class="fab fa-creative-commons-zero nullifier"></i></label>
-        <input type="radio" id="{{../actor._id}}-{{attribute_name}}-exp-0"
-               name="data.attributes.{{attribute_name}}.exp" data-dtype="Number" value="0" checked="checked">
-        {{#times_from_1 6}}
-          <input type="radio" id="{{../../actor._id}}-{{attribute_name}}-exp-{{this}}"
-                 name="data.attributes.{{attribute_name}}.exp" data-dtype="Number" value="{{this}}">
-          <label for="{{../../actor._id}}-{{attribute_name}}-exp-{{this}}"></label>
-        {{/times_from_1}}
-        {{/multiboxes}}
-      </div>
     </div>
-    
+
     {{!-- Skills --}}
 
     {{#each attribute.skills as |skill skill_name|}}
 
     <div class="flex-horizontal">
       <div class="attributes-container">
+	{{#times_from_1 4}}
+	<span class="dot-value" data-max_value="4" data-value="{{this}}" data-path="attributes.{{attribute_name}}.skills.{{skill_name}}.value">
+          {{#if (lt skill.value this)}}
+          &#9898;
+	  {{else}}
+	  &#9899;
+	  {{/if}}
+	</span>
+	{{/times_from_1}}
 
-        {{#multiboxes skill.value}}
-
-        {{#times_from_0 4}}
-        <input type="radio" id="attributes-{{../../../actor._id}}-{{skill_name}}-{{this}}"
-               name="data.attributes.{{attribute_name}}.skills.{{skill_name}}.value" data-dtype="Number" value="{{this}}">
-        <label for="attributes-{{../../../actor._id}}-{{skill_name}}-{{this}}"></label>
-        {{/times_from_0}}
-
+        
         <div class="attribute-skill-label roll-die-attribute rollable-text" data-roll-attribute="{{skill_name}}">{{localize skill.label}}</div>
-        {{/multiboxes}}
       </div>
     </div>
     {{/each}}
 
   </div>
   {{/each}}
-
-
 </div>

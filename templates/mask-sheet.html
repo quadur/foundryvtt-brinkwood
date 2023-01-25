@@ -1,0 +1,196 @@
+<form class="{{cssClass}} actor-sheet" autocomplete="off">
+
+  <section id="mask-{{_id}}-name-alias" class="flex-horizontal name-alias">
+
+    <div class="grow-two">
+    <img src="{{img}}" data-edit="img" title="{{name}}" class="portrait" />
+    </div>
+
+    <div class="grow-two">
+      <div id="mask-{{_id}}-name-box">
+        <label for="mask-{{_id}}-name">{{localize "BITD.Name"}}</label>
+        <input type="text" id="mask-{{_id}}-name" class="name" name="name" value="{{name}}">
+      </div>
+
+      <div id="mask-{{_id}}-traits" class="flex-column">
+
+        <div class="item-block flex-horizontal">
+         <div class="item-class-label"><a class="item-add-popup" data-distinct="true" data-item-type="mask">{{localize "BITD.Mask"}}</a></div>
+          {{#each items as |item id|}}
+            {{#if (eq item.type "mask")}}
+              <div class="item flex-horizontal" data-item-id="{{item._id}}">
+                <div class="item-body flex-horizontal">
+                  <div class="item-name">{{item.name}}</div>
+                </div>
+                <a class="item-control item-delete" title="{{localize 'BITD.TitleDeleteItem'}}"><i class="fas fa-trash"></i></a>
+              </div>
+              {{/if}}
+          {{/each}}
+        </div>
+    </div>
+
+    <div class="grow-two">
+      {{!-- XP --}}
+      <div class="section big-teeth-section">
+        <div id="mask-{{_id}}-xp" class="big-teeth character-xp">
+          <label class="black-label" for="mask-{{_id}}-xp-0">{{localize system.experience.name}}</label>
+          {{#with system as | system | }}
+          {{#times_from_1 system.experience.max}}
+            <span class="dot-value" data-path="experience.value" data-max_value="{{system.experience.max}}" data-value="{{this}}">
+              {{#if (lt system.experience.value this)}}
+                <img class="big-teeth" src="systems/brinkwood/styles/assets/teeth/stresstooth-halfgrey.png">
+              {{else}}
+                <img class="big-teeth" src="systems/brinkwood/styles/assets/teeth/stresstooth-blue.png">
+              {{/if}}
+            </span>
+          {{/times_from_1}}
+          {{/with}}
+        </div>
+      </div>
+ 
+      {{!-- Stress --}}
+      <div id="mask-{{_id}}-stress-trauma" class="section big-teeth-section">
+        <div id="mask-{{_id}}-stress" class="big-teeth character-stress">
+          <label class="black-label" for="mask-{{_id}}-stress-0">{{localize system.essence.name}}</label>
+          {{#with system as | system | }}
+          {{#times_from_1 system.essence.max}}
+            <span class="dot-value" data-path="essence.value" data-max_value="{{system.essence.max}}" data-value="{{this}}">
+              {{#if (lt system.essence.value this)}}
+	        <img class="big-teeth" src="systems/brinkwood/styles/assets/teeth/stresstooth-halfgrey.png">
+              {{else}}
+                <img class="big-teeth" src="systems/brinkwood/styles/assets/teeth/stresstooth-red.png">
+              {{/if}}
+            </span>
+          {{/times_from_1}}
+          {{/with}}
+        </div>
+      </div>
+    </div>
+
+
+  </section>
+
+  {{!-- Attributes --}}
+  <section class="flex-horizontal">
+
+    <div class="tab-content flex-vertical grow-two">
+
+      {{!-- Nav menu --}}
+      <nav class="tabs flex-horizontal">
+        <a class="item" data-tab="traits">{{localize "BITD.Traits"}} & {{localize "BITD.Loadout"}}</a>
+        <a class="item" data-tab="mask-notes">{{localize "BITD.Notes"}}</a>
+        {{#if isGM}}
+          <a class="item" data-tab="effects">{{localize "BITD.Effects"}}</a>
+        {{/if}}
+        <a class="item" data-tab="all-mask-items">{{localize "BITD.AllItems"}}</a>
+      </nav>
+
+      <div id="mask-{{_id}}-traits" class="tab flex-vertical traits" data-tab="traits">
+        <div class="label-stripe">
+          <p><label for="mask-{{_id}}-experience-0">{{localize "BITD.Traits"}}</label></p>
+          <p><a class="item-add-popup" data-item-type="ability"><i class="fas fa-plus-square"></i></a></p>
+        </div>
+
+        <div id="mask-{{_id}}-traits-list">
+          {{#each items as |item id|}}
+          {{#if (eq item.type "trait")}}
+            <div class="item flex-horizontal" data-item-id="{{item._id}}">
+              <div class="item-body flex-horizontal">
+                <div class="item-name">{{item.name}}</div>
+                <div class="item-description">{{{item.system.description}}}</div>
+              </div>
+              <a class="item-control item-delete" title="{{localize 'BITD.TitleDeleteItem'}}"><i class="fas fa-trash"></i></a>
+            </div>
+          {{/if}}
+          {{/each}}
+        </div>
+        <div class="label-stripe flex-horizontal">
+           <p>{{localize "BITD.Loadout"}} <a class="item-add-popup" data-item-type="item"><i class="fas fa-plus-square"></i></a></p>
+           <p>{{system.loadout}}/{{localize system.load_level}} </p>
+           <div class="dropdown">
+             <select name="system.selected_load_level">
+               {{selectOptions system.load_levels selected=system.selected_load_level localize=true}}
+             </select>
+           </div>
+        </div>
+        <div>
+          {{#each items as |item id|}}
+          {{#if (eq item.type "item")}}
+            <div class="item flex-horizontal" data-item-id="{{item._id}}">
+              <div class="item-body flex-horizontal">
+                <img src="{{item.img}}" title="{{item.name}}" width="24" height="24"/>
+                <div class="item-name">{{item.name}}</div>
+                <div class="item-description">{{{item.system.description}}}</div>
+              </div>
+              <a class="item-control item-delete" title="{{localize 'BITD.TitleDeleteItem'}}"><i class="fas fa-trash"></i></a>
+            </div>
+          {{/if}}
+          {{/each}}
+        </div>
+
+      </div>
+
+      {{!-- Owned Items Tab --}}
+      <div id="mask-{{_id}}-loadout" class="tab flex-vertical loadout" data-tab="loadout">
+        <div class="label-stripe flex-horizontal">
+           <p>{{localize "BITD.Loadout"}} <a class="item-add-popup" data-item-type="item"><i class="fas fa-plus-square"></i></a></p>
+           <p>{{system.loadout}}/{{localize system.load_level}} </p>
+           <div class="dropdown">
+             <select name="system.selected_load_level">
+               {{selectOptions system.load_levels selected=system.selected_load_level localize=true}}
+             </select>
+           </div>
+        </div>
+        <div>
+          {{#each items as |item id|}}
+          {{#if (eq item.type "item")}}
+            <div class="item flex-horizontal" data-item-id="{{item._id}}">
+              <div class="item-body flex-horizontal">
+                <img src="{{item.img}}" title="{{item.name}}" width="24" height="24"/>
+                <div class="item-name">{{item.name}}</div>
+                <div class="item-description">{{{item.system.description}}}</div>
+              </div>
+              <a class="item-control item-delete" title="{{localize 'BITD.TitleDeleteItem'}}"><i class="fas fa-trash"></i></a>
+            </div>
+          {{/if}}
+          {{/each}}
+          <div class="item-class-label"><a class="item-add-popup" data-item-type="item">{{localize "BITD.AddItem"}}</a></div>
+        </div>
+      </div>
+
+      <div class="tab flex-vertical" data-tab="mask-notes">
+        <div class="label-stripe">
+          <p>{{localize "BITD.Notes"}}</p>
+        </div>
+        <textarea rows="13" name="system.description">{{{system.description}}}</textarea>
+      </div>
+
+      {{!-- Active Effects --}}
+      <div id="mask-{{_id}}-effects" class="tab effects flex-vertical" data-tab="effects">
+        <div class="label-stripe">
+          <p>{{localize "BITD.Effects"}}</p>
+        </div>
+        {{> "systems/brinkwood/templates/parts/active-effects.html"}}
+      </div>
+
+      {{!-- Full Item List --}}
+      <div class="tab grow-two flex-vertical" data-tab="all-mask-items">
+        <div class="label-stripe">
+          <p><label>{{localize "BITD.AllItems"}}</label></p>
+        </div>
+        {{#each actor.items as |item id|}}
+        <div class="item flex-horizontal" data-item-id="{{item._id}}">
+          <div class="item-body item-sheet-open flex-horizontal">
+            <img src="{{item.img}}" title="{{item.name}}" width="24" height="24"/>
+            <div class="item-name">{{item.name}}</div>
+          </div>
+          <a class="item-control item-delete" title="{{localize 'BITD.TitleDeleteItem'}}"><i class="fas fa-trash"></i></a>
+        </div>
+        {{/each}}
+      </div>
+
+    </div>
+    {{!-- Attributes --}}
+    {{> "systems/brinkwood/templates/parts/mask-attributes.html"}}
+  </section>
+</form>

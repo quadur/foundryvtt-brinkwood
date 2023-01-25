@@ -16,7 +16,7 @@ export class BladesHelpers {
     // If the Item has the exact same name - remove it from list.
     // Remove Duplicate items from the array.
     actor.items.forEach( i => {
-      let has_double = (item_data.type === i.data.type);
+      let has_double = (item_data.type === i.type);
       if ( ( ( i.name === item_data.name ) || ( should_be_distinct && has_double ) ) && !( allowed_types.includes( item_data.type ) ) && ( item_data._id !== i.id ) ) {
         dupe_list.push (i.id);
       }
@@ -65,11 +65,11 @@ export class BladesHelpers {
     let game_items = [];
     let compendium_items = [];
 
-    game_items = game.items.filter(e => e.type === item_type).map(e => {return e.data});
+    game_items = game.items.filter(e => e.type === item_type).map(e => {return e.toObject()});
 
     let pack = game.packs.find(e => e.metadata.name === item_type);
     let compendium_content = await pack.getDocuments();
-    compendium_items = compendium_content.map(e => {return e.data});
+    compendium_items = compendium_content.map(e => {return e.toObject()});
 
     list_of_items = game_items.concat(compendium_items);
     list_of_items.sort(function(a, b) {
@@ -90,29 +90,27 @@ export class BladesHelpers {
    * @returns {string}
    */
   static getAttributeLabel(attribute_name) {
-        let attribute_labels = {};
-        const attributes = game.system.model.Actor.character.attributes;
+    let attribute_labels = {};
+    const attributes = {...game.system.model.Actor.mask.attributes, ...game.system.model.Actor.character.attributes};
 
-        for (const att_name in attributes) {
-          attribute_labels[att_name] = attributes[att_name].label;
-          for (const skill_name in attributes[att_name].skills) {
-            attribute_labels[skill_name] = attributes[att_name].skills[skill_name].label;
-          }
-
-        }
-
-        return attribute_labels[attribute_name];
+    for (const att_name in attributes) {
+      attribute_labels[att_name] = attributes[att_name].label;
+      for (const skill_name in attributes[att_name].skills) {
+        attribute_labels[skill_name] = attributes[att_name].skills[skill_name].label;
+      }
+    }
+    return attribute_labels[attribute_name];
   }
-  
+
   /**
    * Returns true if the attribute is an action
    *
-   * @param {string} attribute_name 
+   * @param {string} attribute_name
    * @returns {Boolean}
    */
   static isAttributeAction(attribute_name) {
         const attributes = game.system.model.Actor.character.attributes;
-        
+
         return !(attribute_name in attributes);
   }
 
@@ -148,5 +146,4 @@ export class BladesHelpers {
     return text;
 
   }
-
 }

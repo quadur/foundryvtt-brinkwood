@@ -54,8 +54,8 @@ $hover-brightness: 0.8;
     border-top: 3px solid $almost_black;
     display: flex;
     flex-direction: row;
-    margin-bottom: 0px;
-    margin-top: 10px;
+    margin-bottom: 3px;
+    margin-top: 0;
 
     > * {
       margin-right: 10px;
@@ -71,14 +71,18 @@ $hover-brightness: 0.8;
 
     // Stress
     .big-teeth {
-      @include toothradio(17px, 50px, "assets/teeth/stresstooth-halfgrey.png", "assets/teeth/stresstooth-red.png");
+      display: flex;
+      img.big-teeth {
+        height: 30px;
+        border: none;
+	margin-left: 5px;
+      }
     }
 
     /* Trauma */
     .small-teeth-container {
 
       .small-teeth-wrap {
-        @include toothradio(17px, 50px, "assets/teeth/shorttooth-grey.png", "assets/teeth/shorttooth-red.png", false);
         flex-direction: column;
 
         .small-teeth {
@@ -141,17 +145,22 @@ $hover-brightness: 0.8;
     right: 10px;
   }
 
-  .harm-armor {
+  .bans-armor {
 
     display: flex;
 
     // Harm
-    .character-harm {
+    .character-bans {
 
       width: 100%;
 
       table {
         width: 100%;
+	background: none;
+
+	tr:nth-child(even) {
+  	  background: none;
+	}
 
         th {
           background-color: $almost_black;
@@ -165,9 +174,15 @@ $hover-brightness: 0.8;
     }
 
     // Clock
-    .character-health-clock {
+    .character-scars-clock, .character-oath-clock {
       margin: 0 auto;
-      @include clock(4, 88);
+      @include clock(4, 44);
+
+      span.clock-label {
+        text-transform: capitalize;
+	font-weight: bold;
+	margin-left: 5px;
+      }
     }
 
     .character-armor-uses {
@@ -200,7 +215,7 @@ $hover-brightness: 0.8;
       text-transform: uppercase;
     }
     .attribute-skill-label {
-      letter-spacing: 1px;
+      margin-top: 0.3em;
     }
     .attributes-exp {
 
@@ -239,8 +254,8 @@ $hover-brightness: 0.8;
       }
 
       .item-description {
-        font-style: italic;
-        text-align: justify;
+    //    font-style: italic;
+    //    text-align: justify;
       }
     }
 
@@ -248,11 +263,14 @@ $hover-brightness: 0.8;
       flex-grow: 2;
     }
     .item-control {
-      flex-grow: 1;
+      margin-right: 1em;
     }
     .item-body,
     .item-class-label {
       width: 100px;
+      .item-name { 
+        font-weight: bold;
+      }
     }
   }
 

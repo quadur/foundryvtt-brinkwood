@@ -9,7 +9,7 @@ import { BladesActiveEffect } from "./blades-active-effect.js";
 export class BladesActorSheet extends BladesSheet {
 
   /** @override */
-	static get defaultOptions() {
+   static get defaultOptions() {
 	  return foundry.utils.mergeObject(super.defaultOptions, {
   	  classes: ["brinkwood", "sheet", "actor", "pc"],
   	  template: "systems/brinkwood/templates/actor-sheet.html",
@@ -20,31 +20,23 @@ export class BladesActorSheet extends BladesSheet {
   }
 
   /* -------------------------------------------- */
+  /* -------------------------------------------- */
 
   /** @override */
-  getData() {
-    var data = super.getData();
-    data.editable = this.options.editable;
-    data.isGM = game.user.isGM;
-    const actorData = data.data;
-    data.actor = actorData;
-    data.data = actorData.data;
+  async getData(options) {
+    const superData = super.getData( options );
+    const sheetData = superData.data;
+    sheetData.owner = superData.owner;
+    sheetData.editable = superData.editable;
+    sheetData.isGM = game.user.isGM;
 
     // Prepare active effects
-    data.effects = BladesActiveEffect.prepareActiveEffectCategories(this.actor.effects);
+    sheetData.effects = BladesActiveEffect.prepareActiveEffectCategories(this.actor.effects);
 
     // Calculate Load
     let loadout = 0;
-    data.items.forEach(i => {loadout += (i.type === "item") ? parseInt(i.data.load) : 0});
-    data.data.loadout = loadout;
-    
-    // Encumbrance Levels
-    let load_level=["BITD.Light","BITD.Light","BITD.Light","BITD.Light","BITD.Normal","BITD.Normal","BITD.Heavy","BITD.Encumbered",
-			"BITD.Encumbered","BITD.Encumbered","BITD.OverMax"];
-    let mule_level=["BITD.Light","BITD.Light","BITD.Light","BITD.Light","BITD.Light","BITD.Light","BITD.Normal","BITD.Normal",
-			"BITD.Heavy","BITD.Encumbered","BITD.OverMax"];
-    let mule_present=0;
- 
+    sheetData.items.forEach(i => {loadout += (i.type === "item") ? parseInt(i.system.load) : 0});
+
     //Sanity Check
     if (loadout < 0) {
       loadout = 0;
@@ -53,30 +45,44 @@ export class BladesActorSheet extends BladesSheet {
       loadout = 10;
     }
 
+    sheetData.system.loadout = loadout;
+
+    // Encumbrance Levels
+    let load_level=["BITD.Light","BITD.Light","BITD.Light","BITD.Light","BITD.Normal","BITD.Normal","BITD.Heavy","BITD.Encumbered",
+			"BITD.Encumbered","BITD.Encumbered","BITD.OverMax"];
+    let mule_level=["BITD.Light","BITD.Light","BITD.Light","BITD.Light","BITD.Light","BITD.Light","BITD.Normal","BITD.Normal",
+			"BITD.Heavy","BITD.Encumbered","BITD.OverMax"];
+    let mule_present=0;
+
+
     //look for Mule ability
     // @todo - fix translation.
-    data.items.forEach(i => {
-      if (i.type == "ability" && i.name == "(C) Mule") {
+    sheetData.items.forEach(i => {
+      if (i.type === "ability" && i.name === "(C) Mule") {
         mule_present = 1;
       }
     });
 
     //set encumbrance level
     if (mule_present) {
-      data.data.load_level=mule_level[loadout];
+      sheetData.system.load_level=mule_level[loadout];
     } else {
-      data.data.load_level=load_level[loadout];   
+      sheetData.system.load_level=load_level[loadout];
     }
-    
-    data.load_levels = {"BITD.Light":"BITD.Light", "BITD.Normal":"BITD.Normal", "BITD.Heavy":"BITD.Heavy"};
 
-    return data;
+    sheetData.system.load_levels = {"BITD.Light":"BITD.Light", "BITD.Normal":"BITD.Normal", "BITD.Heavy":"BITD.Heavy"};
+
+    sheetData.system.description = await TextEditor.enrichHTML(sheetData.system.description, {secrets: sheetData.owner, async: true});
+
+    return sheetData;
   }
 
   /* -------------------------------------------- */
 
+  /* -------------------------------------------- */
+
   /** @override */
-	activateListeners(html) {
+  activateListeners(html) {
     super.activateListeners(html);
 
     // Everything below here is only needed if the sheet is editable
@@ -96,10 +102,51 @@ export class BladesActorSheet extends BladesSheet {
       element.slideUp(200, () => this.render(false));
     });
 
+    html.find(".dot-value").click(this._onDotChange.bind(this)); 
+
     // manage active effects
     html.find(".effect-control").click(ev => BladesActiveEffect.onManageActiveEffect(ev, this.actor));
   }
 
+  async _onDotChange(event) {
+    event.preventDefault();
+    const element = event.currentTarget;
+    const dataset = element.dataset;
+
+    const actor_data = duplicate(this.actor);
+   
+    let new_value = parseInt(dataset.value);
+    let max_value = parseInt(dataset.max_value);
+
+    let old_value = this.dig(actor_data.system, dataset.path);
+
+    if (new_value == old_value && new_value == 1) {
+      new_value = 0;
+    }
+    
+    if (new_value > max_value) { new_value = max_value }
+
+    this.setDeep(actor_data.system, dataset.path, new_value);
+
+    await this.actor.update(actor_data);
+    this.render();
+  }
+
   /* -------------------------------------------- */
+
+  dig(from, selector) {
+    return selector
+      .split('.')
+      .filter(t => t !== '')
+      .reduce((prev, cur) => prev && prev[cur], from);
+  }
+
+  setDeep(from, selector, value) {
+    let path = selector.split('.').filter(t => t !== " ");
+    return path.reduce((prev, cur, idx) => {
+        if(idx === path.length-1) { prev[cur] = value };
+        return prev && prev[cur];
+      }, from);
+  }
 
 }

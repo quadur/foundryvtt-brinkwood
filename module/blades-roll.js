@@ -1,7 +1,7 @@
 /**
  * Roll Dice.
- * @param {int} dice_amount 
- * @param {string} attribute_name 
+ * @param {int} dice_amount
+ * @param {string} attribute_name
  * @param {string} position
  * @param {string} effect
  */
@@ -9,9 +9,9 @@ export async function bladesRoll(dice_amount, attribute_name = "", position = "r
 
   // ChatMessage.getSpeaker(controlledToken)
   let zeromode = false;
-  
+
   if ( dice_amount < 0 ) { dice_amount = 0; }
-  if ( dice_amount == 0 ) { zeromode = true; dice_amount = 2; }
+  if ( dice_amount === 0 ) { zeromode = true; dice_amount = 2; }
 
   let r = new Roll( `${dice_amount}d6`, {} );
 
@@ -23,14 +23,14 @@ export async function bladesRoll(dice_amount, attribute_name = "", position = "r
 /**
  * Shows Chat message.
  *
- * @param {Roll} r 
+ * @param {Roll} r
  * @param {Boolean} zeromode
  * @param {String} attribute_name
  * @param {string} position
  * @param {string} effect
  */
 async function showChatRollMessage(r, zeromode, attribute_name = "", position = "", effect = "", note = "") {
-  
+
   let speaker = ChatMessage.getSpeaker();
   let rolls = (r.terms)[0].results;
   let attribute_label = BladesHelpers.getAttributeLabel(attribute_name);
@@ -89,8 +89,8 @@ async function showChatRollMessage(r, zeromode, attribute_name = "", position = 
  *  - partial-success
  *  - success
  *  - critical-success
- * @param {Array} rolls 
- * @param {Boolean} zeromode 
+ * @param {Array} rolls
+ * @param {Boolean} zeromode
  */
 export function getBladesRollStatus(rolls, zeromode = false) {
 
@@ -144,8 +144,8 @@ export function getBladesRollStatus(rolls, zeromode = false) {
 }
 /**
  * Get stress of the Roll.
- * @param {Array} rolls 
- * @param {Boolean} zeromode 
+ * @param {Array} rolls
+ * @param {Boolean} zeromode
  */
 export function getBladesRollStress(rolls, zeromode = false) {
 
@@ -191,7 +191,7 @@ export function getBladesRollStress(rolls, zeromode = false) {
  * Call a Roll popup.
  */
 export async function simpleRollPopup() {
-  
+
   new Dialog({
     title: `Simple Roll`,
     content: `

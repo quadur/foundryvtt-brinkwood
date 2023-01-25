@@ -2,7 +2,7 @@
 
 ## TODO
 
-### v0.1
+### v0.1.1
 
 - [x] Setting the proper Number format for all attribute values and removing workarunds for dealing with numbers-as-string form the mainline BitD system
 - [ ] Create/replace all basic player used compendiums.
@@ -12,10 +12,11 @@
 - - [x] Class - text + bonuses
 - - [ ] Associates
 - [ ] Character sheet cleanup
-- - [ ] Hide/replace unused parts (harm, coin, traumas, etc.)
+- - [X] Hide/replace unused parts (harm, coin, traumas, etc.)
 - - [ ] Add missing elements (scars, pact, associates)
 - - [ ] Small QOL adjustments (triat row display format)
-- [ ] Create a new actor type - Mask
+- [X] Create a new actor type - Mask
+- - [ ] QOL - trait table display; Essence rolls.
 
 ### v0.2 
 

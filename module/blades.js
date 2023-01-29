@@ -14,10 +14,8 @@ import { BladesItem } from "./blades-item.js";
 import { BladesItemSheet } from "./blades-item-sheet.js";
 import { BladesActorSheet } from "./blades-actor-sheet.js";
 import { BladesActiveEffect } from "./blades-active-effect.js";
-import { BladesCrewSheet } from "./blades-crew-sheet.js";
 import { BladesClockSheet } from "./blades-clock-sheet.js";
 import { BladesNPCSheet } from "./blades-npc-sheet.js";
-import { BladesFactionSheet } from "./blades-faction-sheet.js";
 import { BladesMaskSheet } from "./blades-mask-sheet.js";
 
 import * as migrations from "./migration.js";
@@ -47,8 +45,6 @@ Hooks.once("init", async function() {
   // Register sheet application classes
   Actors.unregisterSheet("core", ActorSheet);
   Actors.registerSheet("blades", BladesActorSheet, { types: ["character"], makeDefault: true });
-  Actors.registerSheet("blades", BladesCrewSheet, { types: ["crew"], makeDefault: true });
-  Actors.registerSheet("blades", BladesFactionSheet, { types: ["factions"], makeDefault: true });
   Actors.registerSheet("blades", BladesClockSheet, { types: ["\uD83D\uDD5B clock"], makeDefault: true });
   Actors.registerSheet("blades", BladesNPCSheet, { types: ["npc"], makeDefault: true });
   Actors.registerSheet("blades", BladesMaskSheet, { types: ["mask"], makeDefault: true });
@@ -58,15 +54,6 @@ Hooks.once("init", async function() {
 
   Actors.registeredSheets.forEach(element => console.log(element.Actor.name));
 
-
-  // Is the value Turf side.
-  Handlebars.registerHelper('is_turf_side', function(value, options) {
-    if (["left", "right", "top", "bottom"].includes(value)) {
-      return options.fn(this);
-    } else {
-      return options.inverse(this);
-    }
-  });
 
   // Multiboxes.
   Handlebars.registerHelper('multiboxes', function(selected, options) {
@@ -81,68 +68,6 @@ Hooks.once("init", async function() {
     return html.prop('outerHTML');
   });
 
-  // Trauma Counter
-  Handlebars.registerHelper('traumacounter', function(selected, options) {
-
-    let html = options.fn(this);
-
-    var count = 0;
-    for (const trauma in selected) {
-      if (selected[trauma] === true) {
-        count++;
-      }
-    }
-
-    if (count > 4) count = 4;
-
-    const rgx = new RegExp(' value=\"' + count + '\"');
-    return html.replace(rgx, "$& checked");
-
-  });
-
-  // NotEquals handlebar.
-  Handlebars.registerHelper('noteq', (a, b, options) => {
-    return (a !== b) ? options.fn(this) : '';
-  });
-
-  // ReputationTurf handlebar.
-  Handlebars.registerHelper('repturf', (turfs_amount, options) => {
-    let html = options.fn(this);
-    var turfs_amount_int = parseInt(turfs_amount);
-
-    // Can't be more than 6.
-    if (turfs_amount_int > 6) {
-      turfs_amount_int = 6;
-    }
-
-    for (let i = 13 - turfs_amount_int; i <= 12; i++) {
-      const rgx = new RegExp(' value=\"' + i + '\"');
-      html = html.replace(rgx, "$& disabled");
-    }
-    return html;
-  });
-
-  Handlebars.registerHelper('crew_vault_coins', (max_coins, options) => {
-
-    let html = options.fn(this);
-    for (let i = 1; i <= max_coins; i++) {
-
-      html += "<input type=\"radio\" id=\"crew-coins-vault-" + i + "\" data-dType=\"Number\" name=\"system.vault.value\" value=\"" + i + "\"><label for=\"crew-coins-vault-" + i + "\"></label>";
-    }
-
-    return html;
-  });
-
-  Handlebars.registerHelper('crew_experience', (_id, options) => {
-
-    let html = options.fn(this);
-    for (let i = 1; i <= 10; i++) {
-
-      html += `<input type="radio" id="crew-${_id}-experience-${i}" data-dType="Number" name="system.experience" value="${i}" dtype="Radio"><label for="crew-${_id}-experience-${i}"></label>`;
-    }
-
-    return html;
-  });
 
   // Enrich the HTML replace /n with <br>
   Handlebars.registerHelper('html', (options) => {
@@ -181,6 +106,13 @@ Hooks.once("init", async function() {
       accum += block.fn(i);
     }
     return accum;
+  });
+
+  Handlebars.registerHelper('contains', function(elem, list, options) {
+    if(list.indexOf(elem) > -1) {
+      return options.fn(this);
+    }
+      return options.inverse(this);
   });
 
   // Concat helper
@@ -272,8 +204,8 @@ Hooks.once("init", async function() {
 Hooks.once("ready", function() {
 
   // Determine whether a system migration is required
-  const currentVersion = game.settings.get("bitd", "systemMigrationVersion");
-  const NEEDS_MIGRATION_VERSION = 2.15;
+  const currentVersion = game.settings.get("brinkwood", "systemMigrationVersion");
+  const NEEDS_MIGRATION_VERSION = 0.5;
 
   let needMigration = (currentVersion < NEEDS_MIGRATION_VERSION) || (currentVersion === null);
 

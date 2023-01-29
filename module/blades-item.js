@@ -5,11 +5,10 @@ import { BladesHelpers } from "./blades-helpers.js";
  * @extends {Item}
  */
 export class BladesItem extends Item {
-
+  
   /** @override */
   async _preCreate( data, options, user ) {
     await super._preCreate( data, options, user );
-
     let removeItems = [];
     if( user.id === game.user.id ) {
       let actor = this.parent ? this.parent : null;
@@ -22,6 +21,36 @@ export class BladesItem extends Item {
     }
   }
 
+  async _onCreate(data, options, user) {
+    super._onCreate(data, options, user);
+    let item = this;
+    //Append new items automaticaly to the characters item list
+    if ( data.type == "item" && data.system.class == "" && !this.isEmbedded ) {
+      item.setFlag("brinkwood", "parentItem_id", item._id);
+      game.actors.filter(a => a.type == "character").forEach(actor =>  
+        actor.createEmbeddedDocuments("Item", [item])
+      );
+    }
+  }
+
+
+  async _onDelete(options, user) {
+    super._onDelete(options, user);
+    let item = this;
+    //Remove deleted basic items from characters item list
+    if ( item.type == "item" && item.system.class == "" && !item.isEmbedded ) {
+      game.actors.filter(a => a.type == "character").forEach(async function(actor) {
+        let itemsForDeletion = actor.items.
+		                     filter(i => i.getFlag("brinkwood", "parentItem_id") == item._id).
+		                     map(i => i._id);
+
+	actor.deleteEmbeddedDocuments("Item", itemsForDeletion );
+      });
+    }
+  }
+
+
+
   /* -------------------------------------------- */
 
   /* override */
@@ -30,23 +59,8 @@ export class BladesItem extends Item {
     super.prepareData();
 
     const item_data = this.system;
-
-    if (this.type === "cohort") {
-
-      this._prepareCohort(item_data);
-
-    }
-
-    if (this.type === "faction") {
-      if( !item_data.goal_1_clock_value ){ this.system.goal_1_clock_value = 0 }
-      if( item_data.goal_1_clock_max === 0 ){ this.system.goal_1_clock_max = 4 }
-      if( !item_data.goal_2_clock_value ){ this.system.goal_2_clock_value = 0 }
-      if( item_data.goal_2_clock_max === 0 ){ this.system.goal_2_clock_max = 4 }
-      this.system.size_list_1 = BladesHelpers.createListOfClockSizes( game.system.bladesClocks.sizes, this.system.goal_1_clock_max, parseInt( this.system.goal_1_clock_max ) );
-      this.system.size_list_2 = BladesHelpers.createListOfClockSizes( game.system.bladesClocks.sizes, this.system.goal_2_clock_max, parseInt( this.system.goal_2_clock_max ) );
-    }
-
   }
+
 
   /**
    * Prepares Cohort data

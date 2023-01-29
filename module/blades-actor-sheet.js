@@ -32,10 +32,11 @@ export class BladesActorSheet extends BladesSheet {
 
     // Prepare active effects
     sheetData.effects = BladesActiveEffect.prepareActiveEffectCategories(this.actor.effects);
+    sheetData.traits = sheetData.items.filter(i => i.type == "trait");
 
     // Calculate Load
     let loadout = 0;
-    sheetData.items.forEach(i => {loadout += (i.type === "item") ? parseInt(i.system.load) : 0});
+    sheetData.items.forEach(i => {loadout += (i.type === "item" && i.system.equipped) ? parseInt(i.system.load) : 0});
 
     //Sanity Check
     if (loadout < 0) {
@@ -95,6 +96,7 @@ export class BladesActorSheet extends BladesSheet {
       item.sheet.render(true);
     });
 
+
     // Delete Inventory Item
     html.find('.item-delete').click( async ev => {
       const element = $(ev.currentTarget).parents(".item");
@@ -113,12 +115,12 @@ export class BladesActorSheet extends BladesSheet {
     const element = event.currentTarget;
     const dataset = element.dataset;
 
-    const actor_data = duplicate(this.actor);
+    let actor_data = duplicate(this.actor);
    
     let new_value = parseInt(dataset.value);
     let max_value = parseInt(dataset.max_value);
 
-    let old_value = this.dig(actor_data.system, dataset.path);
+    let old_value = foundry.utils.getProperty(this.actor, dataset.path);
 
     if (new_value == old_value && new_value == 1) {
       new_value = 0;
@@ -126,27 +128,11 @@ export class BladesActorSheet extends BladesSheet {
     
     if (new_value > max_value) { new_value = max_value }
 
-    this.setDeep(actor_data.system, dataset.path, new_value);
-
-    await this.actor.update(actor_data);
+    foundry.utils.setProperty(actor_data, dataset.path, new_value);
+    this.actor.update(actor_data);
     this.render();
   }
 
   /* -------------------------------------------- */
-
-  dig(from, selector) {
-    return selector
-      .split('.')
-      .filter(t => t !== '')
-      .reduce((prev, cur) => prev && prev[cur], from);
-  }
-
-  setDeep(from, selector, value) {
-    let path = selector.split('.').filter(t => t !== " ");
-    return path.reduce((prev, cur, idx) => {
-        if(idx === path.length-1) { prev[cur] = value };
-        return prev && prev[cur];
-      }, from);
-  }
 
 }

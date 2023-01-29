@@ -2,7 +2,7 @@
   "id": "brinkwood",
   "title": "Brinkwood",
   "description": "Brinkwood game system.",
-  "version": "0.1.2",
+  "version": "0.5",
   "compatibility": {
     "minimum": 10,
     "verified": "10.284"
@@ -11,7 +11,7 @@
   "minimumCoreVersion": "10",
   "url": "https://github.com/quadur/foundryvtt-brinkwood",
   "manifest": "https://raw.githubusercontent.com/quadur/foundryvtt-brinkwood/master/system.json",
-  "download": "https://github.com/quadur/foundryvtt-brinkwood/archive/refs/tags/v0.1.2.zip",
+  "download": "https://github.com/quadur/foundryvtt-brinkwood/archive/refs/tags/v0.5.zip",
   "authors": [
     {"name": "quad" }
   ],
@@ -26,31 +26,6 @@
       "lang": "en",
       "name": "English",
       "path": "lang/en.json"
-    },
-    {
-      "lang": "ru",
-      "name": "Russian",
-      "path": "lang/ru.json"
-    },
-    {
-      "lang": "es",
-      "name": "Spanish",
-      "path": "lang/es.json"
-    },
-    {
-      "lang": "pl",
-      "name": "Polish",
-      "path": "lang/pl.json"
-    },
-    {
-      "lang": "de",
-      "name": "Deutsch",
-      "path": "lang/de.json"
-    },
-    {
-      "lang": "pt",
-      "name": "Portuguese",
-      "path": "lang/pt.json"
     }
   ],
   "packs": [
@@ -83,13 +58,6 @@
       "type": "Item"
     },
     {
-      "name": "associate",
-      "label": "Associates",
-      "system": "brinkwood",
-      "path": "./packs/associates.db",
-      "type": "Item"
-    },
-    {
       "name": "item",
       "label": "Items",
       "system": "brinkwood",
@@ -102,69 +70,6 @@
       "system": "brinkwood",
       "path": "./packs/traits.db",
       "type": "Item"
-    },
-    {
-      "name": "crew_reputation",
-      "label": "Crew Reputation",
-      "system": "brinkwood",
-      "path": "./packs/crew_reputation.db",
-      "type": "Item"
-    },
-    {
-      "name": "crew_type",
-      "label": "Crew Types",
-      "system": "brinkwood",
-      "path": "./packs/crew_types.db",
-      "type": "Item"
-    },
-    {
-      "name": "crew_upgrade",
-      "label": "Crew Upgrades",
-      "system": "brinkwood",
-      "path": "./packs/crew_upgrades.db",
-      "type": "Item"
-    },
-    {
-      "name": "crew_ability",
-      "label": "Crew Abilities",
-      "system": "brinkwood",
-      "path": "./packs/crew_abilities.db",
-      "type": "Item"
-    },
-	{
-      "name": "faction",
-      "label": "Factions",
-      "system": "brinkwood",
-      "path": "./packs/factions.db",
-      "type": "Item"
-    },
-    {
-      "name": "npc",
-      "label": "NPCs",
-      "system": "brinkwood",
-      "path": "./packs/npcs.db",
-      "type": "Actor"
-    },
-	{
-      "name": "entanglements",
-      "label": "Entanglements",
-      "system": "brinkwood",
-      "path": "./packs/entanglements.db",
-      "type": "RollTable"
-    },
-	{
-      "name": "entanglements-journals",
-      "label": "Entanglements Journals",
-      "system": "brinkwood",
-      "path": "./packs/entanglements-journals.db",
-      "type": "JournalEntry"
-    },
-	{
-      "name": "entanglements-macro",
-      "label": "Entanglements Macro",
-      "system": "brinkwood",
-      "path": "./packs/entanglements-macro.db",
-      "type": "Macro"
     }
   ]
 }

@@ -71,7 +71,7 @@
           <label class="black-label" for="character-{{_id}}-xp-0">{{localize system.experience.name}}</label>
           {{#with system as | system | }}
           {{#times_from_1 system.experience.max}}
-            <span class="dot-value" data-path="experience.value" data-max_value="{{system.experience.max}}" data-value="{{this}}">
+            <span class="dot-value" data-path="system.experience.value" data-max_value="{{system.experience.max}}" data-value="{{this}}">
               {{#if (lt system.experience.value this)}}
                 <img class="big-teeth" src="systems/brinkwood/styles/assets/teeth/stresstooth-halfgrey.png">
               {{else}}
@@ -89,7 +89,7 @@
           <label class="black-label" for="character-{{_id}}-stress-0">{{localize system.stress.name}}</label>
           {{#with system as | system | }}
           {{#times_from_1 system.stress.max}}
-            <span class="dot-value" data-path="stress.value" data-max_value="{{system.stress.max}}" data-value="{{this}}">
+            <span class="dot-value" data-path="system.stress.value" data-max_value="{{system.stress.max}}" data-value="{{this}}">
               {{#if (lt system.stress.value this)}}
 	        <img class="big-teeth" src="systems/brinkwood/styles/assets/teeth/stresstooth-halfgrey.png">
               {{else}}
@@ -185,30 +185,34 @@
         {{#if isGM}}
           <a class="item" data-tab="effects">{{localize "BITD.Effects"}}</a>
         {{/if}}
-        <a class="item" data-tab="all-character-items">{{localize "BITD.AllItems"}}</a>
       </nav>
 
       <div id="character-{{_id}}-traits" class="tab flex-vertical traits" data-tab="traits">
         <div class="label-stripe">
           <p><label for="character-{{_id}}-experience-0">{{localize "BITD.Traits"}}</label></p>
-          <p><a class="item-add-popup" data-item-type="ability"><i class="fas fa-plus-square"></i></a></p>
         </div>
 
         <div id="character-{{_id}}-traits-list">
-          {{#each items as |item id|}}
-          {{#if (eq item.type "trait")}}
-            <div class="item flex-horizontal" data-item-id="{{item._id}}">
-              <div class="item-body flex-horizontal">
-                <div class="item-name">{{item.name}}</div>
-                <div class="item-description">{{{item.system.description}}}</div>
+          {{#each traits as |trait id|}}
+          {{#if (eq trait.type "trait")}}
+            <div class="item flex-horizontal">
+              <div class="item-select" data-item-id="{{trait._id}}" data-item-list="traits">
+ 	      <div class="item-name">
+		<h3>
+		  <input type="checkbox" id="item-{{trait._id}}-purchased" class="dot" data-item-id="{{trait._id}}" {{#if trait.system.purchased }}checked{{/if}}>
+                  {{trait.name}}
+		</h3>
+	      </div>
+                <div class="flex-horizontal trait">
+                  <div class="item-description">{{{trait.system.description}}}</div>
+                </div>
               </div>
-              <a class="item-control item-delete" title="{{localize 'BITD.TitleDeleteItem'}}"><i class="fas fa-trash"></i></a>
             </div>
           {{/if}}
           {{/each}}
         </div>
         <div class="label-stripe flex-horizontal">
-           <p>{{localize "BITD.Loadout"}} <a class="item-add-popup" data-item-type="item"><i class="fas fa-plus-square"></i></a></p>
+           <p>{{localize "BITD.Loadout"}}</p>
            <p>{{system.loadout}}/{{localize system.load_level}} </p>
            <div class="dropdown">
              <select name="system.selected_load_level">
@@ -216,16 +220,19 @@
              </select>
            </div>
         </div>
-        <div>
+        <div class="item-list flex-horizontal">
           {{#each items as |item id|}}
           {{#if (eq item.type "item")}}
-            <div class="item flex-horizontal" data-item-id="{{item._id}}">
-              <div class="item-body flex-horizontal">
-                <img src="{{item.img}}" title="{{item.name}}" width="24" height="24"/>
-                <div class="item-name">{{item.name}}</div>
-                <div class="item-description">{{{item.system.description}}}</div>
+            <div class="item flex-horizontal item-select" data-item-id="{{item._id}}">
+	      <div class="item-equipped">
+                <input type="checkbox" id="item-{{item._id}}-equipped" class="dot" data-item-id="{{item._id}}" {{#if item.system.equipped }}checked{{/if}}>
               </div>
-              <a class="item-control item-delete" title="{{localize 'BITD.TitleDeleteItem'}}"><i class="fas fa-trash"></i></a>
+	      <div class="item-name">[{{item.system.load}}] {{item.name}}</div>
+              <div class="item-usage">
+                {{#times_from_1 item.system.uses }}
+                  <span class="dot-value" data-value="1" data-path="">&#9898;</span>
+                {{/times_from_1}}
+              </div>
             </div>
           {{/if}}
           {{/each}}
@@ -249,11 +256,8 @@
           {{#if (eq item.type "item")}}
             <div class="item flex-horizontal" data-item-id="{{item._id}}">
               <div class="item-body flex-horizontal">
-                <img src="{{item.img}}" title="{{item.name}}" width="24" height="24"/>
                 <div class="item-name">{{item.name}}</div>
-                <div class="item-description">{{{item.system.description}}}</div>
               </div>
-              <a class="item-control item-delete" title="{{localize 'BITD.TitleDeleteItem'}}"><i class="fas fa-trash"></i></a>
             </div>
           {{/if}}
           {{/each}}
@@ -274,22 +278,6 @@
           <p>{{localize "BITD.Effects"}}</p>
         </div>
         {{> "systems/brinkwood/templates/parts/active-effects.html"}}
-      </div>
-
-      {{!-- Full Item List --}}
-      <div class="tab grow-two flex-vertical" data-tab="all-character-items">
-        <div class="label-stripe">
-          <p><label>{{localize "BITD.AllItems"}}</label></p>
-        </div>
-        {{#each actor.items as |item id|}}
-        <div class="item flex-horizontal" data-item-id="{{item._id}}">
-          <div class="item-body item-sheet-open flex-horizontal">
-            <img src="{{item.img}}" title="{{item.name}}" width="24" height="24"/>
-            <div class="item-name">{{item.name}}</div>
-          </div>
-          <a class="item-control item-delete" title="{{localize 'BITD.TitleDeleteItem'}}"><i class="fas fa-trash"></i></a>
-        </div>
-        {{/each}}
       </div>
 
     </div>

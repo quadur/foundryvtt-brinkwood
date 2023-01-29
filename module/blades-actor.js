@@ -13,15 +13,20 @@ export class BladesActor extends Actor {
     data.prototypeToken = data.prototypeToken || {};
 
     // For Crew and Character set the Token to sync with charsheet.
-    switch (data.type) {
-      case 'character':
-      case 'crew':
-      case '\uD83D\uDD5B clock':
-        data.prototypeToken.actorLink = true;
-        break;
+    if ( ['character', 'crew', '\uD83D\uDD5B clock'].includes(data.type) ) {
+      data.prototypeToken.actorLink = true;
+    }
+    return super.create(data, options);
+  }
+
+  async _onCreate( data, options, userId ) {
+    super._onCreate( data, options, userId );
+    
+    //load basic items for characters
+    if ( data.type == "character" ) {
+      await this._loadBasicItems();
     }
 
-    return super.create(data, options);
   }
 
   /** @override */
@@ -213,4 +218,50 @@ export class BladesActor extends Actor {
 
   /* -------------------------------------------- */
 
+  async _onCreateEmbeddedDocuments( name, ...args ) {
+     super._onCreateEmbeddedDocuments ( name, ...args );
+     const newItem = args[0][0];
+
+     switch ( newItem.type ) {
+      case "profession":
+      case "upbringing":
+      case "mask":
+	await this._addTraits( newItem );
+      break;
+    }
+      
+  }
+
+  _onDeleteEmbeddedDocuments( name, ...args ) {
+    super._onDeleteEmbeddedDocuments (name, ...args);
+    const removedItem = args[0][0];
+
+    switch ( removedItem.type ){
+      case "profession":
+      case "upbringing":
+      case "mask":
+	this._deleteTraits(removedItem, removedItem.type);
+      break;
+    }
+  }
+
+  async _addTraits(data) {
+    const traits = await game.packs.get("brinkwood.trait").getDocuments({'system.class': data.name});
+    this.createEmbeddedDocuments( "Item", traits );
+  }
+
+  _deleteTraits(data) {
+    const charTraits = this.items.filter(i => i.type == "trait" && i.system.class == data.name).map(i => i._id)
+    this.deleteEmbeddedDocuments( "Item", charTraits );
+  }
+
+  async _loadBasicItems() {
+    // Load and create basic items from compendium
+    const basicItems = await game.packs.get("brinkwood.item").getDocuments({'system.class': ""});
+    this.createEmbeddedDocuments( "Item", basicItems);
+    
+    // Load and create custom basic items
+    const customBasicItems = await game.items.filter(i => i.type == "item" && i.system.class == "");
+    this.createEmbeddedDocuments( "Item", customBasicItems );
+  }
 }

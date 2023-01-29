@@ -35,6 +35,8 @@ export class BladesMaskSheet extends BladesSheet {
     // Prepare active effects
     sheetData.effects = BladesActiveEffect.prepareActiveEffectCategories(this.actor.effects);
 
+    sheetData.traits = sheetData.items.filter(i => i.type === "trait");
+
     // Calculate Load
     let loadout = 0;
     sheetData.items.forEach(i => {loadout += (i.type === "item") ? parseInt(i.system.load) : 0});

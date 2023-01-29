@@ -52,6 +52,59 @@ section {
   justify-content: space-between;
 }
 
+.item-list.flex-horizontal {
+  flex-flow: row wrap;
+}
+
+.item-list  {
+
+  div.item-name {
+    text-align: left;
+  }
+
+  div.item.flex-horizontal {
+    flex: 0 0 12em;
+    align-items: center;
+  } 
+}
+
+.flex-horizontal.trait {
+  align-items: center;
+
+  input[type="checkbox"] {
+    margin-right: 1em;
+  }
+}
+
+
+
+/*
+.item-list input[type="checkbox"] {
+  appearance: none;
+  background-color: #fff;
+  margin: 0;
+  font: inherit;
+  color: #000;
+  width: 1.15em;
+  height: 1.15em;
+  border: 0.15em solid #000;
+  border-radius: 50%;
+  transform: translateY(0.15em);
+}
+
+.item-list input[type="checkbox"]::before {
+  content: "";
+  width: 0.65em;
+  height: 0.65em;
+  transform: scale(0);
+  transition: 120ms transform ease-in-out;
+  box-shadow: inset 1em 1em black;
+}
+
+.item-list input[type="checkbox"]:checked::before {
+  transform: scale(1);
+}
+*/
 .flex-vertical {
   display: flex;
   flex-direction: column;

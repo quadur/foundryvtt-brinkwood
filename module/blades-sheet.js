@@ -19,6 +19,23 @@ export class BladesSheet extends ActorSheet {
     }
 
     html.find(".roll-die-attribute").click(this._onRollAttributeDieClick.bind(this));
+
+    html.find('.item-select').click( async e => {
+      const dataset = e.currentTarget.dataset;
+      const item_id = dataset.itemId;
+      let item = this.actor.getEmbeddedDocument("Item", item_id);
+      let update_data = {};
+      switch (item.type) {
+        case "trait":
+          update_data = {"system.purchased": !item.system.purchased};
+	break;
+        case "item":
+          update_data = {"system.equipped": !item.system.equipped};
+        break;
+      }
+      await item.update(update_data);
+    });
+
   }
 
   /* -------------------------------------------- */

@@ -9,12 +9,8 @@ export const preloadHandlebarsTemplates = async function() {
   const templatePaths = [
 
     // Actor Sheet Partials
-    "systems/brinkwood/templates/parts/coins.html",
     "systems/brinkwood/templates/parts/attributes.html",
     "systems/brinkwood/templates/parts/mask-attributes.html",
-    "systems/brinkwood/templates/parts/turf-list.html",
-    "systems/brinkwood/templates/parts/cohort-block.html",
-    "systems/brinkwood/templates/parts/factions.html",
     "systems/brinkwood/templates/parts/active-effects.html",
   ];
 

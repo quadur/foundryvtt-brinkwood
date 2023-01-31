@@ -19,15 +19,15 @@ The basics: working sheets for characters and masks. With rollable actions and r
 Bonus action scores at character creation and Blood Alchemy types - and everything else ;)
 
 ### What's next?
-[x] The biggest annoyance right now are the bonus action scores from the professions/classes - this is a small thing but a nice QOL addition.
-[x] Downtime action descriptions on a character sheet.
-[ ] Rebellion record sheet.
-[ ] Two-point mask abilities: Drink Deep and Multifaceted (along with crossmask ability selection).
-[ ] Better popups.
-[ ] Fay dossier sheet.
-[ ] Overhauling sheet design.
-[ ] Custom clock on sheets.
-[ ] ???
+- [x] The biggest annoyance right now are the bonus action scores from the professions/classes - this is a small thing but a nice QOL addition.
+- [x] Downtime action descriptions on a character sheet.
+- [ ] Rebellion record sheet.
+- [ ] Two-point mask abilities: Drink Deep and Multifaceted (along with crossmask ability selection).
+- [ ] Better popups.
+- [ ] Fay dossier sheet.
+- [ ] Overhauling sheet design.
+- [ ] Custom clock on sheets.
+- [ ] ???
 
 
 ## How to get in touch?

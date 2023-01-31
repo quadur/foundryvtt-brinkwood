@@ -33,7 +33,8 @@ export class BladesActiveEffect extends ActiveEffect {
     if(parsed instanceof Array){
       change.value = parsed;
     }
-    return super.apply(actor, change);
+		
+		return super.apply(actor, change);
   }
   /* --------------------------------------------- */
 
@@ -118,6 +119,13 @@ export class BladesActiveEffect extends ActiveEffect {
     return categories;
   }
 
+  _applyCustom(actor, change, current, delta, changes) {
+		super._applyCustom(actor, change, current, delta, changes);
+		const preHook = foundry.utils.getProperty(actor, change.key);
+		const newValue = (preHook + delta > 4) ? 4 : preHook + delta;
+		changes[change.key] = newValue;
+		Hooks.call("applyActiveEffect", actor, change, current, delta, changes);
+	}
 
 }
 

@@ -1,0 +1,29 @@
+<div id="character-{{_id}}-attributes" class="attributes">
+  <div id="character-{{../_id}}-attributes-{{system.type}}" class="attribute">
+    <div id="character-{{../_id}}-attributes-{{system.type}}-title" class="attributes-exp">
+      <div class="stripe">
+        <a class="attribute-label roll-die-attribute rollable-text" data-roll-attribute="{{../../system.type}}" data-roll-attribute-label="{{system.type}}">{{localize (concat system.type_lang 'Short')}}</a>
+      </div>
+    </div>
+    {{!-- Skills --}}
+    {{#each system.mask_attributes.skills as |skill skill_name|}}
+
+      <div class="flex-horizontal">
+        <div class="attributes-container">
+      	{{#times_from_1 4}}
+         <span class="dot-value" data-max_value="4" data-value="{{this}}" data-path="attributes.{{../../system.type}}.skills.{{skill_name}}.value">
+          {{#if (lt skill.value this)}}
+            &#9898;
+      	  {{else}}
+        	  &#9899;
+      	  {{/if}}
+        	</span>
+      	{{/times_from_1}}
+        <div class="attribute-skill-label roll-die-attribute rollable-text" data-roll-attribute="{{skill_name}}">{{localize skill.label}}</div>
+        </div>
+      </div>
+    {{/each}}
+  </div>
+</div>
+
+

@@ -236,6 +236,25 @@
   "BITD.SkillsQuarry": "Quarry",
   "BITD.SkillsSpoil": "Spoil",
 
+	"BITD.Downtime": "Downtime",
+	"BITD.Downtime1.name": "Long-Term Project",
+	"BITD.Downtime1.desc": "When you work on a long-term project (either a brand new one, or an already existing one), describe what your character does to progress the project, and make an action roll. Mark segments on the clock according to your result: 1-3: one segment; 4/5: two segments; 6: three segments; Critical: five segments.",
+	"BITD.Downtime2.name": "Reconnaissance",
+	"BITD.Downtime2.desc": "Describe how you use your rebellion’s intelligence network, informants, or scouts to assist you in gathering information. Make a gather information roll as normal, but add +Effect to it.",
+	"BITD.Downtime3.name": "Reduce Heat",
+	"BITD.Downtime3.desc": "Say what your character does to reduce the heat level and make an action roll. Maybe you Consort with your friend who’s able to make a few incriminating dispatches disappear. Or maybe you Hunt collaborators and spies. Reduce heat according to the result: 1-3: one; 4/5: two; 6: three; Critical: five.",
+	"BITD.Downtime4.name": "Prepare",
+	"BITD.Downtime4.desc": "Narrate how your brigand prepares for an upcoming foray. They might make plans and consult maps, practice their skills, or even just do various chores around the refuge. On your next engagement roll, gain +1d.",
+	"BITD.Downtime5.name": "Reconnect",
+	"BITD.Downtime5.desc": "Narrate how your character spends their time resting and reconnecting with their bonds,perhaps by visiting a favorite place, spending time with their friends and family, or bypracticing a relaxing hobby. When you reconnect, roll a number of dice equal to your lowest attribute, and remove stress from your stress track equal to the highest die roll.",
+	"BITD.Downtime6.name": "Recover",
+	"BITD.Downtime6.desc": "Describe how you receive aid from another brigand, an associate, an ally, or a fae. Receiving aid involves playing out a short scene in which your friends and allies help you to feel more “human.” Remove your highest ban.",
+	"BITD.Downtime7.name": "Hone Equipment",
+	"BITD.Downtime7.desc": "Describe how you spend time honing, improving, or practicing with a certain weapon or a piece of equipment. Add the fine tag to one piece of equipment, granting it +Effect. This tag is removed at the end of a foray in which the equipment was used.",
+	"BITD.Downtime8.name": "Command Cohort",
+	"BITD.Downtime8.desc": "Describe how you assemble, requisition, or train a group of rebels. Narrate any standing order you give them. You gain the assistance of a cohort of allies for a single mission. See further rules for Leading Allies on page 49 . The cohort is dismissed after their assigned mission is accomplished.", 
+	"BITD.Downtime9.name": "Requisition Asset",
+	"BITD.Downtime9.desc": "Describe how you beg, borrow, steal, or assemble a needed asset, such as a unique piece of equipment, an expert on an obscure subject, or a particular tool for an upcoming foray. The GM will create a use clock for the asset, and will tick a segment every time you need to use the asset. When a use clock fills, the asset is exhausted and will need to be reacquired before being used. The requisition asset action can also be used to resupply resources and supplies for the rebellion. Describe how you steal, gather, bargain for, or otherwise acquire resources necessary for the success of the rebellion and make an action roll. You might Hunt for game in the Brinkwood, or maybe Command a vampire courier into parting with some steel or silver. Unmark a number of segments on the resupply clock according to the result: 1-3: one segment; 4/5: two segments; 6: three segments; Crit: five segments.",
 
   "BITD.AddAbility": "Add Ability",
   "BITD.AddItem": "Add Item",
@@ -275,4 +294,5 @@
   "BITD.ShrewdFriends": "Shrewd Friends",
   "BITD.DarkServants": "Dark Servants",
   "BITD.StrangeFriends": "Strange Friends"
+
 }

@@ -11,6 +11,8 @@ Be warned, this is not stable and is susceptible to massive overhauls, I will tr
 ### So, what works?
 The basics: working sheets for characters and masks. With rollable actions and resistance rolls, all of the upbringings, professions, and mask types should have correct traits/special abilities selectable on the list. Character sheets have additionally a selectable list of all basic items with a proper load calculation.
 
+- [x] Downtime action descriptions on a character sheet.
+
 #### Screenshots
 
 ![image](./images/brinkwood_sheets.png)
@@ -19,14 +21,23 @@ The basics: working sheets for characters and masks. With rollable actions and r
 Bonus action scores at character creation and Blood Alchemy types - and everything else ;)
 
 ### What's next?
-- [x] The biggest annoyance right now are the bonus action scores from the professions/classes - this is a small thing but a nice QOL addition.
-- [x] Downtime action descriptions on a character sheet.
+
+#### After-session priorities
+- [ ] ! Fix clock actors.
+- [ ] Tooltips with action descriptions, pacts, exp triggers, ban usage etc.
+- [ ] Pact selection for characters.
+- [ ] Rollable Oath score.
+- [ ] Re-organize abilities: move selected to the top, colapse unused on characters (but not on masks).
+- [ ] Make tab selection more pretty/usable.
+
+#### TODO (later)
+
+- [ ] The biggest annoyance right now are the bonus action scores from the professions/classes - this has to have a separete system.
 - [ ] Rebellion record sheet.
 - [ ] Two-point mask abilities: Drink Deep and Multifaceted (along with crossmask ability selection).
-- [ ] Better popups.
 - [ ] Fay dossier sheet.
 - [ ] Overhauling sheet design.
-- [ ] Custom clock on sheets.
+- [ ] Custom clocks on sheets.
 - [ ] ???
 
 

@@ -4,16 +4,17 @@
   "description": "Brinkwood game system.",
   "version": "0.5.1",
   "compatibility": {
-    "minimum": 10,
+    "minimum": "10",
     "verified": "10.284"
   },
-  "name": "brinkwood",
-  "minimumCoreVersion": "10",
   "url": "https://github.com/quadur/foundryvtt-brinkwood",
   "manifest": "https://raw.githubusercontent.com/quadur/foundryvtt-brinkwood/master/system.json",
   "download": "https://github.com/quadur/foundryvtt-brinkwood/archive/refs/tags/v0.5.1.zip",
   "authors": [
-    {"name": "quad" }
+    {
+      "name": "quad",
+      "flags": {}
+    }
   ],
   "esmodules": [
     "module/blades.js"
@@ -25,7 +26,8 @@
     {
       "lang": "en",
       "name": "English",
-      "path": "lang/en.json"
+      "path": "lang/en.json",
+      "flags": {}
     }
   ],
   "packs": [
@@ -33,43 +35,55 @@
       "name": "class",
       "label": "Classes",
       "system": "brinkwood",
-      "path": "./packs/classes.db",
-      "type": "Item"
+      "path": "packs/classes.db",
+      "type": "Item",
+      "private": false,
+      "flags": {}
     },
     {
       "name": "upbringing",
       "label": "Upbringings",
       "system": "brinkwood",
-      "path": "./packs/upbringings.db",
-      "type": "Item"
+      "path": "packs/upbringings.db",
+      "type": "Item",
+      "private": false,
+      "flags": {}
     },
     {
       "name": "mask",
       "label": "Masks",
       "system": "brinkwood",
-      "path": "./packs/masks.db",
-      "type": "Item"
+      "path": "packs/masks.db",
+      "type": "Item",
+      "private": false,
+      "flags": {}
     },
     {
       "name": "profession",
       "label": "Professions",
       "system": "brinkwood",
-      "path": "./packs/professions.db",
-      "type": "Item"
+      "path": "packs/professions.db",
+      "type": "Item",
+      "private": false,
+      "flags": {}
     },
     {
       "name": "item",
       "label": "Items",
       "system": "brinkwood",
-      "path": "./packs/items.db",
-      "type": "Item"
+      "path": "packs/items.db",
+      "type": "Item",
+      "private": false,
+      "flags": {}
     },
     {
       "name": "trait",
       "label": "Traits",
       "system": "brinkwood",
-      "path": "./packs/traits.db",
-      "type": "Item"
+      "path": "packs/traits.db",
+      "type": "Item",
+      "private": false,
+      "flags": {}
     }
   ]
 }

@@ -269,7 +269,7 @@
         <div class="label-stripe">
           <p>{{localize "BITD.Notes"}}</p>
         </div>
-        <textarea rows="13" name="system.description">{{{system.description}}}</textarea>
+				{{editor system.description target="system.description" button=true editable=true documents=true engine="prosemirror" collaborate=true}}
       </div>
 
       {{!-- Active Effects --}}

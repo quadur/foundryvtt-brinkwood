@@ -296,44 +296,6 @@
       "default": {
         "description": ""
       },
-      "trait": {
-        "description": "",
-        "class": "",
-        "price": 1,
-        "purchased": false,
-        "class_default": false
-      },
-      "logic": {
-        "logic": ""
-      },
-      "baseSkills": {
-        "attributes":{
-          "insight": {
-	    "skills": {
-              "hunt": { "value": 0 },
-              "study": { "value": 0 },
-              "survey": { "value": 0 },
-              "tinker": { "value": 0 }
-	    }
-	  },
-	  "prowess": {
-            "skills": {
-	      "finesse": { "value": 0 },
-              "prowl": { "value": 0 },
-              "skirmish": { "value": 0 },
-              "wreck": { "value": 0 }
-	    }
-	  },
-	  "resolve": {
-	    "skills": {
-              "attune": { "value": 0 },
-              "command": { "value": 0 }, 
-              "consort": { "value": 0 }, 
-              "sway": { "value": 0 }
-            }
-          }
-        }
-      },
       "activatedEffect": {
         "activation": {
           "type": "",
@@ -365,29 +327,36 @@
           "target": null,
           "amount": null
         }
-      },
-      "item": {
-        "templates": ["default", "logic", "activatedEffect"],
-        "class": "",
-        "load": 0,
-        "uses": 1,
-        "additional_info": "",
-        "equipped" : false,
-        "num_available": 1
-      },
-      "class": {
-        "templates": ["default", "logic", "baseSkills"],
-        "experience_clues": []
-      },
-      "profession": {
-        "templates": ["default", "baseSkills"]
-      },
-      "upbringing": {
-        "templates": ["default", "baseSkills"]
-      },
-      "mask": {
-        "templates": ["default", "activatedEffect"]
       }
-    }
-  }
+		},
+		"trait": {
+			"description": "",
+			"class": "",
+			"price": 1,
+			"purchased": false,
+			"class_default": false
+		},
+		"item": {
+			"templates": ["default", "activatedEffect"],
+			"class": "",
+			"load": 0,
+			"uses": 1,
+			"additional_info": "",
+			"equipped" : false,
+			"num_available": 1
+		},
+		"class": {
+			"templates": ["default"],
+			"experience_clues": []
+		},
+		"profession": {
+			"templates": ["default"]
+		},
+		"upbringing": {
+			"templates": ["default"]
+		},
+		"mask": {
+			"templates": ["default"]
+		}
+	}
 }

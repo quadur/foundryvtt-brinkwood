@@ -1,12 +1,15 @@
-.tooltip {
-  display: none;
-  position: absolute;
-  padding: 10px;
-  color: $almost_white;
-  background-color: $almost_black;
-  border: 1px solid #777;
-  //box-shadow: 0 1px 3px 1px rgba(0,0,0,0.5);
-  border-radius: 3px;
-  z-index: 9999999;
-  max-width: 300px;
+.tooltip:hover {
+	filter: drop-shadow(0 0 0.2em crimson);
+}
+
+aside#tooltip.brinkwood-tooltip {
+	color: black; 
+	background-color: lightgrey;
+	border: 1px, solid, black;
+	border-radius: 0.5em;
+	font-family: "Crimson Text";
+  text-align: left !important;
+	margin: 1em;
+	font-size: var(--font-size-14);
+	max-width: 30em;
 }

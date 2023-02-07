@@ -13,7 +13,7 @@ export class BladesActor extends Actor {
     data.prototypeToken = data.prototypeToken || {};
 
     // For Crew and Character set the Token to sync with charsheet.
-    if ( ['character', 'crew', '\uD83D\uDD5B clock'].includes(data.type) ) {
+    if ( ['character', '\uD83D\uDD5B clock'].includes(data.type) ) {
       data.prototypeToken.actorLink = true;
     }
     return super.create(data, options);

@@ -14,30 +14,30 @@
       <div id="character-{{_id}}-traits" class="flex-column">
 
         <div class="item-block flex-horizontal">
-         <div class="item-class-label">
-					 <a class="item-add-popup" data-distinct="true" data-item-type="upbringing">{{localize "BITD.Upbringing"}}</a>
-				 </div>
+          <div class="item-class-label">
+	          <a class="item-add-popup" data-distinct="true" data-item-type="upbringing">{{localize "BITD.Upbringing"}}</a>
+          </div>
           {{#each items as |item id|}}
             {{#if (eq item.type "upbringing")}}
-              <div class="item flex-horizontal" data-item-id="{{item._id}}">
+						<div class="item flex-horizontal tooltip" data-item-id="{{item._id}}" data-tooltip="Actor.Upbringings.{{item.name}}" data-css-class="brinkwood-tooltip" data-tooltip-direction="RIGHT">
                 <div class="item-body flex-horizontal">
-                  <div class="item-name">{{item.name}}</div>
+									<div class="item-name">{{item.name}}</div>
                 </div>
-                <a class="item-control item-delete" title="{{localize 'BITD.TitleDeleteItem'}}"><i class="fas fa-trash"></i></a>
               </div>
-              {{/if}}
+            {{/if}}
           {{/each}}
         </div>
 
         <div class="item-block flex-horizontal">
-          <div class="item-class-label"><a class="item-add-popup" data-distinct="true" data-item-type="profession">{{localize "BITD.Profession"}}</a></div>
+          <div class="item-class-label">
+						<a class="item-add-popup" data-distinct="true" data-item-type="profession">{{localize "BITD.Profession"}}</a>
+					</div>
           {{#each items as |item id|}}
             {{#if (eq item.type "profession")}}
-            <div class="item flex-horizontal" data-item-id="{{item._id}}">
+						<div class="item flex-horizontal tooltip" data-item-id="{{item._id}}" data-tooltip="Actor.Professions.{{item.name}}" data-css-class="brinkwood-tooltip" data-tooltip-direction="RIGHT">
               <div class="item-body flex-horizontal">
                 <div class="item-name">{{item.name}}</div>
               </div>
-              <a class="item-control item-delete" title="{{localize 'BITD.TitleDeleteItem'}}"><i class="fas fa-trash"></i></a>
             </div>
             {{/if}}
           {{/each}}
@@ -47,16 +47,27 @@
           <div class="item-class-label"><a class="item-add-popup" data-distinct="true" data-item-type="class">{{localize "BITD.Class"}}</a></div>
             {{#each items as |item id|}}
                 {{#if (eq item.type "class")}}
-                <div class="item flex-horizontal" data-item-id="{{item._id}}">
+                <div class="item flex-horizontal tooltip" data-item-id="{{item._id}}" data-tooltip="Actor.Classes.{{item.name}}" data-css-class="brinkwood-tooltip" data-tooltip-direction="RIGHT">
                   <div class="item-body flex-horizontal">
                     <div class="item-name">{{item.name}}</div>
                   </div>
-                  <a class="item-control item-delete" title="{{localize 'BITD.TitleDeleteItem'}}"><i class="fas fa-trash"></i></a>
                 </div>
-                {{/if}}
+              {{/if}}
+            {{/each}}
+        </div>
+
+					<div class="item-block flex-horizontal">
+          <div class="item-class-label"><a class="item-add-popup" data-distinct="true" data-item-type="pact">{{localize "BITD.Pact"}}</a></div>
+            {{#each items as |item id|}}
+                {{#if (eq item.type "pact")}}
+                <div class="item flex-horizontal tooltip" data-item-id="{{item._id}}" data-tooltip="Actor.Pacts.{{item.name}}" data-css-class="brinkwood-tooltip" data-tooltip-direction="RIGHT">
+                  <div class="item-body flex-horizontal">
+                    <div class="item-name">{{item.name}}</div>
+                  </div>
+                </div>
+              {{/if}}
             {{/each}}
           </div>
-
       </div>
     </div>
 
@@ -68,8 +79,10 @@
 
       {{!-- XP --}}
       <div class="section big-teeth-section">
-        <div id="character-{{_id}}-xp" class="big-teeth character-xp">
-          <label class="black-label" for="character-{{_id}}-xp-0">{{localize system.experience.name}}</label>
+        <div id="character-{{_id}}-xp" class="big-teeth character-xp tooltip" data-tooltip="Actor.XP.Tooltip" data-css-class="brinkwood-tooltip" data-tooltip-direction="RIGHT">
+          <label class="black-label" for="character-{{_id}}-xp-0">
+						{{localize system.experience.name}}
+					</label>
           {{#with system as | system | }}
           {{#times_from_1 system.experience.max}}
             <span class="dot-value" data-path="system.experience.value" data-max_value="{{system.experience.max}}" data-value="{{this}}">
@@ -86,7 +99,7 @@
  
       {{!-- Stress --}}
       <div id="character-{{_id}}-stress-trauma" class="section big-teeth-section">
-        <div id="character-{{_id}}-stress" class="big-teeth character-stress">
+        <div id="character-{{_id}}-stress" class="big-teeth character-stress tooltip" data-tooltip="Actor.Stress.Tooltip" data-css-class="brinkwood-tooltip" data-tooltip-direction="RIGHT">
           <label class="black-label" for="character-{{_id}}-stress-0">{{localize system.stress.name}}</label>
           {{#with system as | system | }}
           {{#times_from_1 system.stress.max}}

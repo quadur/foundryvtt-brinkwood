@@ -23,9 +23,15 @@ Bonus action scores at character creation and Blood Alchemy types - and everythi
 ### What's next?
 
 #### After-session priorities
-- [ ] ! Fix clock actors.
-- [ ] Tooltips with action descriptions, pacts, exp triggers, ban usage etc.
-- [ ] Pact selection for characters.
+- [x] ! Fix clock actors.
+- [x] Pact selection for characters.
+- [ ] Better tooltips
+- - [x] Upbringings, Professions, Classes, Pacts
+- - [x] Action descriptions
+- - [x] Exp triggers
+- - [x] Stress usage
+- - [ ] Ban usage
+- - [ ] Mask actions
 - [ ] Rollable Oath score.
 - [ ] Re-organize abilities: move selected to the top, colapse unused on characters (but not on masks).
 - [ ] Make tab selection more pretty/usable.

@@ -84,6 +84,16 @@
       "type": "Item",
       "private": false,
       "flags": {}
+    },
+    {
+      "name": "pact",
+      "label": "Pacts",
+      "system": "brinkwood",
+      "path": "packs/pacts.db",
+      "type": "Item",
+      "private": false,
+      "flags": {}
     }
+
   ]
 }

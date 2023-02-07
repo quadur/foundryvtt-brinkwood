@@ -1,10 +1,110 @@
 {
+	"Actor": {
+		"Upbringings": {
+			"Apprentice": "Your parents were able to scrape together enough blood, silver, or connections to have you apprenticed to a master craftsman or merchant. You worked long hours learning your master’s craft or going over their books, enduring harsh punishments for simple mistakes, and working your fingers to the bone. But by the end of it, you knew a trade or how to balance a ledger. Valuable skills… until they devise a machine to replace you.",
+			"Cogscamper": "When the blood rent came due, you were sold or seized by a landlord and put to work in a mine or factory as a “cogscamper,” a small child laborer who can squeeze between the billowing machines, scamper down tight tunnels, or sweep the soot-stained chimneys. It was arduous, dangerous work, and many of your fellows were taken by a black cough or maimed by an errant loom. But you survived, “graduating” when you grew too tall to scamper and sweep, a crust of bread and a dram or two of blood sterling your only severance.",
+			"Faithful": "Some children are said to have a touch of the divine. Perhaps they have a knack for easing the troubles of others, or maybe they hear words or see signs that are invisible to everyone else. Whatever the reason, such children are usually secretly raised in the traditions of the Old Faith.",
+			"Foundling": "You were not born, per se, but found. Left near the Brinkwood when times grew lean and another hungry mouth was unwelcome, your fate seemed grim. But then you were taken in, possibly by a kindly villager, or perhaps by a curious fae of the wild. Your adoptive parent loved you and raised you into what you are today.",
+			"Peasant": "You were born into hardship. Your parents were simple sharecroppers who did their best, but were often tired and worn down from their labors and anemia. Still, the adversity strengthened you, hardened you, and taught you a few things about the natural world.",
+			"Scion": "You were raised in the lap of luxury, your every whim catered to by your parents and their servants. You drank blood sterling, and for a time blinded yourself to the pain and agony your good fortune was built on. But such ignorance cannot last, and eventually you turned away.",
+			"Student": "You had the good fortune to be born into a family that could afford to send you off for proper schooling. Perhaps you studied diligently; perhaps you took the opportunity to learn the ways, manners, and games of high society. Either way, you’re reasonably sure you got your parent’s money’s worth."
+		},
+		"Professions": {
+			"Alchemist": "Chemistry is a new science, still blended with old folk practices and the magic of alchemy. While many of the old formulae are bunk, the mere existence of blood sterling is enough to vouchsafe the merits of alchemy. Many a student aspires to be an alchemist in the court of some crimson noble… But many quickly realize the dark toll their would-be masters expect from them. To be a rogue alchemist is to be a living threat to vampiric secrecy — hunted for the very wisdom you possess.",
+	  	"Ascetic": "To desert one’s home and to venture into the forest is typically a death sentence, but a few hardy folk make it their practice. You survived on the fruits of the forest—a canopy of trees for a roof, branches for your bed—while you contemplated the mysteries of the universe. Such contemplation may have brought you wisdom, but it did not grant you the peace you sought. But when the fae beckoned to you, you traded such disillusionment for clarity.",
+			"Bard": "To make one’s coin through song or story is no easy task, but some hardy few choose it. They serve as scribes when demand for their art is on the wane, and entertain many a tavern or village square when the occasion calls for it. Few are those who would turn away a Bard, and they are welcome in humble hearths and grand palaces alike.",
+			"Cutpurse": "Thievery is a common, if risky occupation in the Bloody Isles. Those who get caught robbing the rich of their blood and silver can expect little mercy if caught. Still, if you have quick hands and a good batch of luck, it’s not an awful way to make a living.",
+			"Deserter": "Conscription is the order of the day among the peasantry, as any able-bodied folk may be called upon to take up steel to fight for their lord’s petty vendettas or conflicts. As such, there are many soldiers that become disillusioned with fighting a pointless war for a rich man’s profit, and desert quietly into the night.",
+			"Friar": "Many a second son or daughter of the nobility, or those touched with a sense of the divine, turn to a life of quiet contemplation in a monastery. A monastery education is one of the best you can get, and having access to blessed waters and an actual, readable prayerbook leads many to doubt the Reformed Faith and the lies of the vampires.",
+			"Healer": "The wise women common to villages in the Old Kingdom faced persecution of their craft by the Crimson Court and agents of the Reformed Faith, but some still practiced in secret, or passed their learned craft down to cunning and loyal students.",
+			"Poacher": "From the Old Kingdom to the Crimson Crown, the prohibition on poaching in the Lord’s woods remains. Still, when the grip of winter tightens, and the blood rent comes due, risking the hangman’s noose for a scrap of meat begins to look like a worthy trade.",
+			"Sailor": "Trade via waterways and the sea is still the mainstay in the Bloody Isles, and the cargo rigs and junkers that ply river and wave are crewed by hardy sailors. Sailors keep to themselves more than most, and are thus less susceptible to the temptations of the vampire lords and the blood sterling. Still, the long reach of the vampires can extend even to the sea, and where the vampires tread, tragedy likewise stalks.",
+			"Wastrel": "Vast wealth flows easily into the pockets of a select few. The scions of vampiric houses are those most likely to end up as wastrels, frittering away the blood and sweat of the peasantry in games of chance or houses of pleasure. Still, it is a path that ends only one of two ways: in death and misery, or in renunciation and redemption. Let’s hope you aim for the latter."
+		},
+		"Classes": {
+	  	"Commander": "<ul><li>+2 Command</li><li>+1 Skirmish</li></ul>",
+			"Herald": "<ul><li>+2 Sway</li><li>+1 Finesse</li></ul>",
+			"Mage": "<ul><li>+2 Study</li><li>+1 Attune</li></ul>",
+			"Messenger": "<ul><li>+2 Consort</li><li>+1 Prowl</li></ul>",
+			"Ranger": "<ul><li>+2 Survey</li><li>+1 Prowl</li></ul>",
+			"Rogue": "<ul><li>+2 Prowl</li><li>+1 Hunt</li></ul>",
+			"Saboteur": "<ul><li>+2 Wreck</li><li>+1 Prowl</li></ul>",
+		  "Warrior": "<ul><li>+2 Skirmish</li><li>+1 Wreck</li></ul>"
+		},
+    "Pacts": {
+			"Beauty": "You swear your <strong>Pact to Beauty</strong>, to write, to paint, to inspire and sing and celebrate; to demand bread as well as roses, to feed hearts and minds as well as stomachs; to find love, to share hope, and to build a world as marvelous as any yet imagined.",
+			"Freedom": "You take up the <strong>Pact of Freedom</strong>, to liberate, to destroy, to burn down every corrupt institution that comes before you, and to let free the raucous joy within your very soul.",
+			"Industry": "You swear a <strong>Pact of Industry</strong>, to create, to forge, to build friendships and alliances; to stoke the flames of passion, to cool and temper fury, and to hone yourself and your comrades into the finest blade ever to plunge into the heart of evil.",
+			"Justice": "You swear on a <strong>Pact of Justice</strong>, to balance the scales, to free the chained, to cast down the oppressor, to let the blood of the wicked flow in the streets and the cries of the powerless be heard.",
+			"Solidarity": "You forswear yourself in <strong>Solidarity</strong>, to stand with the weak, to shoulder their burdens, to meet their pain as your own.",
+			"Vengeance": "You swear a <strong>Pact of Vengeance</strong>, to humble the proud, to punish the wicked, to succor the weak, and exact retribution.",
+			"Wisdom": "You swear a <strong>Pact of Wisdom</strong>, to lay your plans carefully and precisely; to follow through on your promises while remembering your failures; to wait for the right moment and then strike, decisively and entirely."
+		},
+		"XP": {
+			"Tooltip": "<ul><li>If you brought into play your upbringing, profession, or personal history.</li><li>If you took a course of action because of or expressed your tragedy, triumph, or scars.</li><li>If you brought into play some aspect of your relationship to your fellow brigands, the rebellion, the Masks, or the Fae. Mask XP</li></ul>"
+		},
+		"Stress": {
+      "Name": "Stress",
+			"Tooltip": "You can use stress to push yourself for greater performance. For each bonus you choose below, take <strong>2</strong> stress: <ul><li>Add <strong>+1d</strong> to your roll. (This may be used for an action roll, downtime roll or any other kind of roll where extra effort would help you.)</li><li>Add <strong>+Effect</strong> to an action.</li><li>Take action when you’re incapacitated.</li></ul>"
+		},
+		"Actions": {
+			"Hunt": {
+				"Name": "Hunt",
+				"Description": "You might follow a target or discover their location. You might arrange an ambush. You might attack with precision shooting from a distance. You could try to bring your guns to bear in a melee (but <strong>Skirmishing</strong> might be better)."
+			},
+			"Study":  {
+				"Name": "Study",
+				"Description": "You might gather information from documents, newspapers, and books. You might do research on an esoteric topic. You might closely analyze a person to detect lies or true feelings. You could try to examine events to understand a pressing situation (but <strong>Surveying</strong> might be better)."
+			},
+			"Survey":  {
+				"Name": "Survey",
+				"Description": "You might spot telltale signs of trouble before it happens. You might uncover opportunities or weaknesses. You might detect a person’s motivations or intentions. You could try to spot a good ambush point (but <strong>Hunting</strong> might be better)."
+			},
+			"Tinker":  {
+				"Name": "Tinker",
+				"Description": "You might create a new gadget or alter an existing item. You might pick a lock or crack a safe. You might disable an alarm or trap. You might use the various anachronistic, magic, or clockwork devices in towns to your advantage. You could try to use your technical expertise to control a carriage (but <strong>Finessing</strong> might be better)."
+			},
+			"Finesse": {
+				"Name": "Finesse",
+				"Description": "You might pick someone’s pocket. You might handle the reins of a carriage or direct a mount. You might formally duel an opponent with graceful fighting arts. You could try to employ those arts in a chaotic melee (but <strong>Skirmishing</strong> might be better). You could try to pick a lock (but Tinkering might be better)."
+			},
+			"Prowl": {
+				"Name": "Prowl",
+				"Description": "You might sneak past a guard or hide in the shadows. You might run and leap across the rooftops. You might attack someone from hiding with a backstab or blackjack. You could try to waylay a victim in the midst of battle (but <strong>Skirmishing</strong> might be better)."
+			},
+			"Skirmish": {
+				"Name": "Skirmish",
+				"Description": "You might brawl or wrestle with them. You might hack and slash. You might seize or hold a position in battle. You could try to fight in a formal duel (but <strong>Finessing</strong> might be better)."
+			},
+			"Wreck": {
+				"Name": "Wreck",
+				"Description": "You might smash down a door or wall with a sledgehammer or an explosive. You might employ chaos or sabotage to create a distraction or overcome an obstacle. You could try to overwhelm an enemy with sheer force in battle (but <strong>Skirmishing</strong> might be better)."
+			},
+			"Attune": {
+				"Name": "Attune",
+				"Description": "You might communicate with the fae. You could try to perceive beyond sight in order to better understand your situation (but <strong>Surveying</strong> might be better)."
+			},
+			"Command": {
+				"Name": "Command",
+				"Description": "You might intimidate or threaten to get what you want. You might lead a gang in a group action. You could try to order people around to persuade them (but <strong>Consorting</strong> might be better)."
+			},
+			"Consort": {
+				"Name": "Consort",
+				"Description": "You might gain access to resources, information, people, or places. You might make a good impression or win someone over with your charm and style. You might make new friends or connect with your heritage or background. You could try to manipulate your friends with social pressure (but <strong>Sway</strong> might be better)."
+			},
+  		"Sway": {
+				"Name": "Sway",
+				"Description": "You might lie convincingly. You might persuade someone to do what you want. You might argue a compelling case that leaves no clear rebuttal. You could try to trick people into affection or obedience (but <strong>Consorting</strong> or <strong>Commanding</strong> might be better)."
+			}
+		}
+	},
   "BITD.HelloThere": "General Kenobi",
   "BITD.Upbringing": "Upbringing",
   "BITD.Profession": "Profession",
   "BITD.TitleDeleteItem": "Delete item",
   "BITD.Vice": "Vice",
   "BITD.Class": "Class",
+	"BITD.Pact": "Pact",
   "BITD.Stress": "Stress",
   "BITD.Alias": "Alias",
   "BITD.Designation": "Designation",
@@ -45,6 +145,7 @@
   "BITD.TraumaUnstable": "Unstable",
   "BITD.TraumaVicious": "Vicious",
   "BITD.Experience": "XP",
+	"BITD.ExperienceTriggers": "- If you brought into play your upbringing, profession, or personal history.\n - If you took a course of action because of or expressed your tragedy, triumph, or scars.\n - If you brought into play some aspect of your relationship to your fellow brigands, the rebellion, the Masks, or the Fae.",
   "BITD.Bans": "Bans",
   "BITD.Healing": "Healing",
   "BITD.Armor": "Armor",

@@ -62,11 +62,12 @@ export class BladesSheet extends ActorSheet {
       } else if (typeof e.system.price !== "undefined") {
         addition_price_load += `(${e.system.price})`
       }
-
+      html += `<div>`
       html += `<input id="select-item-${e._id}" type="${input_type}" name="select_items" value="${e._id}">`;
       html += `<label class="flex-horizontal" for="select-item-${e._id}">`;
-      html += `${game.i18n.localize(e.name)} ${addition_price_load} <i class="tooltip fas fa-question-circle"><span class="tooltiptext">${game.i18n.localize(e.system.description)}</span></i>`;
+      html += `${game.i18n.localize(e.name)} ${addition_price_load} <i class="tooltip fas fa-question-circle"></i>`;
       html += `</label>`;
+			html += `</div>`
     });
 
     html += `</div>`;

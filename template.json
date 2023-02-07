@@ -1,12 +1,9 @@
 {
   "Actor": {
-  "types": ["character", "mask", "npc", "\uD83D\uDD5B clock", "factions"],
+  "types": ["\uD83D\uDD5B clock", "npc", "character", "mask", "factions"],
   "character": {
     "alias": "",
     "look": "",
-    "upbringing": "",
-    "associates": [],
-    "traits": [],
     "associates_label": "BITD.Acquaintances",
     "stress": {
       "value": 0,
@@ -54,19 +51,19 @@
           "label": "BITD.SkillsInsight",
           "skills": {
             "hunt": {
-              "label": "BITD.SkillsHunt",
+              "label": "Actor.Actions.Hunt",
               "value": 0
             },
             "study": {
-              "label": "BITD.SkillsStudy",
+              "label": "Actor.Actions.Study",
               "value": 0
             },
             "survey": {
-              "label": "BITD.SkillsSurvey",
+              "label": "Actor.Actions.Survey",
               "value": 0
             },
             "tinker": {
-              "label": "BITD.SkillsTinker",
+              "label": "Actor.Actions.Tinker",
               "value": 0
             }
           }
@@ -77,19 +74,19 @@
           "label": "BITD.SkillsProwess",
           "skills": {
             "finesse": {
-              "label": "BITD.SkillsFinesse",
+              "label": "Actor.Actions.Finesse",
               "value": 0
             },
             "prowl": {
-              "label": "BITD.SkillsProwl",
+              "label": "Actor.Actions.Prowl",
               "value": 0
             },
             "skirmish": {
-              "label": "BITD.SkillsSkirmish",
+              "label": "Actor.Actions.Skirmish",
               "value": 0
             },
             "wreck": {
-              "label": "BITD.SkillsWreck",
+              "label": "Actor.Actions.Wreck",
               "value": 0
             }
           }
@@ -100,19 +97,19 @@
           "label": "BITD.SkillsResolve",
           "skills": {
             "attune": {
-              "label": "BITD.SkillsAttune",
+              "label": "Actor.Actions.Attune",
               "value": 0
             },
             "command": {
-              "label": "BITD.SkillsCommand",
+              "label": "Actor.Actions.Command",
               "value": 0
             },
             "consort": {
-              "label": "BITD.SkillsConsort",
+              "label": "Actor.Actions.Consort",
               "value": 0
             },
             "sway": {
-              "label": "BITD.SkillsSway",
+              "label": "Actor.Actions.Sway",
               "value": 0
             }
           }
@@ -278,7 +275,7 @@
   "\uD83D\uDD5B clock": {
     "name": "",
     "type": 4,
-    "value": "0"
+    "value": 0
   },
   "npc": {
     "name": "",
@@ -291,7 +288,7 @@
   }
   },
   "Item": {
-    "types": ["item", "class", "trait", "upbringing", "profession", "associates", "mask"],
+    "types": ["item", "class", "trait", "upbringing", "profession", "pact", "associates", "mask"],
     "templates": {
       "default": {
         "description": ""
@@ -357,6 +354,10 @@
 		},
 		"mask": {
 			"templates": ["default"]
+		},
+		"pact": {
+			"templates": ["default"]
 		}
+
 	}
 }

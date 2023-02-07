@@ -162,13 +162,8 @@ Hooks.once("init", async function() {
    */
 
   Handlebars.registerHelper('blades-clock', function(parameter_name, type, current_value, uniq_id, label=null) {
-
     let html = '';
-
-    if ( label !== null ) {
-      uniq_id = `${label}-${uniq_id}`;
-    }
-
+  
     if (current_value === null || current_value === 'null') {
       current_value = 0;
     }
@@ -178,7 +173,7 @@ Hooks.once("init", async function() {
     }
 
     // Label for 0
-    html += `<label class="clock-zero-label" for="clock-0-${uniq_id}}"><i class="fab fa-creative-commons-zero nullifier"></i><span class="clock-label">${label}</span></label>`;
+    html += `<label class="clock-zero-label" for="clock-0-${uniq_id}}"><i class="fab fa-creative-commons-zero nullifier"></i>${label}</label>`;
     html += `<div id="blades-clock-${uniq_id}" class="blades-clock clock-${type} clock-${type}-${current_value}" style="background-image:url('systems/brinkwood/styles/assets/progressclocks-svg/Progress Clock ${type}-${current_value}.svg');">`;
 
     let zero_checked = (parseInt(current_value) === 0) ? 'checked' : '';
@@ -228,3 +223,13 @@ Hooks.on("renderSceneControls", async (app, html) => {
   html.children().first().append( dice_roller );
 
 });
+
+Hooks.on('init', () => {
+  class BrinkwoodTooltipManager extends TooltipManager { 
+		activate(element, {text, direction, cssClass}={}) {
+  		cssClass = element.dataset.cssClass || cssClass;
+			super.activate(element, {text, direction, cssClass});
+		}
+	}
+  game.tooltip = new BrinkwoodTooltipManager();
+})

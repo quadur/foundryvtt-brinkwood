@@ -23,7 +23,7 @@ export class BladesItemSheet extends ItemSheet {
   /** @override */
   get template() {
     const path = "systems/brinkwood/templates/items";
-    let simple_item_types = ["profession", "upbringing", "crew_reputation", "mask"];
+    let simple_item_types = ["profession", "upbringing", "crew_reputation", "mask", "pact"];
     let template_name = `${this.item.type}`;
 
     if (simple_item_types.indexOf(this.item.type) >= 0) {
@@ -64,7 +64,6 @@ export class BladesItemSheet extends ItemSheet {
 
 //    sheetData.system.description = await TextEditor.enrichHTML(sheetData.system.description, {secrets: sheetData.owner, async: true});
     //    
-    console.log(sheetData);
     return sheetData;
   }
 }

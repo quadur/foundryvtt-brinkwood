@@ -30,7 +30,7 @@ Bonus action scores at character creation and Blood Alchemy types - and everythi
 - - [x] Action descriptions
 - - [x] Exp triggers
 - - [x] Stress usage
-- - [ ] Ban usage
+- - [x] Ban usage
 - - [ ] Mask actions
 - [ ] Rollable Oath score.
 - [ ] Re-organize abilities: move selected to the top, colapse unused on characters (but not on masks).

@@ -47,6 +47,10 @@
       "Name": "Stress",
 			"Tooltip": "You can use stress to push yourself for greater performance. For each bonus you choose below, take <strong>2</strong> stress: <ul><li>Add <strong>+1d</strong> to your roll. (This may be used for an action roll, downtime roll or any other kind of roll where extra effort would help you.)</li><li>Add <strong>+Effect</strong> to an action.</li><li>Take action when you’re incapacitated.</li></ul>"
 		},
+		"Bans": {
+      "Name": "Bans",
+			"Tooltip": "When a brigand wishes to succeed at a cost without rolling, they may take a ban. A ban bars the brigand from using an important part of their character’s abilities while they remain under it. Think of traditional bans in fairy tales against silver, cold iron, wood, etc. and you’ll have the right idea.<br>The GM and brigand should negotiate the mechanical and narrative nature of the ban, and the ban should be recorded in its relevant slot on the background sheet.<ul><li><strong>Level 1 - Light Ban:</strong> The brigand succeeds with <strong>limited effect</strong>. This ban usually bars an object/class of object.</li><li><strong>Level 2 - Normal Ban:</strong> The brigand succeeds with <strong>standard effect</strong>. This ban usually bars a class of object, a mechanic, or an action.</li><li><strong>Level 3 - Dangerous Ban:</strong> The brigand succeeds with </strong>great effect</strong>. This ban usually applies to several actions, a major mechanic, or entire masks.</li><li><strong>Level 4 - Final Ban:</strong> The brigand succeeds with <strong>extreme effect</strong> and, when narratively appropriate, their character dies, transitions into a fae NPC, becomes part of their mask, or some other outcome created collaboratively by the GM and player. <strong>The player has final say</strong> on the outcome of a Final Ban."
+		},
 		"Actions": {
 			"Hunt": {
 				"Name": "Hunt",

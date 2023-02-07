@@ -115,6 +115,10 @@
   }
   */
 }
+.brinkwood .window-content {
+  background-color: #FFF;
+  background-blend-mode: luminosity, normal;
+}
 .brinkwood textarea {
   margin-top: 10px;
   margin-bottom: 20px;

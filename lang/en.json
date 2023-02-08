@@ -102,6 +102,128 @@
 			}
 		}
 	},
+	"Mask": {
+    "XP": {
+			"Tooltip": "At the end of each session, mark 1 Mask XP (or 2 if performed multiple times)...<ul><li>If you fulfilled your oath.</li><li>If you defeated a vampire of a higher tier than your highest aspect.</li><li>If you fulfilled the condition unique to your mask.</li></ul>"
+		},
+		"Essence": {
+			"Tooltip": "You can use essence to <strong>push</strong> yourself for greater performance. For each bonus you choose below, spend 2 essence:<ul><li>Add <strong>+1d</strong> to your roll. (This may be used for an <strong>action roll</strong>, <strong>downtime roll</strong> or any other kind of roll where extra effort would help you.)</li><li>Add <strong>+Effect</strong> to an action.</li><li>Take action when you’re incapacitated.</li></ul>"
+		},
+		"Actions": {
+			"": {
+				"Name": "Frighten",
+				"Description": "When you Frighten, you instill fear into others.<ul><li>You might sow terror into the ranks of enemy soldiers, or scare a guard into fleeing. You might also try to influence a large group of people with fear, but Awe or Command might be better.</li></ul>"
+			},
+			"Awe": {
+				"Name": "Awe",
+				"Description": "When you Awe, you create a spectacle so fantastic it cannot be ignored.<ul><li>You might gather the attention of a group of townsfolk by using deft illusions and a booming voice. You might distract a garrison of enemy troops with a series of welltimed explosions, but Explode might be better.</li></ul>"
+			},
+			"Disarm": {
+				"Name": "Disarm",
+				"Description": "When you Disarm, you remove the ability of another to harm you.<ul><li>You might use snarling and threats to convince an enemy to give up a fight, or the deft twirl of a dagger to knock a blade aside, or soothing words to convince a wouldbe ally that you mean them no harm. You might persuade an angry crowd into hearing your side of the story, but Awe or Sway might be better.</li></ul>"
+			},
+			"Explode": {
+				"Name": "Explode",
+				"Description": "When you Explode, you use your emotions or literal explosive devices to make things go “boom.”<ul><li>You might use a passionate outburst to convince others of your cause. You might carefully set a series of powder kegs around an enemy garrison, wait for the right moment, and set them off. You might try to gather the attention of a large group using lights, illusions, explosions, and other trickery, but Awe might be better. You might use a detonation, or the threat of one, to cow an enemy into surrender, but Frighten might be better.</li></ul>"
+			},
+			"Slaughter": {
+				"Name": "Slaughter",
+				"Description": "When you Slaughter, you use close, personal violence with unparalleled viciousness.<ul><li>You might fight off a gang of ghouls using only a sword and a dagger. You might cut through ranks of loanfangs to get at their vampiric master. You might hold back an enemy force using only your wits and your blades, but Cover might be better.</li></ul>"
+			},
+			"Carnage": {
+				"Name": "Carnage",
+				"Description": "When you sow Carnage, you fight at a distance, using deft bow work or powder rifles to clash with a foe.<ul><li>You might take up a defensive position and rain death down upon your enemies. You might fight through back alleys, using rapid-fire arrows to fight off your pursuers, but Slaughter might be better. You might pick off pursuing enemies one by one to give a comrade enough time to escape, but Cover might be better.</li></ul>"
+			},
+			"Direct": {
+				"Name": "Direct",
+				"Description": "When you Direct, you use shouts, orders, planning, and signals to execute a plan or rally your allies in the heat of battle.<ul><li>You might signal for an ambush to begin at the perfect moment, striking with precise coordination. You might lead your forces into close combat or ranged attack, but Slaughter or Carnage might be better.</li></ul>"
+			},
+			"Cover": {
+				"Name": "Cover",
+				"Description": "When you Cover, you use violence to protect your friends and allies.<ul><li>You might rain down arrows from a rooftop to harry and drive back a gang of powdermen. You might stand between your allies and your enemies, shield raised, sword drawn, taunting them with insults and daring them to attack. You might order a cohort to retreat while you hold the line, but Direct might be better.</li></ul>"
+			},
+			"Deceive": {
+				"Name": "Deceive",
+				"Description": "When you Deceive, you use lies, half-truths, and trickery to coerce others.<ul><li> You might lie to a guardsman, or put on airs that you are someone you’re not. You might sow dissent or spread rumors among an enemy camp. You might hide your true identity or that of your comrades, but Hide might be better.</li></ul>"
+			},
+			"Hide": {
+				"Name": "Hide",
+				"Description": "When you Hide, you use shadows, disguises, crowds, and any other available means to veil yourself and your allies.<ul><li>You might stick close to the shadows, waiting for your moment. You might put on a guardsmans’ uniform to infiltrate an enemy camp. You might stow a few revolutionaries under the floorboards when the bailiff comes a-knocking. You might use deceit to hide your true intentions, but Deceive might be better.</li></ul>"
+			},
+			"Reveal": {
+				"Name": "Reveal",
+				"Description": "When you Reveal, you discover what was hidden or dramatically disclose new information to others.<ul><li>You might investigate a crime, search for evidence, or track down something horrid. You might pour over arcane tomes, searching for hidden wisdom. You might dramatically uncover a vampire for the foul leech that they are, or disclose the culprit of some terrible crime. You might impart wisdom and teachings to others, but Educate might be better.</li></ul>"
+			},
+			"Educate": {
+				"Name": "Educate",
+				"Description": "When you Educate, you teach, elucidate, or hold forth on a topic of expertise.<ul><li>You might remind your allies of the best way to dispatch a particular type of monstrosity or vampire. You might take time to tutor a peasant family on their letters, earning their trust. You might read stories, tell legends, or record folklore. You might disguise yourself as a travelling scholar, but Hide might work better.</li></ul>"
+			},
+			"Rouse": {
+				"Name": "Rouse",
+				"Description": "When you Rouse, you gather people to take action.<ul><li>You might hold court with fiery rhetoric in a town square or a quiet hideaway. You might rally the oppressed to fight against their oppressors. You might bolsteryour allies flagging morale by stoking their passions and reminding them of what they fight for, but Inspire might be better. You might lead a crowd through the streets, riotous and free, but Burn might be better.</li></ul>"
+			},
+			"Burn": {
+				"Name": "Burn",
+				"Description": "When you Burn, you set fire: to hearts with your words, to buildings with torches, to vampires with more torches (and possibly lamp oil).<ul><li>You might set a warehouse of blood sterling or a store of powder aflame, dealing a blow against your enemies. You might use fiery rhetoric to rouse the passions of the downtrodden, but Rouse might be better. You might threaten your oppressors with a crowd of angry villagers with pitchforks and torches, but Provoke might be better.</li></ul>"
+			},
+			"Inspire": {
+				"Name": "Inspire",
+				"Description": "When you Inspire, you fill the hearts of your allies with passion, and their minds with purpose.<ul><li>You might rally a flagging band of revolutionaries to redouble their efforts. You might convince a crowd of peasants, pushed past the breaking point, to take collective action, but Rouse might be better.</li></ul>"
+			},
+			"Provoke": {
+				"Name": "Provoke",
+				"Description": "When you Provoke, you use rhetoric and other means to get your enemies to do things they really shouldn’t.<ul><li>You might denounce a vampire lord in the public square, drawing the attention of the guardsmen while your allies slip away. You might provoke a bailiff or hunter into firing the first shot or taking the first swing. You might use jabs, reminders, and harsh, fiery language to demand your allies take action, but Rouse might be better.</li></ul>"
+			},
+			"Suture": {
+				"Name": "Suture",
+				"Description": "When you Suture, you use stitches, powders, and unguents to repair people and things.<ul><li>You might sew closed an open wound, dressing it to keep a comrade in the fight. You might bind an enemy with ropes to prevent their escape. You might stitch together some cloth into a makeshift rope, but Tinker might be better.</li></ul>"
+			},
+			"Exsanguinate": {
+				"Name": "Exsanguinate",
+				"Description": "When you Exsanguinate, you draw blood from the veins of another.<ul><li>You might drain the blood from a vampire, quickly and efficiently. You might draw blood from a willing patient to help you better diagnose their malady. You might administer blood to an anemic ally, but Tend might be better. You might use quick swipes of a blade to open up the arteries of an enemy, but Vivisect might be better.</li></ul>"
+			},
+			"Vivisect": {
+				"Name": "Vivisect",
+				"Description": "When you Vivisect, you use quick, precise blade strikes on the living and dead.<ul><li>You might rend a foe limb from limb, opening arteries, slicing deeply, and generally causing havoc. You might dissect a dead body, performing an autopsy to attempt to determine who or what killed them. You might perform delicate surgery to remove some tumor or other plague flesh from a patient, but Tend might be better.</li></ul>"
+			},
+			"Tend": {
+				"Name": "Tend",
+				"Description": "When you Tend to another, you care for your comrade’s well-being, both mental and physical.<ul><li>You might treat a wound, set a fractured bone, or cure some foul sickness with powerful medicines. You might look after emotional needs, providing support, encouragement, advice, or just a friendly ear. You might seek to understand how a person was harmed or how a corpse came into its present state, though Vivisect might be better. You might wrap a bandage over an open wound or cut, though it might be better to Suture the wound closed.</li></ul>"
+			},
+			"Snipe": {
+				"Name": "Snipe",
+				"Description": "When you Snipe, you shoot at targets from long range.<ul><li>You might set up a well-concealed position to shoot at a target from concealment. You look for a good place to shoot from, but Scout might be better.</li></ul>"
+			},
+			"Scout": {
+				"Name": "Scout",
+				"Description": "When you Scout, you gather intelligence on terrain and enemy forces.<ul><li>You might seek out a location for a raid or ambush. You might investigate ahead of your party, searching for any hidden dangers. You might keep an eye on a situation from a distance, ready to step in, but Read might be better.</li></ul>"
+			},
+			"Read": {
+				"Name": "Read",
+				"Description": "When you Read, you scan and interpret writing or situations.<ul><li>You might scrutinize and decipher an ancient text or an encoded message. You might read a room, searching out hostile intent. You might search the face of an ally or enemy, attempting to discern their emotions. You might judge a situation, a case’s evidence, or a trial. You might get the lay of the land, searching for a clear path through difficult terrain, but Scout might be better.</li></ul>"
+			},
+			"Slip": {
+				"Name": "Slip",
+				"Description": "When you Slip, you quietly fade away.<ul><li>You might slip away into a crowd or the shadows. You might give a pursuing enemy the slip. You might push a dagger into the bowels of a nosy bailiff, or a pull keyring off the belt of a prison warden, but Finesse might be better.</li></ul>"
+			},
+			"Corrupt": {
+				"Name": "Corrupt",
+				"Description": "When you Corrupt, you use the power in your blood as a weapon.<ul><li>You might inflict the effect of your alchemical blood by using it as a dire poison, or perhaps by altering the blood of a foe, though Spoil may be better.</li></ul>"
+			},
+	  	"Crack": {
+				"Name": "Crack",
+				"Description": "When you Crack, you force a small but critical break.<ul><li>You might force a break in an enemy’s defenses, or shatter a key support in some structure. You might tear apart a door or other barrier, though Wreck may be better.</li></ul>"
+			},
+			"Quarry": {
+				"Name": "Quarry",
+				"Description": "When you Quarry, you strengthen, reinforce or pursue.<ul><li>You might stabilize a defense or imbue old stone or wooden fortifications with renewed strength. You might stalk prey across a great distance, though Hunt or Prowl may be better.</li></ul>"
+			},
+		  "Spoil": {
+				"Name": "Spoil",
+				"Description": "When you Spoil, you rot and spread illness from within.Ő You might ruin an enemy’s food supplies, or spread disease and rot throughout an enemy encampment. You might use magic or poison to weaken or debilitate a foe, although Corrupt may be better.</li></ul>"
+			}
+		}
+	},
   "BITD.HelloThere": "General Kenobi",
   "BITD.Upbringing": "Upbringing",
   "BITD.Profession": "Profession",

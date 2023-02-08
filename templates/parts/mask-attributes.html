@@ -19,7 +19,7 @@
       	  {{/if}}
         	</span>
       	{{/times_from_1}}
-        <div class="attribute-skill-label roll-die-attribute rollable-text" data-roll-attribute="{{skill_name}}">{{localize skill.label}}</div>
+        <div class="attribute-skill-label roll-die-attribute rollable-text" data-roll-attribute="{{skill_name}}" data-tooltip="{{skill.label}}.Description" data-css-class="brinkwood-tooltip" data-tooltip-direction="RIGHT">{{localize (concat skill.label '.Name')}}</div>
         </div>
       </div>
     {{/each}}

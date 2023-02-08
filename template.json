@@ -48,7 +48,7 @@
         "insight": {
           "exp": 0,
           "exp_max": 6,
-          "label": "BITD.SkillsInsight",
+          "label": "Mask.Actions.Insight",
           "skills": {
             "hunt": {
               "label": "Actor.Actions.Hunt",
@@ -71,7 +71,7 @@
         "prowess": {
           "exp": 0,
           "exp_max": 6,
-          "label": "BITD.SkillsProwess",
+          "label": "Mask.Actions.Prowess",
           "skills": {
             "finesse": {
               "label": "Actor.Actions.Finesse",
@@ -94,7 +94,7 @@
         "resolve": {
           "exp": 0,
           "exp_max": 6,
-          "label": "BITD.SkillsResolve",
+          "label": "Mask.Actions.Resolve",
           "skills": {
             "attune": {
               "label": "Actor.Actions.Attune",
@@ -133,19 +133,19 @@
       "lies": {
         "skills": {
           "deceive": {
-            "label": "BITD.SkillsDeceive",
+            "label": "Mask.Actions.Deceive",
             "value": 0
           },
           "hide": {
-            "label": "BITD.SkillsHide",
+            "label": "Mask.Actions.Hide",
             "value": 0
           },
           "reveal": {
-            "label": "BITD.SkillsReveal",
+            "label": "Mask.Actions.Reveal",
             "value": 0
           },
           "educate": {
-            "label": "BITD.SkillsEducate",
+            "label": "Mask.Actions.Educate",
             "value": 0
           }
         }
@@ -153,19 +153,19 @@
       "ruin": {
         "skills": {
           "corrupt": {
-            "label": "BITD.SkillsCorrupt",
+            "label": "Mask.Actions.Corrupt",
             "value": 0
           },
           "crack": {
-            "label": "BITD.SkillsCrack",
+            "label": "Mask.Actions.Crack",
             "value": 0
           },
           "quarry": {
-            "label": "BITD.SkillsQuarry",
+            "label": "Mask.Actions.Quarry",
             "value": 0
           },
           "spoil": {
-            "label": "BITD.SkillsSpoil",
+            "label": "Mask.Actions.Spoil",
             "value": 0
           }
 	      }
@@ -173,19 +173,19 @@
       "terror": {
         "skills": {
           "frighten": {
-            "label": "BITD.SkillsFrighten",
+            "label": "Mask.Actions.Frighten",
             "value": 0
           },
           "awe": {
-            "label": "BITD.SkillsAwe",
+            "label": "Mask.Actions.Awe",
             "value": 0
           },
           "disarm": {
-            "label": "BITD.SkillsDisarm",
+            "label": "Mask.Actions.Disarm",
             "value": 0
           },
           "explode": {
-            "label": "BITD.SkillsExplode",
+            "label": "Mask.Actions.Explode",
             "value": 0
           }
         }
@@ -193,19 +193,19 @@
       "violence": {
         "skills": {
           "slaughter": {
-            "label": "BITD.SkillsSlaughter",
+            "label": "Mask.Actions.Slaughter",
             "value": 0
           },
           "carnage": {
-            "label": "BITD.SkillsCarnage",
+            "label": "Mask.Actions.Carnage",
             "value": 0
           },
           "direct": {
-            "label": "BITD.SkillsDirect",
+            "label": "Mask.Actions.Direct",
             "value": 0
           },
           "cover": {
-            "label": "BITD.SkillsCover",
+            "label": "Mask.Actions.Cover",
             "value": 0
           }
         }
@@ -213,19 +213,19 @@
       "riot": {
         "skills": {
           "rouse": {
-            "label": "BITD.SkillsRouse",
+            "label": "Mask.Actions.Rouse",
             "value": 0
           },
           "burn": {
-            "label": "BITD.SkillsBurn",
+            "label": "Mask.Actions.Burn",
             "value": 0
           },
           "inspire": {
-            "label": "BITD.SkillsInspire",
+            "label": "Mask.Actions.Inspire",
             "value": 0
           },
           "provoke": {
-            "label": "BITD.SkillsProvoke",
+            "label": "Mask.Actions.Provoke",
             "value": 0
           }
         }
@@ -233,19 +233,19 @@
       "torment": {
         "skills": {
           "drain": {
-            "label": "BITD.SkillsDrain",
+            "label": "Mask.Actions.Drain",
             "value": 0
           },
           "vivisect": {
-            "label": "BITD.SkillsVivisect",
+            "label": "Mask.Actions.Vivisect",
             "value": 0
           },
           "suture": {
-            "label": "BITD.SkillsSuture",
+            "label": "Mask.Actions.Suture",
             "value": 0
           },
           "tend": {
-            "label": "BITD.SkillsTend",
+            "label": "Mask.Actions.Tend",
             "value": 0
           }
         }
@@ -253,19 +253,19 @@
       "judgment": {
         "skills": {
           "snipe": {
-            "label": "BITD.SkillsSnipe",
+            "label": "Mask.Actions.Snipe",
             "value": 0
           },
           "scout": {
-            "label": "BITD.SkillsScout",
+            "label": "Mask.Actions.Scout",
             "value": 0
           },
           "read": {
-            "label": "BITD.SkillsRead",
+            "label": "Mask.Actions.Read",
             "value": 0
           },
           "slip": {
-            "label": "BITD.SkillsSlip",
+            "label": "Mask.Actions.Slip",
             "value": 0
           }
         }

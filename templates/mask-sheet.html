@@ -32,7 +32,7 @@
     <div class="grow-two">
       {{!-- XP --}}
       <div class="section big-teeth-section">
-        <div id="mask-{{_id}}-xp" class="big-teeth character-xp">
+        <div id="mask-{{_id}}-xp" class="big-teeth character-xp tooltip" data-tooltip="Mask.XP.Tooltip" data-css-class="brinkwood-tooltip" data-tooltip-direction="RIGHT">
           <label class="black-label" for="mask-{{_id}}-xp-0">{{localize system.experience.name}}</label>
           {{#with system as | system | }}
           {{#times_from_1 system.experience.max}}
@@ -49,7 +49,7 @@
       </div>
  
       {{!-- Stress --}}
-      <div id="mask-{{_id}}-stress-trauma" class="section big-teeth-section">
+      <div id="mask-{{_id}}-stress-trauma" class="section big-teeth-section tooltip" data-tooltip="Mask.Essence.Tooltip" data-css-class="brinkwood-tooltip" data-tooltip-direction="RIGHT">
         <div id="mask-{{_id}}-stress" class="big-teeth character-stress">
           <label class="black-label" for="mask-{{_id}}-stress-0">{{localize system.essence.name}}</label>
           {{#with system as | system | }}

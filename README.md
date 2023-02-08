@@ -4,6 +4,11 @@
 This a barebones implementation of Brinkwood its still heavily based on megastrukturs Blades in The Dark and has *waaay* too much leftover/unused logic.
 Be warned, this is not stable and is susceptible to massive overhauls, I will try to implement all changes in a non-game-breaking manner but YOU HAVE BEEN WARNED.
 
+### v0.5.2
+- Fixed clock actors
+- Added selectable Pacts to the PC sheet
+- Rework of tooltips and most of the basic ones added
+
 ### v0.5.1 
 - Bonus action scores form classes and professions should work properly now.
 - Downtime action descriptions added to a tab on character sheets.
@@ -31,7 +36,8 @@ Bonus action scores at character creation and Blood Alchemy types - and everythi
 - - [x] Exp triggers
 - - [x] Stress usage
 - - [x] Ban usage
-- - [ ] Mask actions
+- - [x] Mask actions
+- - [ ] Mask XP Triggers
 - [ ] Rollable Oath score.
 - [ ] Re-organize abilities: move selected to the top, colapse unused on characters (but not on masks).
 - [ ] Make tab selection more pretty/usable.

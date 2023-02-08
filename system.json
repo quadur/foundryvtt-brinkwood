@@ -2,14 +2,14 @@
   "id": "brinkwood",
   "title": "Brinkwood",
   "description": "Brinkwood game system.",
-  "version": "0.5.1",
+  "version": "0.5.2",
   "compatibility": {
     "minimum": "10",
     "verified": "10.284"
   },
   "url": "https://github.com/quadur/foundryvtt-brinkwood",
   "manifest": "https://raw.githubusercontent.com/quadur/foundryvtt-brinkwood/master/system.json",
-  "download": "https://github.com/quadur/foundryvtt-brinkwood/archive/refs/tags/v0.5.1.zip",
+  "download": "https://github.com/quadur/foundryvtt-brinkwood/archive/refs/tags/v0.5.2.zip",
   "authors": [
     {
       "name": "quad",

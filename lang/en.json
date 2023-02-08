@@ -178,9 +178,9 @@
 				"Name": "Suture",
 				"Description": "When you Suture, you use stitches, powders, and unguents to repair people and things.<ul><li>You might sew closed an open wound, dressing it to keep a comrade in the fight. You might bind an enemy with ropes to prevent their escape. You might stitch together some cloth into a makeshift rope, but Tinker might be better.</li></ul>"
 			},
-			"Exsanguinate": {
-				"Name": "Exsanguinate",
-				"Description": "When you Exsanguinate, you draw blood from the veins of another.<ul><li>You might drain the blood from a vampire, quickly and efficiently. You might draw blood from a willing patient to help you better diagnose their malady. You might administer blood to an anemic ally, but Tend might be better. You might use quick swipes of a blade to open up the arteries of an enemy, but Vivisect might be better.</li></ul>"
+			"Drain": {
+				"Name": "Drain",
+				"Description": "When you Drain, you draw blood from the veins of another.<ul><li>You might drain the blood from a vampire, quickly and efficiently. You might draw blood from a willing patient to help you better diagnose their malady. You might administer blood to an anemic ally, but Tend might be better. You might use quick swipes of a blade to open up the arteries of an enemy, but Vivisect might be better.</li></ul>"
 			},
 			"Vivisect": {
 				"Name": "Vivisect",
@@ -451,7 +451,7 @@
   "BITD.SkillsDirect": "Direct",
   "BITD.SkillsCover": "Cover",
 
-  "BITD.JudgmentShort": "Judgment",
+  "BITD.JudgementShort": "Judgement",
   "BITD.SkillsSnipe": "Snipe",
   "BITD.SkillsScout": "Scout",
   "BITD.SkillsRead": "Read",

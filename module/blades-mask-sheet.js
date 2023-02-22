@@ -35,7 +35,17 @@ export class BladesMaskSheet extends BladesSheet {
     // Prepare active effects
     sheetData.effects = BladesActiveEffect.prepareActiveEffectCategories(this.actor.effects);
 
-    sheetData.traits = sheetData.items.filter(i => i.type === "trait");
+		this.setAttrLabels(sheetData.system.attributes, "Mask");
+
+		sheetData.system.oath = game.user.character.system.oath || 0;
+
+    sheetData.traits = sheetData.items.filter(i => i.type === "trait").sort((a, b) => {
+			if (a.system.purchased > b.system.purchased) {
+				return -1;
+			} else {
+				return 1;
+			}
+    });
 
     // Calculate Load
     let loadout = 0;
@@ -63,6 +73,7 @@ export class BladesMaskSheet extends BladesSheet {
     if (sheetData.system.type) {
       sheetData.system.type_lang = `BITD.${sheetData.system.type.capitalize()}`;
       sheetData.system.mask_attributes = sheetData.system.attributes[sheetData.system.type];
+  		sheetData.system.xp_tooltip = game.i18n.localize('Mask.XP.Tooltip') + game.i18n.localize(`Mask.XP.${sheetData.system.type.capitalize()}`)
     }
 
     //look for Mule ability
@@ -80,9 +91,12 @@ export class BladesMaskSheet extends BladesSheet {
       sheetData.system.load_level=load_level[loadout];
     }
 
+
+
     sheetData.system.load_levels = {"BITD.Light":"BITD.Light", "BITD.Normal":"BITD.Normal", "BITD.Heavy":"BITD.Heavy"};
 
     sheetData.system.description = await TextEditor.enrichHTML(sheetData.system.description, {secrets: sheetData.owner, async: true});
+
 
     return sheetData;
   }

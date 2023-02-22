@@ -4,6 +4,11 @@
 This a barebones implementation of Brinkwood its still heavily based on megastrukturs Blades in The Dark and has *waaay* too much leftover/unused logic.
 Be warned, this is not stable and is susceptible to massive overhauls, I will try to implement all changes in a non-game-breaking manner but YOU HAVE BEEN WARNED.
 
+### v0.5.3
+- Tooltips changed to the "proper" foundry format, all of the actions (char & Mask), exp triggers and other char traits should have a proper tooltip right now. 
+- Rolls have been prtialy refactored and Essence roll (for doning of the Mask) is now possible form the Mask sheet using the players assigned character oath Score.
+- Other fixes: spelling mistakes, missing langs etc.
+
 ### v0.5.2
 - Fixed clock actors
 - Added selectable Pacts to the PC sheet
@@ -30,21 +35,33 @@ Bonus action scores at character creation and Blood Alchemy types - and everythi
 #### After-session priorities
 - [x] ! Fix clock actors.
 - [x] Pact selection for characters.
-- [ ] Better tooltips
+- [x] Better tooltips
 - - [x] Upbringings, Professions, Classes, Pacts
 - - [x] Action descriptions
 - - [x] Exp triggers
 - - [x] Stress usage
 - - [x] Ban usage
 - - [x] Mask actions
-- - [ ] Mask XP Triggers
-- [ ] Rollable Oath score.
-- [ ] Re-organize abilities: move selected to the top, colapse unused on characters (but not on masks).
-- [ ] Make tab selection more pretty/usable.
+- - [x ] Mask XP Triggers
+- [x] Lang for attributes
+- [x] Lang for rolls 
+- [x] Fix typo for Terror.Frighten in langfile
+- [x] Remove labels from template.json
+- [x] Re-organize abilities: move selected to the top, colapse unused on characters (but not on masks).
+- [x] Reimplement the rolling system to use dataset values
+- - [x] Add values to rollable datasets
+- - - [x] Count values for attributes & add them to the sheets
+- - - [x] Add action values to sheets
+- - [x] Update roll function
+- [x] Rollable Essence score.
+- - [x] Backend for rolling with selected character Oath score.
+- - [x] Proper Essence roll chat message.
 
 #### TODO (later)
 
+- [ ] Blood alchemy
 - [ ] The biggest annoyance right now are the bonus action scores from the professions/classes - this has to have a separete system.
+- [ ] Make tab selection more pretty/usable.
 - [ ] Rebellion record sheet.
 - [ ] Two-point mask abilities: Drink Deep and Multifaceted (along with crossmask ability selection).
 - [ ] Fay dossier sheet.

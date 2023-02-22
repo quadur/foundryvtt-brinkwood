@@ -32,7 +32,7 @@
     <div class="grow-two">
       {{!-- XP --}}
       <div class="section big-teeth-section">
-        <div id="mask-{{_id}}-xp" class="big-teeth character-xp tooltip" data-tooltip="Mask.XP.Tooltip" data-css-class="brinkwood-tooltip" data-tooltip-direction="RIGHT">
+				<div id="mask-{{_id}}-xp" class="big-teeth character-xp tooltip" data-tooltip="{{system.xp_tooltip}}" data-css-class="brinkwood-tooltip" data-tooltip-direction="RIGHT">
           <label class="black-label" for="mask-{{_id}}-xp-0">{{localize system.experience.name}}</label>
           {{#with system as | system | }}
           {{#times_from_1 system.experience.max}}
@@ -51,7 +51,7 @@
       {{!-- Stress --}}
       <div id="mask-{{_id}}-stress-trauma" class="section big-teeth-section tooltip" data-tooltip="Mask.Essence.Tooltip" data-css-class="brinkwood-tooltip" data-tooltip-direction="RIGHT">
         <div id="mask-{{_id}}-stress" class="big-teeth character-stress">
-          <label class="black-label" for="mask-{{_id}}-stress-0">{{localize system.essence.name}}</label>
+					<label class="black-label roll-die-attribute rollable-text" data-roll-attribute-label="Mask.Essence.Name" data-roll-value="{{system.oath}}" for="mask-{{_id}}-stress-0">{{localize "Mask.Essence.Name"}}</label>
           {{#with system as | system | }}
           {{#times_from_1 system.essence.max}}
             <span class="dot-value" data-path="essence.value" data-max_value="{{system.essence.max}}" data-value="{{this}}">

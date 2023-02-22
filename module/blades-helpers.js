@@ -99,7 +99,7 @@ export class BladesHelpers {
         attribute_labels[skill_name] = attributes[att_name].skills[skill_name].label;
       }
     }
-    return attribute_labels[attribute_name];
+    return `${attribute_labels[attribute_name]}.Name`;
   }
 
   /**
@@ -109,10 +109,24 @@ export class BladesHelpers {
    * @returns {Boolean}
    */
   static isAttributeAction(attribute_name) {
-        const attributes = game.system.model.Actor.character.attributes;
+		const model_attributes = game.system.model.Actor.character.attributes;
 
-        return !(attribute_name in attributes);
+		return !Object.keys(model_attributes).some(attr => attribute_name.toLowerCase().includes(attr));
   }
+
+	static rollType(attribute_name) {
+    const model_attributes = game.system.model.Actor.character.attributes;
+		let type = '';
+    if ( Object.keys(model_attributes).some(attr => attribute_name.toLowerCase().includes(attr)) ) {
+			type = 'resist';
+		} else if ( attribute_name.includes("Essence") ) {
+			type = 'essence';
+		} else {
+			type = 'action';
+		}
+    
+		return type;
+	}
 
   /* -------------------------------------------- */
 

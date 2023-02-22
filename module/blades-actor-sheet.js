@@ -32,7 +32,19 @@ export class BladesActorSheet extends BladesSheet {
 
     // Prepare active effects
     sheetData.effects = BladesActiveEffect.prepareActiveEffectCategories(this.actor.effects);
-    sheetData.traits = sheetData.items.filter(i => i.type == "trait");
+
+		this.setAttrLabels(sheetData.system.attributes);
+
+		sheetData.traits = sheetData.items.filter(i => i.type == "trait").sort((a, b) => {
+			if (a.system.purchased > b.system.purchased) {
+				return -1;
+			} else {
+				return 1;
+			}
+    });
+
+		Object.entries(sheetData.system.attributes).forEach(([name, attr]) => { sheetData.system.attributes[name].value = Object.values(attr.skills).filter(s => s.value > 0).length } )
+
 
     // Calculate Load
     let loadout = 0;
@@ -115,8 +127,6 @@ export class BladesActorSheet extends BladesSheet {
     const element = event.currentTarget;
     const dataset = element.dataset;
 
-    let actor_data = duplicate(this.actor);
-   
     let new_value = parseInt(dataset.value);
     let max_value = parseInt(dataset.max_value);
 
@@ -128,11 +138,11 @@ export class BladesActorSheet extends BladesSheet {
     
     if (new_value > max_value) { new_value = max_value }
 
-    foundry.utils.setProperty(actor_data, dataset.path, new_value);
-    this.actor.update(actor_data);
+    await this.actor.update({ [dataset.path]: new_value });
     this.render();
   }
 
   /* -------------------------------------------- */
+
 
 }

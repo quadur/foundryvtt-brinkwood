@@ -173,17 +173,17 @@ Hooks.once("init", async function() {
     }
 
     // Label for 0
-    html += `<label class="clock-zero-label" for="clock-0-${uniq_id}}"><i class="fab fa-creative-commons-zero nullifier"></i>${label}</label>`;
-    html += `<div id="blades-clock-${uniq_id}" class="blades-clock clock-${type} clock-${type}-${current_value}" style="background-image:url('systems/brinkwood/styles/assets/progressclocks-svg/Progress Clock ${type}-${current_value}.svg');">`;
+    html += `<label class="clock-zero-label" for="clock-0-${uniq_id}-${label}"><i class="fab fa-creative-commons-zero nullifier"></i>${label}</label>`;
+    html += `<div id="blades-clock-${uniq_id}-${label}" class="blades-clock clock-${type} clock-${type}-${current_value}" style="background-image:url('systems/brinkwood/styles/assets/progressclocks-svg/Progress Clock ${type}-${current_value}.svg');">`;
 
     let zero_checked = (parseInt(current_value) === 0) ? 'checked' : '';
-    html += `<input type="radio" value="0" id="clock-0-${uniq_id}}" data-dType="Number" name="${parameter_name}" ${zero_checked}>`;
+    html += `<input type="radio" value="0" id="clock-0-${uniq_id}-${label}" data-dType="Number" name="${parameter_name}" ${zero_checked}>`;
 
     for (let i = 1; i <= parseInt(type); i++) {
       let checked = (parseInt(current_value) === i) ? 'checked' : '';
       html += `
-        <input type="radio" value="${i}" id="clock-${i}-${uniq_id}" data-dType="Number" name="${parameter_name}" ${checked}>
-        <label for="clock-${i}-${uniq_id}"></label>
+        <input type="radio" value="${i}" id="clock-${i}-${uniq_id}-${label}" data-dType="Number" name="${parameter_name}" ${checked}>
+        <label for="clock-${i}-${uniq_id}-${label}"></label>
       `;
     }
 
@@ -233,3 +233,9 @@ Hooks.on('init', () => {
 	}
   game.tooltip = new BrinkwoodTooltipManager();
 })
+
+/*
+ * Functions
+ */
+
+

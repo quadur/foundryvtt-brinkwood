@@ -118,9 +118,14 @@ export class BladesSheet extends ActorSheet {
    */
   async _onRollAttributeDieClick(event) {
 
-    const attribute_name = $(event.currentTarget).data("rollAttribute");
-    const attribute_label = $(event.currentTarget).data("rollAttributeLabel");
-    this.actor.rollAttributePopup(attribute_name, attribute_label);
+		const target = event.currentTarget;
+		
+    const attribute_name = target.dataset.rollAttribute;
+    const attribute_label = target.dataset.rollAttributeLabel;
+		const attribute_value = parseInt(target.dataset.rollValue);
+		
+
+    this.actor.rollAttributePopup(attribute_name, attribute_label, attribute_value);
 
   }
 
@@ -151,7 +156,22 @@ export class BladesSheet extends ActorSheet {
     }
 
   /* -------------------------------------------- */
- 
+  
+	setAttrLabels(attrs, type="Actor") {
+		for (const attr in attrs) {
+		  let attr_name = attr[0].toUpperCase() + attr.slice(1);	
+			attrs[attr]['label'] = `${type}.Actions.${attr_name}.Name`;
+			attrs[attr]['desc'] = `${type}.Actions.${attr_name}.Description`;
+		
+			for (const skill in attrs[attr].skills) {
+   		  let skill_name = skill[0].toUpperCase() + skill.slice(1);	
+  			attrs[attr].skills[skill]['label'] = `${type}.Actions.${skill_name}.Name`;
+     		attrs[attr].skills[skill]['desc'] = `${type}.Actions.${skill_name}.Description`;
+			}
+    }
+	}
+
+
   /* -------------------------------------------- */
   
- }
+}

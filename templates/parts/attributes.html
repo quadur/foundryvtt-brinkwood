@@ -4,7 +4,7 @@
   <div id="character-{{../_id}}-attributes-{{attribute_name}}" class="attribute">
     <div id="character-{{../_id}}-attributes-{{attribute_name}}-title" class="attributes-exp">
       <div class="stripe">
-        <a class="attribute-label roll-die-attribute rollable-text" data-roll-attribute="{{attribute_name}}">{{localize (concat attribute.label 'Short')}}</a>
+				<a class="attribute-label roll-die-attribute rollable-text" data-roll-attribute="{{attribute_name}}" data-roll-attribute-label="{{attribute.label}}" data-roll-value={{attribute.value}}>{{localize attribute_name}}</a>
       </div>
     </div>
 
@@ -23,7 +23,7 @@
 	  {{/if}}
 	</span>
 	{{/times_from_1}}
-          <div class="attribute-skill-label roll-die-attribute rollable-text tooltip" data-roll-attribute="{{skill_name}}" data-tooltip="{{skill.label}}.Description" data-css-class="brinkwood-tooltip" data-tooltip-direction="RIGHT">{{localize (concat skill.label '.Name')}}</div>
+	<div class="attribute-skill-label roll-die-attribute rollable-text tooltip" data-roll-attribute-label="{{skill.label}}" data-roll-attribute="{{skill_name}}" data-roll-value={{skill.value}} data-tooltip="{{skill.desc}}" data-css-class="brinkwood-tooltip" data-tooltip-direction="RIGHT">{{localize skill.label}}</div>
       </div>
     </div>
     {{/each}}

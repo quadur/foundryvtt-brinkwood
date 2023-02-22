@@ -46,70 +46,49 @@
     },
     "attributes": {
         "insight": {
-          "exp": 0,
-          "exp_max": 6,
-          "label": "Mask.Actions.Insight",
           "skills": {
             "hunt": {
-              "label": "Actor.Actions.Hunt",
               "value": 0
             },
             "study": {
-              "label": "Actor.Actions.Study",
               "value": 0
             },
             "survey": {
-              "label": "Actor.Actions.Survey",
               "value": 0
             },
             "tinker": {
-              "label": "Actor.Actions.Tinker",
               "value": 0
             }
           }
         },
         "prowess": {
-          "exp": 0,
-          "exp_max": 6,
-          "label": "Mask.Actions.Prowess",
           "skills": {
             "finesse": {
-              "label": "Actor.Actions.Finesse",
               "value": 0
             },
             "prowl": {
-              "label": "Actor.Actions.Prowl",
               "value": 0
             },
             "skirmish": {
-              "label": "Actor.Actions.Skirmish",
               "value": 0
             },
             "wreck": {
-              "label": "Actor.Actions.Wreck",
               "value": 0
             }
           }
         },
         "resolve": {
-          "exp": 0,
-          "exp_max": 6,
-          "label": "Mask.Actions.Resolve",
           "skills": {
             "attune": {
-              "label": "Actor.Actions.Attune",
               "value": 0
             },
             "command": {
-              "label": "Actor.Actions.Command",
               "value": 0
             },
             "consort": {
-              "label": "Actor.Actions.Consort",
               "value": 0
             },
             "sway": {
-              "label": "Actor.Actions.Sway",
               "value": 0
             }
           }
@@ -120,7 +99,6 @@
     "name": "",
     "type": "",
     "essence": {
-      "name": "Essence",
       "value": 0,
       "max": 8
     },
@@ -133,19 +111,15 @@
       "lies": {
         "skills": {
           "deceive": {
-            "label": "Mask.Actions.Deceive",
             "value": 0
           },
           "hide": {
-            "label": "Mask.Actions.Hide",
             "value": 0
           },
           "reveal": {
-            "label": "Mask.Actions.Reveal",
             "value": 0
           },
           "educate": {
-            "label": "Mask.Actions.Educate",
             "value": 0
           }
         }
@@ -153,19 +127,15 @@
       "ruin": {
         "skills": {
           "corrupt": {
-            "label": "Mask.Actions.Corrupt",
             "value": 0
           },
           "crack": {
-            "label": "Mask.Actions.Crack",
             "value": 0
           },
           "quarry": {
-            "label": "Mask.Actions.Quarry",
             "value": 0
           },
           "spoil": {
-            "label": "Mask.Actions.Spoil",
             "value": 0
           }
 	      }
@@ -173,19 +143,15 @@
       "terror": {
         "skills": {
           "frighten": {
-            "label": "Mask.Actions.Frighten",
             "value": 0
           },
           "awe": {
-            "label": "Mask.Actions.Awe",
             "value": 0
           },
           "disarm": {
-            "label": "Mask.Actions.Disarm",
             "value": 0
           },
           "explode": {
-            "label": "Mask.Actions.Explode",
             "value": 0
           }
         }
@@ -193,19 +159,15 @@
       "violence": {
         "skills": {
           "slaughter": {
-            "label": "Mask.Actions.Slaughter",
             "value": 0
           },
           "carnage": {
-            "label": "Mask.Actions.Carnage",
             "value": 0
           },
           "direct": {
-            "label": "Mask.Actions.Direct",
             "value": 0
           },
           "cover": {
-            "label": "Mask.Actions.Cover",
             "value": 0
           }
         }
@@ -213,19 +175,15 @@
       "riot": {
         "skills": {
           "rouse": {
-            "label": "Mask.Actions.Rouse",
             "value": 0
           },
           "burn": {
-            "label": "Mask.Actions.Burn",
             "value": 0
           },
           "inspire": {
-            "label": "Mask.Actions.Inspire",
             "value": 0
           },
           "provoke": {
-            "label": "Mask.Actions.Provoke",
             "value": 0
           }
         }
@@ -233,19 +191,15 @@
       "torment": {
         "skills": {
           "drain": {
-            "label": "Mask.Actions.Drain",
             "value": 0
           },
           "vivisect": {
-            "label": "Mask.Actions.Vivisect",
             "value": 0
           },
           "suture": {
-            "label": "Mask.Actions.Suture",
             "value": 0
           },
           "tend": {
-            "label": "Mask.Actions.Tend",
             "value": 0
           }
         }
@@ -253,19 +207,15 @@
       "judgement": {
         "skills": {
           "snipe": {
-            "label": "Mask.Actions.Snipe",
             "value": 0
           },
           "scout": {
-            "label": "Mask.Actions.Scout",
             "value": 0
           },
           "read": {
-            "label": "Mask.Actions.Read",
             "value": 0
           },
           "slip": {
-            "label": "Mask.Actions.Slip",
             "value": 0
           }
         }

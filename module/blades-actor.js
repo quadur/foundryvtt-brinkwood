@@ -30,44 +30,10 @@ export class BladesActor extends Actor {
   }
 
   /** @override */
-  getRollData() {
-    const rollData = super.getRollData();
-
-    rollData.dice_amount = this.getAttributeDiceToThrow();
-
-    return rollData;
-  }
-
-  /* -------------------------------------------- */
-  /**
-   * Calculate Attribute Dice to throw.
-   */
-  getAttributeDiceToThrow() {
-
-    // Calculate Dice to throw.
-    let dice_amount = {};
-    for (const attribute_name in this.system.attributes) {
-      dice_amount[attribute_name] = 0;
-      for (const skill_name in this.system.attributes[attribute_name].skills) {
-
-        dice_amount[skill_name] = parseInt(this.system.attributes[attribute_name].skills[skill_name]['value']);
-
-        // We add a +1d for every skill higher than 0.
-        if (dice_amount[skill_name] > 0) {
-          dice_amount[attribute_name]++;
-        }
-      }
-
-    }
-
-    return dice_amount;
-  }
 
   /* -------------------------------------------- */
 
-  rollAttributePopup(attribute_name, attribute_label) {
-    console.log(attribute_name);
-    console.log(attribute_label);
+  rollAttributePopup(attribute_name, attribute_label, attribute_value) {
 
     let content = `
         <h2>${game.i18n.localize('BITD.Roll')} ${game.i18n.localize(attribute_label)}</h2>
@@ -78,7 +44,7 @@ export class BladesActor extends Actor {
               ${this.createListOfDiceMods(-3,+3,0)}
             </select>
           </div>`;
-    if (BladesHelpers.isAttributeAction(attribute_name)) {
+    if (BladesHelpers.isAttributeAction(attribute_label)) {
       content += `
             <div class="form-group">
               <label>${game.i18n.localize('BITD.Position')}:</label>
@@ -121,7 +87,7 @@ export class BladesActor extends Actor {
             let position = html.find('[name="pos"]')[0].value;
             let effect = html.find('[name="fx"]')[0].value;
             let note = html.find('[name="note"]')[0].value;
-            await this.rollAttribute(attribute_name, modifier, position, effect, note);
+            await this.rollAttribute(attribute_label, modifier, attribute_value, position, effect, note);
           }
         },
         no: {
@@ -136,18 +102,18 @@ export class BladesActor extends Actor {
 
   /* -------------------------------------------- */
 
-  async rollAttribute(attribute_name = "", additional_dice_amount = 0, position, effect, note) {
+  async rollAttribute(attribute_label = "", additional_dice_amount = 0, attribute_value = 0, position, effect, note) {
     let dice_amount = 0;
-    if (attribute_name !== "") {
-      let roll_data = this.getRollData();
-      dice_amount += roll_data.dice_amount[attribute_name];
+    if (attribute_label !== "") {
+			dice_amount = attribute_value;
     }
     else {
       dice_amount = 1;
     }
+
     dice_amount += additional_dice_amount;
 
-    await bladesRoll(dice_amount, attribute_name, position, effect, note);
+    await bladesRoll(dice_amount, attribute_label, position, effect, note);
   }
 
   /* -------------------------------------------- */

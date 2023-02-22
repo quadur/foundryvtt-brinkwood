@@ -52,6 +52,15 @@
 			"Tooltip": "When a brigand wishes to succeed at a cost without rolling, they may take a ban. A ban bars the brigand from using an important part of their character’s abilities while they remain under it. Think of traditional bans in fairy tales against silver, cold iron, wood, etc. and you’ll have the right idea.<br>The GM and brigand should negotiate the mechanical and narrative nature of the ban, and the ban should be recorded in its relevant slot on the background sheet.<ul><li><strong>Level 1 - Light Ban:</strong> The brigand succeeds with <strong>limited effect</strong>. This ban usually bars an object/class of object.</li><li><strong>Level 2 - Normal Ban:</strong> The brigand succeeds with <strong>standard effect</strong>. This ban usually bars a class of object, a mechanic, or an action.</li><li><strong>Level 3 - Dangerous Ban:</strong> The brigand succeeds with </strong>great effect</strong>. This ban usually applies to several actions, a major mechanic, or entire masks.</li><li><strong>Level 4 - Final Ban:</strong> The brigand succeeds with <strong>extreme effect</strong> and, when narratively appropriate, their character dies, transitions into a fae NPC, becomes part of their mask, or some other outcome created collaboratively by the GM and player. <strong>The player has final say</strong> on the outcome of a Final Ban."
 		},
 		"Actions": {
+			"Insight": {
+				"Name": "Insight"
+			},
+      "Prowess": {
+				"Name": "Prowess"
+			},
+			"Resolve": {
+        "Name": "Resolve"
+			},
 			"Hunt": {
 				"Name": "Hunt",
 				"Description": "You might follow a target or discover their location. You might arrange an ambush. You might attack with precision shooting from a distance. You could try to bring your guns to bear in a melee (but <strong>Skirmishing</strong> might be better)."
@@ -104,13 +113,22 @@
 	},
 	"Mask": {
     "XP": {
-			"Tooltip": "At the end of each session, mark 1 Mask XP (or 2 if performed multiple times)...<ul><li>If you fulfilled your oath.</li><li>If you defeated a vampire of a higher tier than your highest aspect.</li><li>If you fulfilled the condition unique to your mask.</li></ul>"
+			"Tooltip": "At the end of each session, mark 1 Mask XP (or 2 if performed multiple times)...<ul><li>If you fulfilled your oath.</li><li>If you defeated a vampire of a higher tier than your highest aspect.</li><li>If you fulfilled the condition unique to your mask.</li>",
+			"Lies": "<li>You taught someone else something or learned something important.</li></ul>",
+			"Ruin": "<li>You strengthened or reinforced an ally.</li></ul>",
+			"Terror": "<li>You instilled terror into the heart of an oppressor.</li></ul>",
+			"Violence": "<li>If you used violence to protect a comrade or ally.</li></ul>",
+			"Riot": "<li>You led others or spoke truth to power.</li></ul>",
+			"Torment": "<li>You cared for an ally either physically, emotionally or mentally.</li></ul>",
+			"Judgement": "<li>You pronounced your judgement on a situation or character.</li></ul>"
+
 		},
 		"Essence": {
+			"Name": "Essence",
 			"Tooltip": "You can use essence to <strong>push</strong> yourself for greater performance. For each bonus you choose below, spend 2 essence:<ul><li>Add <strong>+1d</strong> to your roll. (This may be used for an <strong>action roll</strong>, <strong>downtime roll</strong> or any other kind of roll where extra effort would help you.)</li><li>Add <strong>+Effect</strong> to an action.</li><li>Take action when you’re incapacitated.</li></ul>"
 		},
 		"Actions": {
-			"": {
+			"Frighten": {
 				"Name": "Frighten",
 				"Description": "When you Frighten, you instill fear into others.<ul><li>You might sow terror into the ranks of enemy soldiers, or scare a guard into fleeing. You might also try to influence a large group of people with fear, but Awe or Command might be better.</li></ul>"
 			},
@@ -392,6 +410,8 @@
   "BITD.RollFailurePositionDesperate": "It’s the worst outcome. You suffer <strong>severe harm</strong>, a <strong>serious complication occurs</strong>, you <strong>lose this opportunity for action</strong>.",
   "BITD.RollResistance": "You <strong>reduce</strong> or <strong>avoid</strong> the effects of the consequence (GM chooses).<br/>Suffer <strong>{stress} stress</strong>.",
   "BITD.RollResistanceCritical": "You <strong>reduce</strong> or <strong>avoid</strong> the effects of the consequence (GM chooses).<br/>Clear <strong>1 stress</strong>.",
+  "BITD.RollEssence": "Your Oath grants your Mask <strong>{essence} Essence</strong>.",
+  "BITD.RollEssenceCritical": "Your Oath grants your Mask <strong>{essence} Essence</strong>.",
 
   "BITD.PositionControlled": "Controlled",
   "BITD.PositionRisky": "Risky",

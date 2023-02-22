@@ -5,7 +5,7 @@
  * @param {string} position
  * @param {string} effect
  */
-export async function bladesRoll(dice_amount, attribute_name = "", position = "risky", effect = "standard", note = "") {
+export async function bladesRoll(dice_amount, attribute_label = "", position = "risky", effect = "standard", note = "") {
 
   // ChatMessage.getSpeaker(controlledToken)
   let zeromode = false;
@@ -17,7 +17,7 @@ export async function bladesRoll(dice_amount, attribute_name = "", position = "r
 
   // show 3d Dice so Nice if enabled
   r.evaluate({async:true});
-  await showChatRollMessage(r, zeromode, attribute_name, position, effect, note);
+  await showChatRollMessage(r, zeromode, attribute_label, position, effect, note);
 }
 
 /**
@@ -29,49 +29,30 @@ export async function bladesRoll(dice_amount, attribute_name = "", position = "r
  * @param {string} position
  * @param {string} effect
  */
-async function showChatRollMessage(r, zeromode, attribute_name = "", position = "", effect = "", note = "") {
+async function showChatRollMessage(r, zeromode, attribute_label = "", position = "", effect = "", note = "") {
 
-  let speaker = ChatMessage.getSpeaker();
-  let rolls = (r.terms)[0].results;
-  let attribute_label = BladesHelpers.getAttributeLabel(attribute_name);
+  const speaker = ChatMessage.getSpeaker();
+  const rolls = (r.terms)[0].results;
+	const position_localize = `BITD.Position${position.capitalize()}`;
+	const effect_localize = `BITD.Effect${effect.capitalize()}`;
 
-  // Retrieve Roll status.
-  let roll_status = getBladesRollStatus(rolls, zeromode);
+  const roll_status = getBladesRollStatus(rolls, zeromode);
 
   let result;
-  if (BladesHelpers.isAttributeAction(attribute_name)) {
-    let position_localize = '';
-    switch (position) {
-      case 'controlled':
-        position_localize = 'BITD.PositionControlled'
-        break;
-      case 'desperate':
-        position_localize = 'BITD.PositionDesperate'
-        break;
-      case 'risky':
-      default:
-        position_localize = 'BITD.PositionRisky'
-    }
 
-    let effect_localize = '';
-    switch (effect) {
-      case 'limited':
-        effect_localize = 'BITD.EffectLimited'
-        break;
-      case 'great':
-        effect_localize = 'BITD.EffectGreat'
-        break;
-      case 'standard':
-      default:
-        effect_localize = 'BITD.EffectStandard'
-    }
-
-    result = await renderTemplate("systems/brinkwood/templates/chat/action-roll.html", {rolls: rolls, roll_status: roll_status, attribute_label: attribute_label, position: position, position_localize: position_localize, effect: effect, effect_localize: effect_localize, note: note});
-  } else {
-    let stress = getBladesRollStress(rolls, zeromode);
-    
-    result = await renderTemplate("systems/brinkwood/templates/chat/resistance-roll.html", {rolls: rolls, roll_status: roll_status, attribute_label: attribute_label, stress: stress, note: note});
-  }
+	switch ( BladesHelpers.rollType(attribute_label) ) {
+ 		case 'resist':
+      const stress = getBladesRollStress(rolls, zeromode);
+      result = await renderTemplate("systems/brinkwood/templates/chat/resistance-roll.html", {rolls: rolls, roll_status: roll_status, attribute_label: attribute_label, stress: stress, note: note});
+    	break;
+		case 'essence':
+      const essence = getBladesRollEssence(rolls, zeromode);
+			result = await renderTemplate('systems/brinkwood/templates/chat/essence-roll.html', {rolls: rolls, roll_status: roll_status, attribute_label: attribute_label, essence: essence, note: note})
+			break;
+  	default:
+      result = await renderTemplate("systems/brinkwood/templates/chat/action-roll.html", {rolls: rolls, roll_status: roll_status, attribute_label: attribute_label, position: position, position_localize: position_localize, effect: effect, effect_localize: effect_localize, note: note});
+ 
+	}
 
   let messageData = {
     speaker: speaker,
@@ -185,6 +166,29 @@ export function getBladesRollStress(rolls, zeromode = false) {
   return stress;
 
 }
+
+export function getBladesRollEssence(rolls, zeromode = false) {
+
+  // Sort roll values from lowest to highest.
+  const sorted_rolls = rolls.map(i => i.result).sort().reverse();
+	const high_roll = ( zeromode ? sorted_rolls[1] : sorted_rolls[0] );
+	let essence = 0;
+ 
+	switch ( high_roll ) {
+		case 6:
+			essence = ( !zeromode && sorted_rolls[1] == 6 ? 6 : 5 )
+		  break;
+		case 5:
+		case 4:
+			essence = 4;
+			break;
+		default:
+      essence = 2;
+	}
+
+  return essence;
+}
+
 
 
 /**

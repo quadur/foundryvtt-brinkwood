@@ -4,6 +4,15 @@
 This a barebones implementation of Brinkwood its still heavily based on megastrukturs Blades in The Dark and has *waaay* too much leftover/unused logic.
 Be warned, this is not stable and is susceptible to massive overhauls, I will try to implement all changes in a non-game-breaking manner but YOU HAVE BEEN WARNED.
 
+### v0.5.4
+- [BUG] Mask sheet is now accessible without assigning a character to a player.
+- [x] The biggest annoyance right now are the bonus action scores from the professions/classes - this has to have a new system.
+- - [x] Migrate the old system to the new one
+- [ ] Rebellion record sheet.
+- - [x] Tyranny & Sedition
+- - [x] Aspects 
+- - [ ] Moot decisions
+
 ### v0.5.3
 - Tooltips changed to the "proper" foundry format, all of the actions (char & Mask), exp triggers and other char traits should have a proper tooltip right now. 
 - Rolls have been prtialy refactored and Essence roll (for doning of the Mask) is now possible form the Mask sheet using the players assigned character oath Score.
@@ -21,7 +30,6 @@ Be warned, this is not stable and is susceptible to massive overhauls, I will tr
 ### So, what works?
 The basics: working sheets for characters and masks. With rollable actions and resistance rolls, all of the upbringings, professions, and mask types should have correct traits/special abilities selectable on the list. Character sheets have additionally a selectable list of all basic items with a proper load calculation.
 
-- [x] Downtime action descriptions on a character sheet.
 
 #### Screenshots
 
@@ -42,7 +50,7 @@ Bonus action scores at character creation and Blood Alchemy types - and everythi
 - - [x] Stress usage
 - - [x] Ban usage
 - - [x] Mask actions
-- - [x ] Mask XP Triggers
+- - [x] Mask XP Triggers
 - [x] Lang for attributes
 - [x] Lang for rolls 
 - [x] Fix typo for Terror.Frighten in langfile
@@ -60,9 +68,7 @@ Bonus action scores at character creation and Blood Alchemy types - and everythi
 #### TODO (later)
 
 - [ ] Blood alchemy
-- [ ] The biggest annoyance right now are the bonus action scores from the professions/classes - this has to have a separete system.
 - [ ] Make tab selection more pretty/usable.
-- [ ] Rebellion record sheet.
 - [ ] Two-point mask abilities: Drink Deep and Multifaceted (along with crossmask ability selection).
 - [ ] Fay dossier sheet.
 - [ ] Overhauling sheet design.

@@ -24,8 +24,13 @@ $hover-brightness: 0.8;
  */
 
 & * {
-  .name-alias{
+  img.big-teeth {
+    height: 30px;
+    border: none;
+   	margin-left: 5px;
+  }
 
+  .name-alias{
     img.portrait{
       max-width: 200px;
       max-height: 200px;
@@ -50,7 +55,6 @@ $hover-brightness: 0.8;
   // Stress and Trauma
 
   .big-teeth-section {
-
     border-top: 3px solid $almost_black;
     display: flex;
     flex-direction: row;
@@ -58,8 +62,6 @@ $hover-brightness: 0.8;
     margin-top: 0;
 
     > * {
-      margin-right: 10px;
-
       &:last-child {
         margin-right: 0px;
       }
@@ -72,11 +74,6 @@ $hover-brightness: 0.8;
     // Stress
     .big-teeth {
       display: flex;
-      img.big-teeth {
-        height: 30px;
-        border: none;
-	margin-left: 5px;
-      }
     }
 
     /* Trauma */
@@ -180,8 +177,8 @@ $hover-brightness: 0.8;
 
       span.clock-label {
         text-transform: capitalize;
-	font-weight: bold;
-	margin-left: 5px;
+	      font-weight: bold;
+      	margin-left: 5px;
       }
     }
 

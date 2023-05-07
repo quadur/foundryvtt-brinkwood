@@ -37,7 +37,7 @@ export class BladesMaskSheet extends BladesSheet {
 
 		this.setAttrLabels(sheetData.system.attributes, "Mask");
 
-		sheetData.system.oath = game.user.character.system.oath || 0;
+		sheetData.system.oath = game.user.character?.system?.oath || 0;
 
     sheetData.traits = sheetData.items.filter(i => i.type === "trait").sort((a, b) => {
 			if (a.system.purchased > b.system.purchased) {

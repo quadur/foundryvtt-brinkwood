@@ -1,0 +1,26 @@
+<form class="actor-sheet" autocomplete="off">
+	<nav class="tabs" data-group="primary-tabs">
+		<a class="item" data-tab="overview" data-group="primary-tabs">Overview</a>
+		<a class="item" data-tab="aspects" data-group="primary-tabs">Aspects</a>
+	</nav>
+  <section class="rebelion-sheet content">
+		<div class="tab" data-tab="overview" data-group="primary-tabs">
+			<section class="flexrow tab">
+				<div class="">
+					{{> "systems/brinkwood/templates/parts/teeth-section.html" path='system.tyranny.value' value=system.tyranny.value max_value=system.tyranny.max label='Tyranny' color='red'}}
+				</div>
+				<div class="">
+					{{> "systems/brinkwood/templates/parts/teeth-section.html" path='system.heat.value' value=system.heat.value max_value=system.heat.max label='Heat' color='red'}}
+				</div>
+			</section>
+			{{> "systems/brinkwood/templates/rebelion-sheet/sedition-section.html" label='Towns' collection=system.towns type='towns'}}
+			{{> "systems/brinkwood/templates/rebelion-sheet/sedition-section.html" label='Villages' collection=system.villages type='villages'}}
+			{{> "systems/brinkwood/templates/rebelion-sheet/sedition-section.html" label='Lands' collection=system.lands type='lands'}}
+		</div>
+		<div class="tab" data-tab="aspects" data-group="primary-tabs">
+			{{> "systems/brinkwood/templates/rebelion-sheet/aspect-section.html" label='Organization' aspect=system.aspects.[0] type='aspects.0'}}
+			{{> "systems/brinkwood/templates/rebelion-sheet/aspect-section.html" label='Organization' aspect=system.aspects.[1] type='aspects.1'}}
+			{{> "systems/brinkwood/templates/rebelion-sheet/aspect-section.html" label='Organization' aspect=system.aspects.[2] type='aspects.2'}}
+		</div>
+	</section>
+</form>

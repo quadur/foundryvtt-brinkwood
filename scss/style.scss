@@ -33,6 +33,10 @@ $hover-brightness: 0.8;
     @import 'import/character-sheet.scss';
   }
 
+	&.actor.rebelion {
+    @import 'import/rebelion-sheet.scss';
+	}
+
   &.actor.clock{
   }
 

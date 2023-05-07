@@ -192,13 +192,15 @@ export class BladesActor extends Actor {
       case "profession":
       case "upbringing":
       case "mask":
-	await this._addTraits( newItem );
+			case "class":
+        await this._addTraits( newItem );
+				await this._modActionPoints( newItem );
       break;
     }
       
   }
 
-  _onDeleteEmbeddedDocuments( name, ...args ) {
+  async _onDeleteEmbeddedDocuments( name, ...args ) {
     super._onDeleteEmbeddedDocuments (name, ...args);
     const removedItem = args[0][0];
 
@@ -206,10 +208,31 @@ export class BladesActor extends Actor {
       case "profession":
       case "upbringing":
       case "mask":
-	this._deleteTraits(removedItem, removedItem.type);
+			case "class":
+	      this._deleteTraits(removedItem, removedItem.type);
+				await this._modActionPoints( removedItem, true );
       break;
     }
   }
+
+  async _modActionPoints(data, remove=false) {
+		const bonus_points = data.system?.logic.replaceAll(' ','').split("\n").map(bonus => bonus.split('='));
+    const max_value = 4;
+		const mod = remove ? -1 : 1;
+		let system = {};
+		bonus_points.forEach(bonus => {
+			const key = bonus[0];
+			const bonus_value = parseInt(bonus[1]);
+			let value = parseInt(foundry.utils.getProperty(this, key)) + mod*bonus_value;
+      value = (value > max_value) ? max_value : value;
+			value = (value < 0 ? 0 : value);
+			console.log(value);
+      foundry.utils.setProperty(system, key, value);
+   	});
+		console.log(system);
+		await this.update(system);
+		this.render();
+	}
 
   async _addTraits(data) {
     const traits = await game.packs.get("brinkwood.trait").getDocuments({'system.class': data.name});

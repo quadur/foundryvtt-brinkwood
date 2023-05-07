@@ -138,14 +138,7 @@
 }
 .brinkwood section {
   display: flex;
-  flex-direction: column;
   justify-content: space-between;
-}
-.brinkwood section > *:not(.label-stripe) {
-  margin-right: 10px;
-}
-.brinkwood section > *:not(.label-stripe):last-child {
-  margin-right: 0px;
 }
 .brinkwood section .grow-one {
   flex-grow: 1;
@@ -281,6 +274,15 @@
 }
 .brinkwood td {
   padding: 5px;
+}
+.brinkwood .flexrow .flex05, .brinkwood .flexcol .flex05 {
+  flex: 0.5;
+}
+.brinkwood .flexrow .flex075, .brinkwood .flexcol .flex075 {
+  flex: 0.75;
+}
+.brinkwood .flexrow .flex125, .brinkwood .flexcol .flex125 {
+  flex: 1.25;
 }
 .brinkwood {
   min-width: 420px;
@@ -488,6 +490,11 @@
    * Some things *might* be missing, but at a glance, everything looks to be in order.
    */
 }
+.brinkwood.actor.pc * img.big-teeth {
+  height: 30px;
+  border: none;
+  margin-left: 5px;
+}
 .brinkwood.actor.pc * .name-alias img.portrait {
   max-width: 200px;
   max-height: 200px;
@@ -511,9 +518,6 @@
   margin-top: 0;
   /* Trauma */
 }
-.brinkwood.actor.pc * .big-teeth-section > * {
-  margin-right: 10px;
-}
 .brinkwood.actor.pc * .big-teeth-section > *:last-child {
   margin-right: 0px;
 }
@@ -522,11 +526,6 @@
 }
 .brinkwood.actor.pc * .big-teeth-section .big-teeth {
   display: flex;
-}
-.brinkwood.actor.pc * .big-teeth-section .big-teeth img.big-teeth {
-  height: 30px;
-  border: none;
-  margin-left: 5px;
 }
 .brinkwood.actor.pc * .big-teeth-section .small-teeth-container .small-teeth-wrap {
   flex-direction: column;
@@ -847,6 +846,67 @@
 .brinkwood.actor.pc * .lair,
 .brinkwood.actor.pc * .alias {
   margin-bottom: 10px;
+}
+.brinkwood.actor.rebelion {
+  /*
+  *  Elements that can be changed will hint this by dimming and fading a little on hover
+  */
+  /*
+   * Toothradio. Some (eg trauma) are not changeable, hence the option.
+   */
+  /*
+   * Custom Radio
+   */
+  /*
+   * Custom Radio Squared
+   */
+  /*
+   * Checkboxes underscored.
+   */
+  /*
+   * Create Clock
+   */
+  /*
+   * Turf Block
+   */
+  /*
+   * Toothradio single elements
+   */
+  /*
+   * Custom Radio Round
+   */
+  /*
+   * General Styles
+   * Cleaned out things that don't appear to apply to the character sheet, and exist in other, separated SCSS files.
+   * Some things *might* be missing, but at a glance, everything looks to be in order.
+   */
+}
+.brinkwood.actor.rebelion * section.rebelion-sheet {
+  justify-content: center;
+}
+.brinkwood.actor.rebelion * nav {
+  margin-bottom: 1em;
+  font-family: Kirsty, serif;
+  font-size: 1.5em;
+  font-variant: small-caps;
+}
+.brinkwood.actor.rebelion * section.sedition, .brinkwood.actor.rebelion * section.aspect {
+  min-width: 450px;
+}
+.brinkwood.actor.rebelion * section.sedition h2, .brinkwood.actor.rebelion * section.aspect h2 {
+  border: none;
+  padding-top: 0.5em;
+  margin-left: 3px;
+}
+.brinkwood.actor.rebelion * .sedition-row {
+  border-top: 2px solid #191813;
+}
+.brinkwood.actor.rebelion * .sedition-row .name {
+  font-size: 1.2em;
+  margin-top: 4px;
+}
+.brinkwood.actor.rebelion * .sedition-row .big-teeth-section {
+  border: none;
 }
 .brinkwood.item.sheet .item {
   justify-content: space-between;

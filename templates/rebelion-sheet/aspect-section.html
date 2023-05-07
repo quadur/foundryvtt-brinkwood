@@ -1,0 +1,15 @@
+<section class="flexcol aspect">
+	<div class="flexrow">
+		<h2>{{aspect.name}}</h2>
+ 		<h2>Progress</h2>
+	 	<h2>Decision</h2>
+	</div>
+  {{#times_from_0 2}}
+	<div class="flexrow sedition-row">
+			<div class="flex2">Rank {{math this  '+' 1}}</div>
+			<div class="flex2">{{> "systems/brinkwood/templates/parts/teeth-section.html" path=(concat 'system.' ../type '.progress.' this) value=(lookup (lookup ../aspect 'progress') this) max_value=(lookup (lookup ../aspect 'max_progress') this) color='blue'}}</div>
+			<div class="flex3">
+			</div>
+		</div>
+	{{/times_from_0}}
+</section>

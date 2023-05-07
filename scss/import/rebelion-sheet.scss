@@ -1,0 +1,44 @@
+// Colors
+@import 'mixin.scss';
+
+/*
+ * General Styles
+ * Cleaned out things that don't appear to apply to the character sheet, and exist in other, separated SCSS files.
+ * Some things *might* be missing, but at a glance, everything looks to be in order.
+ */
+
+& * {
+	section.rebelion-sheet {
+    justify-content: center;
+	}
+
+	nav {
+		margin-bottom: 1em;
+    font-family: Kirsty, serif;
+		font-size: 1.5em;
+		font-variant: small-caps;
+	}
+
+	section.sedition, section.aspect {
+		min-width: 450px;
+  	h2 {
+    	border: none;
+	    padding-top: 0.5em;
+  		margin-left: 3px;
+	  }
+	}
+
+  .sedition-row {
+		border-top: 2px solid #191813;
+
+		.name {
+      font-size: 1.2em;
+			margin-top: 4px;
+		}
+    .big-teeth-section {
+			border: none;
+			.big-teeth {
+			}
+		}
+	} 
+}

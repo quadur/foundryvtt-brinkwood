@@ -17,6 +17,8 @@ import { BladesActiveEffect } from "./blades-active-effect.js";
 import { BladesClockSheet } from "./blades-clock-sheet.js";
 import { BladesNPCSheet } from "./blades-npc-sheet.js";
 import { BladesMaskSheet } from "./blades-mask-sheet.js";
+import { BladesRebelionSheet } from "./blades-rebelion-sheet.js";
+
 
 import * as migrations from "./migration.js";
 
@@ -48,6 +50,7 @@ Hooks.once("init", async function() {
   Actors.registerSheet("blades", BladesClockSheet, { types: ["\uD83D\uDD5B clock"], makeDefault: true });
   Actors.registerSheet("blades", BladesNPCSheet, { types: ["npc"], makeDefault: true });
   Actors.registerSheet("blades", BladesMaskSheet, { types: ["mask"], makeDefault: true });
+  Actors.registerSheet("blades", BladesRebelionSheet, { types: ["rebelion"], makeDefault: true });
   Items.unregisterSheet("core", ItemSheet);
   Items.registerSheet("blades", BladesItemSheet, {makeDefault: true});
   await preloadHandlebarsTemplates();
@@ -114,6 +117,19 @@ Hooks.once("init", async function() {
     }
       return options.inverse(this);
   });
+
+	Handlebars.registerHelper("math", function(lvalue, operator, rvalue, options) {
+			lvalue = parseFloat(lvalue);
+			rvalue = parseFloat(rvalue);
+					
+			return {
+					"+": lvalue + rvalue,
+					"-": lvalue - rvalue,
+					"*": lvalue * rvalue,
+					"/": lvalue / rvalue,
+					"%": lvalue % rvalue
+			}[operator];
+	});
 
   // Concat helper
   // https://gist.github.com/adg29/f312d6fab93652944a8a1026142491b1
@@ -190,7 +206,6 @@ Hooks.once("init", async function() {
     html += `</div>`;
     return html;
   });
-
 });
 
 /**
@@ -199,8 +214,8 @@ Hooks.once("init", async function() {
 Hooks.once("ready", function() {
 
   // Determine whether a system migration is required
-  const currentVersion = game.settings.get("brinkwood", "systemMigrationVersion");
-  const NEEDS_MIGRATION_VERSION = 0.5;
+  const currentVersion = game.settings.get("brinkwood", "systemMigrationVersion").toString();
+  const NEEDS_MIGRATION_VERSION = "0.5.4";
 
   let needMigration = (currentVersion < NEEDS_MIGRATION_VERSION) || (currentVersion === null);
 

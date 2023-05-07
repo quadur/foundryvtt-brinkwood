@@ -1,0 +1,16 @@
+<div class="big-teeth-section">
+	{{#if label}}
+	<label class="black-label">{{label}}</label>
+	{{/if}}
+	<div class="flexrow big-teeth">
+    {{#times_from_1 max_value}}
+		<span class="dot-value" data-path="{{../path}}" data-max_value="{{../max_value}}" data-value="{{this}}">
+      {{#if (lt ../value this)}}
+        <img class="big-teeth" src="systems/brinkwood/styles/assets/teeth/stresstooth-halfgrey.png">
+      {{else}}
+				<img class="big-teeth" src="systems/brinkwood/styles/assets/teeth/stresstooth-{{../color}}.png">
+      {{/if}}
+    </span>
+    {{/times_from_1}}
+  </div>
+</div>

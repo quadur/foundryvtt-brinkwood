@@ -1,0 +1,18 @@
+<section class="flexcol sedition">
+	<div class="flexrow">
+		<h2 class="flex075">{{label}}</h2>
+ 		<h2 class="flex125">Sedition</h2>
+	 	<h2>Level</h2>
+	</div>
+  {{#each collection }}
+	  <div class="flexrow sedition-row">
+		  <div class="flex075 name">{{this.name}}</div>
+			<div class="flex125">
+				{{> "systems/brinkwood/templates/parts/teeth-section.html" path=(concat 'system.' ../type '.' @index '.sedition.clock.value') value=this.sedition.clock.value max_value=this.sedition.clock.max color='blue'}}
+			</div>
+			<div>
+        {{> "systems/brinkwood/templates/parts/teeth-section.html" path=(concat 'system.' ../type '.' @index '.sedition.level') value=this.sedition.level max_value=3 color='blue'}}
+			</div>
+		</div>
+	{{/each}}
+</section>

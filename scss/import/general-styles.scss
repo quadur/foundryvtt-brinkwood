@@ -26,16 +26,7 @@ textarea {
 
 section {
   display: flex;
-  flex-direction: column;
   justify-content: space-between;
-
-  > *:not(.label-stripe) {
-    margin-right: 10px;
-
-    &:last-child {
-      margin-right: 0px;
-    }
-  }
 
   .grow-one {
     flex-grow: 1;
@@ -227,3 +218,19 @@ i {
 td {
   padding: 5px;
 }
+
+.flexrow, .flexcol {
+	.flex05 {
+    flex: 0.5;
+	}
+
+	.flex075 {
+    flex: 0.75;
+	}
+
+	.flex125 {
+		flex: 1.25;
+	}
+}
+
+

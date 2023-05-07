@@ -7,7 +7,7 @@ export const registerSystemSettings = function() {
     name: "System Migration Version",
     scope: "world",
     config: false,
-    type: Number,
-    default: 0.5
+    type: String,
+    default: "0.5"
   });
 };

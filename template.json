@@ -1,6 +1,6 @@
 {
   "Actor": {
-  "types": ["\uD83D\uDD5B clock", "npc", "character", "mask", "factions"],
+  "types": ["\uD83D\uDD5B clock", "npc", "character", "mask", "rebelion"],
   "character": {
     "alias": "",
     "look": "",
@@ -235,8 +235,188 @@
     "associated_faction": "",
     "associated_crew_type": "",
     "notes": ""
-  }
   },
+	"rebelion": {
+		"name": "Rebelion Record",
+    "tyranny": {
+      "value": 0,
+			"max": 4
+		},
+    "heat": {
+      "value": 0,
+			"max": 10
+		},
+		"aspects": [
+			{
+				"name": "Organization",
+				"progress": [0,0,0],
+				"max_progress": [4,6,8],
+				"decisions": []
+			},
+			{
+				"name": "Influence",
+				"progress": [0,0,0],
+				"max_progress": [4,6,8],
+				"decisions": []
+			},
+			{
+				"name": "Force",
+				"progress": [0,0,0],
+				"max_progress": [4,6,8],
+				"decisions": []
+			}
+		],
+		"towns": [
+			{
+				"name": "Innisfirth",
+				"sedition": {
+  				"clock": {
+   					"value": 0,
+            "max": 8
+					},
+					"level": 0					
+				}
+			},
+			{
+				"name": "Drancaster",
+				"sedition": {
+  				"clock": {
+   					"value": 0,
+            "max": 8
+					},
+					"level": 0					
+				}
+			},
+	  	{
+				"name": "Stamlegih",
+				"sedition": {
+  				"clock": {
+   					"value": 0,
+            "max": 8
+					},
+					"level": 0					
+				}
+
+			},
+		  {
+				"name": "Grismont",
+				"sedition": {
+  				"clock": {
+   					"value": 0,
+            "max": 8
+					},
+					"level": 0					
+				}
+			}
+		],
+		"villages": [
+			{
+				"name": "Cliffsblack",
+				"sedition": {
+  				"clock": {
+   					"value": 0,
+            "max": 6
+					},
+					"level": 0					
+				}
+			},
+			{
+				"name": "Flaypool",
+				"sedition": {
+  				"clock": {
+   					"value": 0,
+            "max": 6
+					},
+					"level": 0					
+				}
+			},
+	  	{
+				"name": "Fletchgrove",
+				"sedition": {
+  				"clock": {
+   					"value": 0,
+            "max": 6
+					},
+					"level": 0					
+				}
+
+			},
+		  {
+				"name": "Finford",
+				"sedition": {
+  				"clock": {
+   					"value": 0,
+            "max": 6
+					},
+					"level": 0					
+				}
+			},
+			{
+				"name": "Hogswick",
+				"sedition": {
+  				"clock": {
+   					"value": 0,
+            "max": 6
+					},
+					"level": 0					
+				}
+			},
+			{
+				"name": "Ironholme",
+				"sedition": {
+  				"clock": {
+   					"value": 0,
+            "max": 6
+					},
+					"level": 0					
+				}
+			},
+	  	{
+				"name": "Oldleigh",
+				"sedition": {
+  				"clock": {
+   					"value": 0,
+            "max": 6
+					},
+					"level": 0					
+				}
+
+			},
+		  {
+				"name": "Shepforth",
+				"sedition": {
+  				"clock": {
+   					"value": 0,
+            "max": 6
+					},
+					"level": 0					
+				}
+			}
+		],
+		"lands": [
+			{
+				"name": "The Veins",
+				"sedition": {
+  				"clock": {
+   					"value": 0,
+            "max": 6
+					},
+					"level": 0					
+				}
+			},
+			{
+				"name": "Riverlands",
+				"sedition": {
+  				"clock": {
+   					"value": 0,
+            "max": 6
+					},
+					"level": 0					
+				}
+			}
+		]
+ 	}
+	},
   "Item": {
     "types": ["item", "class", "trait", "upbringing", "profession", "pact", "associates", "mask"],
     "templates": {

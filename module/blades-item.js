@@ -43,8 +43,7 @@ export class BladesItem extends Item {
         let itemsForDeletion = actor.items.
 		                     filter(i => i.getFlag("brinkwood", "parentItem_id") == item._id).
 		                     map(i => i._id);
-
-	actor.deleteEmbeddedDocuments("Item", itemsForDeletion );
+       	actor.deleteEmbeddedDocuments("Item", itemsForDeletion );
       });
     }
   }

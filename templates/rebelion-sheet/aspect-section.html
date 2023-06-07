@@ -9,6 +9,7 @@
 			<div class="flex2">Rank {{math this  '+' 1}}</div>
 			<div class="flex2">{{> "systems/brinkwood/templates/parts/teeth-section.html" path=(concat 'system.' ../type '.progress.' this) value=(lookup (lookup ../aspect 'progress') this) max_value=(lookup (lookup ../aspect 'max_progress') this) color='blue'}}</div>
 			<div class="flex3">
+				{{ log ../aspect }}
 			</div>
 		</div>
 	{{/times_from_0}}

@@ -5,6 +5,7 @@ This a barebones implementation of Brinkwood its still heavily based on megastru
 Be warned, this is not stable and is susceptible to massive overhauls, I will try to implement all changes in a non-game-breaking manner but YOU HAVE BEEN WARNED.
 
 ### v0.5.4
+- [x] Foundry 11: Tooltip styling update
 - [BUG] Mask sheet is now accessible without assigning a character to a player.
 - [x] The biggest annoyance right now are the bonus action scores from the professions/classes - this has to have a new system.
 - - [x] Migrate the old system to the new one

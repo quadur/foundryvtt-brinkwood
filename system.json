@@ -5,11 +5,11 @@
   "version": "0.5.4",
   "compatibility": {
     "minimum": "10",
-    "verified": "10.284"
+    "verified": "11.300"
   },
   "url": "https://github.com/quadur/foundryvtt-brinkwood",
   "manifest": "https://raw.githubusercontent.com/quadur/foundryvtt-brinkwood/master/system.json",
-  "download": "https://github.com/quadur/foundryvtt-brinkwood/archive/refs/tags/v0.5.3.zip",
+  "download": "https://github.com/quadur/foundryvtt-brinkwood/archive/refs/tags/v0.5.4.zip",
   "authors": [
     {
       "name": "quad",
@@ -91,6 +91,15 @@
       "label": "Pacts",
       "system": "brinkwood",
       "path": "packs/pacts.db",
+      "type": "Item",
+      "private": false,
+      "flags": {}
+    },
+    {
+      "name": "moot-decisions",
+      "label": "Moot decisions",
+      "system": "brinkwood",
+      "path": "packs/moot-decisions.db",
       "type": "Item",
       "private": false,
       "flags": {}

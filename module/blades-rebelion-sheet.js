@@ -28,6 +28,10 @@ export class BladesRebelionSheet extends BladesSheet {
     sheetData.owner = superData.owner;
     sheetData.editable = superData.editable;
     sheetData.isGM = game.user.isGM;
+		const decision_list	= await game.packs.get('brinkwood.moot-decisions').getDocuments();
+		sheetData.system.aspects.forEach(a => a.moot_decisions = decision_list.filter(d => d.system.aspect == a.name).sort(d => d.rank));
+
+		console.log(sheetData);
     
 		return sheetData;
   }

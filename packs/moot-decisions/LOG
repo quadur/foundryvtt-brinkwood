@@ -1,0 +1,5 @@
+2023/06/07-17:23:56.417 a7c Delete type=3 #1
+2023/06/07-17:31:58.960 5fcc Level-0 table #5: started
+2023/06/07-17:31:58.973 5fcc Level-0 table #5: 3554 bytes OK
+2023/06/07-17:31:58.981 5fcc Delete type=0 #3
+2023/06/07-17:31:58.982 5fcc Manual compaction at level-0 from '!items!0r3gGpZsjOksa94b' @ 72057594037927935 : 1 .. '!items!pqve3pFoukpkqCYL' @ 0 : 0; will stop at (end)

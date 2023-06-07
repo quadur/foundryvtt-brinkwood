@@ -1,0 +1,28 @@
+<form class="{{cssClass}}" autocomplete="off">
+  <header class="sheet-header">
+      <img src="{{img}}" data-edit="img" title="{{name}}"/>
+      <div class="header-fields">
+          <h1 class="charname"><input name="name" type="text" value="{{name}}" placeholder="{{localize 'BITD.Name'}}"/></h1>
+      </div>
+  </header>
+
+  <section class="flex-vertical">
+    <label class="label-stripe">{{localize "BITD.Description"}}</label>
+    {{editor system.description target="system.description" button=true editable=editable}}
+    {{#if isGM}}
+			<div>
+				<input name="system.aspect" type="text" value="{{system.aspect}}" placeholder="{{localize 'BITD.Aspect'}}"/>
+			</div>
+			<div>
+				<input name="system.rank" data-dtype='Number' type="text" value="{{system.rank}}" placeholder="{{localize 'BITD.Rank'}}"/>
+			</div>
+			<div>
+				<input name="system.choice.0" type="text" value="{{system.choice.[0]}}" placeholder="{{localize 'BITD.Choice'}}"/>
+			</div>
+			<div>
+				<input name="system.choice.1" type="text" value="{{system.choice.[1]}}" placeholder="{{localize 'BITD.Choice'}}"/>
+			</div>
+    {{/if}}
+  </section>
+</form>
+
